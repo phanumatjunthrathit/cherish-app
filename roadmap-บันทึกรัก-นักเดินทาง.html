@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadmap — บันทึกรัก นักเดินทาง</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+Thai:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#08090d; --s1:#0f1117; --s2:#161820; --s3:#1e2028;
+  --b:#2563ff; --b2:#3b82f6; --c:#06b6d4; --g:#10b981; --r:#f43f5e; --amber:#f59e0b;
+  --txt:#f1f3f9; --sub:rgba(241,243,249,0.5); --line:rgba(255,255,255,0.07);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Noto Sans Thai',sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;}
+
+/* HERO */
+.hero{
+  min-height:240px; padding:60px 40px 50px;
+  background:linear-gradient(135deg,#0a1628 0%,#0f1f40 50%,#07122a 100%);
+  position:relative; overflow:hidden; text-align:center;
+  border-bottom:1px solid var(--line);
+}
+.hero::before{
+  content:''; position:absolute; inset:0;
+  background-image:linear-gradient(rgba(37,99,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,255,0.04) 1px,transparent 1px);
+  background-size:50px 50px;
+}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.3;}
+.o1{width:500px;height:500px;background:radial-gradient(circle,var(--b),transparent);top:-200px;right:-100px;}
+.o2{width:350px;height:350px;background:radial-gradient(circle,var(--c),transparent);bottom:-150px;left:-50px;}
+.hero-inner{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.h-tag{display:inline-flex;align-items:center;gap:7px;padding:4px 14px;border-radius:100px;border:1px solid rgba(6,182,212,0.35);background:rgba(6,182,212,0.08);font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--c);margin-bottom:18px;}
+.h-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,5vw,3rem);font-weight:800;margin-bottom:8px;line-height:1.15;}
+.h-title b{color:var(--b2);}
+.h-sub{font-size:0.9rem;color:var(--sub);margin-bottom:20px;}
+.h-files{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.file-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;background:var(--s2);border:1px solid var(--line);font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--sub);cursor:pointer;}
+.file-badge .dot{width:7px;height:7px;border-radius:50%;}
+.dot-html{background:#f59e0b;} .dot-next{background:#3b82f6;} .dot-md{background:#10b981;}
+
+/* LAYOUT */
+.wrap{max-width:960px;margin:0 auto;padding:48px 24px 80px;}
+
+/* SECTION HEADER */
+.sec{margin-bottom:48px;}
+.sec-head{display:flex;align-items:center;gap:12px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+.sec-num{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:0.8rem;font-weight:800;flex-shrink:0;}
+.n-blue{background:rgba(37,99,255,0.2);color:var(--b2);border:1px solid rgba(37,99,255,0.3);}
+.n-cyan{background:rgba(6,182,212,0.15);color:var(--c);border:1px solid rgba(6,182,212,0.3);}
+.n-green{background:rgba(16,185,129,0.15);color:var(--g);border:1px solid rgba(16,185,129,0.3);}
+.n-amber{background:rgba(245,158,11,0.15);color:var(--amber);border:1px solid rgba(245,158,11,0.3);}
+.n-red{background:rgba(244,63,94,0.15);color:var(--r);border:1px solid rgba(244,63,94,0.3);}
+.sec-title{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;}
+.sec-sub{font-size:0.78rem;color:var(--sub);margin-top:2px;}
+
+/* CARDS */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.card{border-radius:14px;background:var(--s1);border:1px solid var(--line);padding:16px 18px;}
+.card-title{font-family:'Syne',sans-serif;font-size:0.88rem;font-weight:700;margin-bottom:6px;}
+.card-body{font-size:0.78rem;color:var(--sub);line-height:1.8;}
+.card.hi-blue{border-color:rgba(37,99,255,0.25);background:rgba(37,99,255,0.05);}
+.card.hi-cyan{border-color:rgba(6,182,212,0.2);background:rgba(6,182,212,0.04);}
+.card.hi-green{border-color:rgba(16,185,129,0.2);background:rgba(16,185,129,0.04);}
+.card.hi-amber{border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.04);}
+.card.hi-red{border-color:rgba(244,63,94,0.2);background:rgba(244,63,94,0.04);}
+.tag{display:inline-block;padding:2px 8px;border-radius:6px;font-family:'DM Mono',monospace;font-size:0.65rem;margin-right:4px;margin-bottom:4px;}
+.tag-b{background:rgba(37,99,255,0.15);color:var(--b2);}
+.tag-c{background:rgba(6,182,212,0.12);color:var(--c);}
+.tag-g{background:rgba(16,185,129,0.12);color:var(--g);}
+.tag-a{background:rgba(245,158,11,0.12);color:var(--amber);}
+.tag-r{background:rgba(244,63,94,0.12);color:var(--r);}
+.tag-w{background:rgba(255,255,255,0.07);color:var(--sub);}
+
+/* FILE BOX */
+.file-box{border-radius:14px;background:var(--s2);border:1px solid var(--line);overflow:hidden;margin-bottom:10px;}
+.file-box-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(255,255,255,0.02);}
+.file-icon{font-size:1.1rem;}
+.file-name{font-family:'DM Mono',monospace;font-size:0.82rem;font-weight:500;}
+.file-desc{font-size:0.72rem;color:var(--sub);margin-top:1px;}
+.file-status{margin-left:auto;padding:3px 9px;border-radius:100px;font-size:0.62rem;font-family:'DM Mono',monospace;}
+.fs-done{background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);color:var(--g);}
+.fs-next{background:rgba(37,99,255,0.12);border:1px solid rgba(37,99,255,0.3);color:var(--b2);}
+.fs-later{background:rgba(255,255,255,0.05);border:1px solid var(--line);color:var(--sub);}
+.file-body{padding:12px 16px;font-size:0.76rem;color:var(--sub);line-height:1.9;}
+.file-body b{color:var(--txt);font-weight:600;}
+.file-body code{font-family:'DM Mono',monospace;background:var(--s3);padding:1px 6px;border-radius:4px;font-size:0.72rem;color:var(--c);}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:0;}
+.step{display:flex;gap:16px;position:relative;}
+.step:not(:last-child)::after{content:'';position:absolute;left:19px;top:40px;bottom:0;width:1px;background:var(--line);}
+.step-num{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:0.85rem;flex-shrink:0;margin-top:2px;}
+.step-body{flex:1;padding-bottom:24px;}
+.step-title{font-family:'Syne',sans-serif;font-size:0.92rem;font-weight:700;margin-bottom:4px;}
+.step-desc{font-size:0.78rem;color:var(--sub);line-height:1.8;}
+.step-desc b{color:var(--txt);}
+.step-desc code{font-family:'DM Mono',monospace;background:var(--s3);padding:1px 6px;border-radius:4px;font-size:0.72rem;color:var(--c);}
+.step-link{display:inline-flex;align-items:center;gap:5px;margin-top:6px;padding:5px 11px;border-radius:8px;background:rgba(37,99,255,0.1);border:1px solid rgba(37,99,255,0.2);color:var(--b2);font-size:0.72rem;font-family:'DM Mono',monospace;text-decoration:none;}
+
+/* COST TABLE */
+.cost-table{width:100%;border-collapse:collapse;font-size:0.78rem;}
+.cost-table th{text-align:left;padding:8px 12px;font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--sub);border-bottom:1px solid var(--line);}
+.cost-table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.03);}
+.cost-table tr:last-child td{border-bottom:none;}
+.cost-table .free{color:var(--g);font-family:'DM Mono',monospace;font-size:0.72rem;}
+.cost-table .paid{color:var(--amber);font-family:'DM Mono',monospace;font-size:0.72rem;}
+.cost-table .name{font-weight:600;}
+
+/* TECH STACK */
+.tech-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+.tech-chip{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:10px;background:var(--s2);border:1px solid var(--line);font-size:0.75rem;}
+.tech-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+
+/* PHASE BANNER */
+.phase{border-radius:16px;padding:18px 20px;margin-bottom:12px;display:flex;align-items:flex-start;gap:14px;}
+.phase-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px;}
+.phase-label{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:4px;}
+.phase-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;margin-bottom:4px;}
+.phase-desc{font-size:0.78rem;color:var(--sub);line-height:1.7;}
+.phase-time{margin-top:6px;font-family:'DM Mono',monospace;font-size:0.68rem;}
+
+.ph1{background:rgba(37,99,255,0.06);border:1px solid rgba(37,99,255,0.2);}
+.ph1 .phase-label{color:var(--b2);}
+.ph1 .phase-time{color:var(--b2);}
+.ph2{background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.18);}
+.ph2 .phase-label{color:var(--c);}
+.ph2 .phase-time{color:var(--c);}
+.ph3{background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.18);}
+.ph3 .phase-label{color:var(--g);}
+.ph3 .phase-time{color:var(--g);}
+.ph4{background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.18);}
+.ph4 .phase-label{color:var(--amber);}
+.ph4 .phase-time{color:var(--amber);}
+
+/* DIVIDER */
+hr{border:none;border-top:1px solid var(--line);margin:40px 0;}
+
+/* ALERT BOX */
+.alert{border-radius:12px;padding:14px 16px;margin-bottom:12px;display:flex;gap:10px;font-size:0.78rem;line-height:1.7;}
+.alert-icon{font-size:1rem;flex-shrink:0;margin-top:1px;}
+.alert-blue{background:rgba(37,99,255,0.08);border:1px solid rgba(37,99,255,0.2);}
+.alert-green{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2);}
+.alert-amber{background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);}
+
+/* SUMMARY BAR */
+.summary-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+.sbar{flex:1;min-width:140px;border-radius:12px;padding:14px 16px;text-align:center;}
+.sbar-n{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;}
+.sbar-l{font-size:0.68rem;color:var(--sub);margin-top:2px;}
+.sb1{background:rgba(37,99,255,0.08);border:1px solid rgba(37,99,255,0.2);}
+.sb2{background:rgba(6,182,212,0.07);border:1px solid rgba(6,182,212,0.2);}
+.sb3{background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.2);}
+.sb4{background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.2);}
+
+@media(max-width:640px){
+  .grid2,.grid3{grid-template-columns:1fr;}
+  .wrap{padding:32px 16px 60px;}
+  .hero{padding:40px 20px 40px;}
+  .summary-bar{gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-orb o1"></div>
+  <div class="hero-orb o2"></div>
+  <div class="hero-inner">
+    <div class="h-tag"><span style="width:5px;height:5px;border-radius:50%;background:var(--c);display:inline-block;"></span>Complete Roadmap</div>
+    <h1 class="h-title">บันทึกรัก <b>นักเดินทาง</b></h1>
+    <p class="h-sub">สรุปทุกอย่างตั้งแต่ไฟล์ที่มี → สมัครอะไร → อัปโหลดที่ไหน → จนใช้งานได้จริงทั้งเว็บและแอพ</p>
+    <div class="h-files">
+      <div class="file-badge"><div class="dot dot-html"></div>บันทึกรัก-นักเดินทาง.html</div>
+      <div class="file-badge"><div class="dot dot-html"></div>mobile-app-preview.html</div>
+      <div class="file-badge"><div class="dot dot-md"></div>roadmap (ไฟล์นี้)</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- SUMMARY -->
+<div class="summary-bar">
+  <div class="sbar sb1"><div class="sbar-n" style="color:var(--b2);">2</div><div class="sbar-l">ไฟล์ที่มีแล้ว</div></div>
+  <div class="sbar sb2"><div class="sbar-n" style="color:var(--c);">3</div><div class="sbar-l">เฟสหลัก</div></div>
+  <div class="sbar sb3"><div class="sbar-n" style="color:var(--g);">฿0</div><div class="sbar-l">ค่าเริ่มต้น</div></div>
+  <div class="sbar sb4"><div class="sbar-n" style="color:var(--amber);">4–6</div><div class="sbar-l">เดือนถึง MVP</div></div>
+</div>
+
+<!-- ═══════════════════════════════
+     SECTION 0 — ไฟล์ที่มีแล้ว
+═══════════════════════════════ -->
+<div class="sec">
+  <div class="sec-head">
+    <div class="sec-num n-green">✓</div>
+    <div><div class="sec-title">ไฟล์ที่สร้างไปแล้ว — สิ่งที่มีอยู่ในมือ</div><div class="sec-sub">ใช้เป็น Reference Design & Prototype ต่อยอดได้เลย</div></div>
+  </div>
+
+  <div class="file-box">
+    <div class="file-box-head">
+      <div class="file-icon">🌐</div>
+      <div>
+        <div class="file-name">บันทึกรัก-นักเดินทาง.html</div>
+        <div class="file-desc">Desktop Web App Prototype — Ocean Blue Theme</div>
+      </div>
+      <div class="file-status fs-done">✓ พร้อม</div>
+    </div>
+    <div class="file-body">
+      <b>มีอะไรบ้าง:</b> 5 หน้าครบ (Home Feed · World Map · Post+AI · Profile · Contest)<br>
+      <b>ใช้ทำอะไร:</b> โชว์นักลงทุน · ทดสอบกับ user จริง · ส่งให้ Developer เป็น design reference<br>
+      <b>วิธีเปิด:</b> ดับเบิลคลิกไฟล์ → เปิดใน Chrome ได้เลย ไม่ต้องลงอะไรเพิ่ม<br>
+      <b>Upload ที่ไหนได้:</b> GitHub Pages (ฟรี) · Netlify Drop · Vercel
+    </div>
+  </div>
+
+  <div class="file-box">
+    <div class="file-box-head">
+      <div class="file-icon">📱</div>
+      <div>
+        <div class="file-name">mobile-app-preview.html</div>
+        <div class="file-desc">Mobile App UI Mockup — iPhone Shell Design</div>
+      </div>
+      <div class="file-status fs-done">✓ พร้อม</div>
+    </div>
+    <div class="file-body">
+      <b>มีอะไรบ้าง:</b> Phone frame จริง · Bottom navigation · Feed · Map · Post · Profile · Contest<br>
+      <b>ใช้ทำอะไร:</b> แสดงให้เห็น App UX · เอาไปประกอบ Pitch deck · ให้ Developer เห็น flow<br>
+      <b>วิธีเปิด:</b> เปิดใน Chrome → กด F12 → Toggle Device Toolbar → เลือก iPhone<br>
+      <b>Upload ที่ไหนได้:</b> เหมือนกัน — GitHub Pages · Netlify · Vercel
+    </div>
+  </div>
+
+  <div class="alert alert-amber">
+    <div class="alert-icon">⚠️</div>
+    <div><b>สิ่งที่ 2 ไฟล์นี้ยังไม่มี:</b> ข้อมูลจริง · Login · AI จริง · Database · รูปอัปโหลดได้จริง · Payment — ทั้งหมดนี้ต้องสร้างใน Phase 2–3</div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════
+     SECTION 1 — PHASES
+═══════════════════════════════ -->
+<div class="sec">
+  <div class="sec-head">
+    <div class="sec-num n-blue">1</div>
+    <div><div class="sec-title">3 เฟสหลัก — จาก Prototype สู่แอพจริง</div><div class="sec-sub">เลือกเดินทีละเฟส ไม่ต้องทำพร้อมกัน</div></div>
+  </div>
+
+  <div class="phase ph1">
+    <div class="phase-icon">🚀</div>
+    <div>
+      <div class="phase-label">Phase 1 — ทันที</div>
+      <div class="phase-title">Validate — ทดสอบตลาดก่อนลงทุน</div>
+      <div class="phase-desc">เอา 2 ไฟล์ที่มีอยู่ไปโชว์คน 20–30 คน ถามว่าจะใช้จริงไหม จะจ่ายเงินไหม ไม่ต้องเขียนโค้ดเพิ่มแม้แต่บรรทัดเดียว</div>
+      <div class="phase-time">⏱ 1–2 สัปดาห์ · ค่าใช้จ่าย ฿0</div>
+    </div>
+  </div>
+
+  <div class="phase ph2">
+    <div class="phase-icon">🌐</div>
+    <div>
+      <div class="phase-label">Phase 2 — 2–4 เดือน</div>
+      <div class="phase-title">Web App MVP — เว็บใช้งานได้จริง</div>
+      <div class="phase-desc">สร้าง Next.js app เชื่อม Supabase (database+auth) เชื่อม Claude API (AI สรุป) เชื่อม Mapbox (แผนที่) Deploy บน Vercel ใช้งานได้ผ่าน browser มือถือทันที ยังไม่ต้องเป็นแอพ Store</div>
+      <div class="phase-time">⏱ 2–4 เดือน · ค่าเริ่มต้น ฿0–3,000/เดือน</div>
+    </div>
+  </div>
+
+  <div class="phase ph3">
+    <div class="phase-icon">📱</div>
+    <div>
+      <div class="phase-label">Phase 3 — เมื่อมี user แล้ว</div>
+      <div class="phase-title">Mobile App — แอพใน App Store + Google Play</div>
+      <div class="phase-desc">แปลง Web App เป็น React Native (Expo) ให้ได้ทั้ง iOS + Android จากโค้ดชุดเดียว Submit เข้า App Store และ Google Play ได้เลย</div>
+      <div class="phase-time">⏱ 2–3 เดือนเพิ่มเติม · ค่า Apple $99/ปี + Google $25 ครั้งเดียว</div>
+    </div>
+  </div>
+
+  <div class="phase ph4">
+    <div class="phase-icon">🏢</div>
+    <div>
+      <div class="phase-label">Phase 4 — ระยะยาว</div>
+      <div class="phase-title">Full Platform — Creator monetization + Video streaming</div>
+      <div class="phase-desc">Video (Mux) · Payment (Stripe/Omise) · Creator revenue share · Family Space · AI Recommendation engine · Admin dashboard ครบ — เฟสนี้ต้องการทีมและงบลงทุนจริงจัง</div>
+      <div class="phase-time">⏱ 6–12 เดือน · งบ ฿500K–2M ขึ้นอยู่กับทีม</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════
+     SECTION 2 — สมัครอะไรบ้าง
+═══════════════════════════════ -->
+<div class="sec">
+  <div class="sec-head">
+    <div class="sec-num n-cyan">2</div>
+    <div><div class="sec-title">สมัครอะไรบ้าง — ครบทุก Service</div><div class="sec-sub">เรียงตามลำดับที่ควรสมัคร</div></div>
+  </div>
+
+  <!-- Phase 1 services -->
+  <div style="margin-bottom:8px;font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;color:var(--b2);letter-spacing:0.1em;text-transform:uppercase;">▸ Phase 1 — ฟรีทั้งหมด</div>
+
+  <div class="file-box" style="margin-bottom:8px;">
+    <div class="file-box-head">
+      <div class="file-icon">🐙</div>
+      <div><div class="file-name">GitHub</div><div class="file-desc">เก็บโค้ด + deploy เว็บฟรี</div></div>
+      <div class="file-status fs-done">ฟรี</div>
+    </div>
+    <div class="file-body">
+      สมัครที่ <code>github.com</code> · ใช้ GitHub Pages host HTML ไฟล์ได้เลย ฟรี 100%<br>
+      <b>วิธีใช้:</b> สร้าง repository → อัปโหลด .html → Settings → Pages → เลือก branch main → ได้ URL เลย เช่น <code>username.github.io/banthuek-rak</code>
+    </div>
+  </div>
+
+  <div class="file-box" style="margin-bottom:8px;">
+    <div class="file-box-head">
+      <div class="file-icon">▲</div>
+      <div><div class="file-name">Vercel</div><div class="file-desc">Deploy Next.js app ง่ายที่สุด</div></div>
+      <div class="file-status fs-done">ฟรี</div>
+    </div>
+    <div class="file-body">
+      สมัครที่ <code>vercel.com</code> (ล็อกอินด้วย GitHub) · Free tier ใช้ได้ไม่จำกัดโปรเจค<br>
+      <b>วิธีใช้:</b> ต่อ GitHub repo → กด Deploy → ได้ URL อัตโนมัติ เช่น <code>banthuek-rak.vercel.app</code>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;margin-bottom:8px;font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;color:var(--c);letter-spacing:0.1em;text-transform:uppercase;">▸ Phase 2 — Backend + AI + Maps</div>
+
+  <div class="file-box" style="margin-bottom:8px;">
+    <div class="file-box-head">
+      <div class="file-icon">⚡</div>
+      <div><div class="file-name">Supabase</div><div class="file-desc">Database + Auth + Storage (แทน Firebase ที่ดีกว่า)</div></div>
+      <div class="file-status fs-done">ฟรี 500MB</div>
+    </div>
+    <div class="file-body">
+      สมัครที่ <code>supabase.com</code> · Free tier ใช้ได้จริงสำหรับ MVP<br>
+      <b>ได้อะไร:</b> PostgreSQL database · User Auth (email/Google/Apple login) · File Storage สำหรับรูปและวิดีโอ · Real-time subscriptions<br>
+      <b>จำกัด free:</b> 500MB storage · 2 projects · เกินจ่าย $25/เดือน
+    </div>
+  </div>
+
+  <div class="file-box" style="margin-bottom:8px;">
+    <div class="file-box-head">
+      <div class="file-icon">🤖</div>
+      <div><div class="file-name">Anthropic API (Claude)</div><div class="file-desc">AI สรุปทริป + ตามรอย + แนะนำ</div></div>
+      <div class="file-status fs-next">Pay per use</div>
+    </div>
+    <div class="file-body">
+      สมัครที่ <code>console.anthropic.com</code> · จ่ายตามที่ใช้จริง<br>
+      <b>ราคา Claude Sonnet 4.5:</b> Input $3/1M tokens · Output $15/1M tokens<br>
+      <b>ประมาณค่าใช้จ่าย:</b> สรุปทริป 1 ครั้ง ≈ ฿0.15–0.50 · 1,000 user/วัน ≈ ฿150–500/วัน<br>
+      <b>วิธีเริ่ม:</b> สร้าง API key → ใส่ใน .env ของ Next.js → เรียกผ่าน fetch
+    </div>
+  </div>
+
+  <div class="file-box" style="margin-bottom:8px;">
+    <div class="file-box-head">
+      <div class="file-icon">🗺️</div>
+      <div><div class="file-name">Mapbox</div><div class="file-desc">Interactive World Map</div></div>
+      <div class="file-status fs-done">ฟรี 50K loads/เดือน</div>
+    </div>
+    <div class="file-body">
+      สมัครที่ <code>mapbox.com</code> · Free tier 50,000 map loads/เดือน<br>
+      <b>ใช้ทำอะไร:</b> แผนที่โลก Interactive · ปักหมุดสถานที่ · Clustering หมุดหลายอัน · 3D terrain<br>
+      <b>เกิน free:</b> $0.50 ต่อ 1,000 loads ถัดไป
+    </div>
+  </div>
+
+  <div class="file-box" style="margin-bottom:8px;">
+    <div class="file-box-head">
+      <div class="file-icon">☁️</div>
+      <div><div class="file-name">Cloudflare</div><div class="file-desc">CDN + ป้องกัน DDoS + R2 Storage</div></div>
+      <div class="file-status fs-done">ฟรี</div>
+    </div>
+    <div class="file-body">
+      สมัครที่ <code>cloudflare.com</code> · Free plan เพียงพอสำหรับ MVP<br>
+      <b>ใช้ทำอะไร:</b> เชื่อม domain ของตัวเอง · CDN เร็วขึ้นทั่วโลก · R2 Storage เก็บรูป/วิดีโอราคาถูกกว่า AWS S3
+    </div>
+  </div>
+
+  <div style="margin-top:20px;margin-bottom:8px;font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;color:var(--g);letter-spacing:0.1em;text-transform:uppercase;">▸ Phase 3 — Mobile App Store</div>
+
+  <div class="grid2" style="margin-bottom:10px;">
+    <div class="file-box" style="margin-bottom:0;">
+      <div class="file-box-head">
+        <div class="file-icon">🍎</div>
+        <div><div class="file-name">Apple Developer</div><div class="file-desc">iOS App Store</div></div>
+        <div class="file-status fs-next">$99/ปี</div>
+      </div>
+      <div class="file-body">
+        สมัครที่ <code>developer.apple.com</code><br>
+        ต้องมี Mac + Xcode<br>
+        <b>ใช้เวลา review:</b> 1–3 วัน
+      </div>
+    </div>
+    <div class="file-box" style="margin-bottom:0;">
+      <div class="file-box-head">
+        <div class="file-icon">🤖</div>
+        <div><div class="file-name">Google Play Console</div><div class="file-desc">Android App Store</div></div>
+        <div class="file-status fs-done">$25 ครั้งเดียว</div>
+      </div>
+      <div class="file-body">
+        สมัครที่ <code>play.google.com/console</code><br>
+        ใช้ Windows/Mac ได้<br>
+        <b>ใช้เวลา review:</b> 1–7 วัน
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top:20px;margin-bottom:8px;font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;">▸ เมื่อ Scale Up — Payment + Video</div>
+
+  <div class="grid2">
+    <div class="file-box" style="margin-bottom:0;">
+      <div class="file-box-head">
+        <div class="file-icon">💳</div>
+        <div><div class="file-name">Omise / Stripe</div><div class="file-desc">รับชำระเงิน</div></div>
+        <div class="file-status fs-later">เมื่อพร้อม</div>
+      </div>
+      <div class="file-body">
+        <b>Omise:</b> รองรับไทย PromptPay บัตรไทย<br>
+        <b>Stripe:</b> บัตรนานาชาติ<br>
+        ค่า: 3.65% ต่อ transaction
+      </div>
+    </div>
+    <div class="file-box" style="margin-bottom:0;">
+      <div class="file-box-head">
+        <div class="file-icon">🎬</div>
+        <div><div class="file-name">Mux Video</div><div class="file-desc">Video streaming + upload</div></div>
+        <div class="file-status fs-later">เมื่อพร้อม</div>
+      </div>
+      <div class="file-body">
+        สมัครที่ <code>mux.com</code><br>
+        $0.015/นาที video stored<br>
+        $0.015/GB delivered
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════
+     SECTION 3 — ขั้นตอนทีละสเต็ป
+═══════════════════════════════ -->
+<div class="sec">
+  <div class="sec-head">
+    <div class="sec-num n-green">3</div>
+    <div><div class="sec-title">ขั้นตอนทีละสเต็ป — ทำตามได้เลย</div><div class="sec-sub">เรียงลำดับจากง่ายไปยาก ทำทีละอัน</div></div>
+  </div>
+
+  <!-- PHASE 1 STEPS -->
+  <div style="margin-bottom:14px;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:var(--b2);">🚀 PHASE 1 — Validate (ทำเลย ฟรี)</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num" style="background:rgba(37,99,255,0.15);color:var(--b2);border:1px solid rgba(37,99,255,0.3);">1</div>
+      <div class="step-body">
+        <div class="step-title">Upload ไฟล์ขึ้น GitHub Pages</div>
+        <div class="step-desc">
+          1. สมัคร <code>github.com</code> (ฟรี)<br>
+          2. กด "New Repository" → ตั้งชื่อ <code>banthuek-rak</code><br>
+          3. อัปโหลด <b>บันทึกรัก-นักเดินทาง.html</b> และ <b>mobile-app-preview.html</b><br>
+          4. ไปที่ Settings → Pages → Source: main branch → Save<br>
+          5. ได้ URL เช่น <code>yourname.github.io/banthuek-rak</code> ใช้ได้ทันที
+        </div>
+        <a class="step-link" href="https://github.com" target="_blank">→ github.com</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:rgba(37,99,255,0.15);color:var(--b2);border:1px solid rgba(37,99,255,0.3);">2</div>
+      <div class="step-body">
+        <div class="step-title">ทดสอบกับ User จริง 20–30 คน</div>
+        <div class="step-desc">
+          ส่ง URL ให้คนที่รู้จัก → ให้คลิกดู → ถามคำถามเหล่านี้<br>
+          <b>"ถ้าแอพนี้มีจริง คุณจะใช้ไหม?"</b><br>
+          <b>"คุณจะจ่ายเดือนละเท่าไหร่?"</b><br>
+          <b>"ฟีเจอร์ไหนที่อยากได้ที่สุด?"</b><br>
+          ถ้า 15/20 คนบอกใช่ → เดินหน้า Phase 2 ได้เลย
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 2 STEPS -->
+  <div style="margin:28px 0 14px;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:var(--c);">🌐 PHASE 2 — Web App MVP (2–4 เดือน)</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num" style="background:rgba(6,182,212,0.12);color:var(--c);border:1px solid rgba(6,182,212,0.28);">3</div>
+      <div class="step-body">
+        <div class="step-title">ติดตั้ง Tools ที่จำเป็น</div>
+        <div class="step-desc">
+          ลงโปรแกรมเหล่านี้บน Mac/Windows<br>
+          <b>Node.js</b> — <code>nodejs.org</code> (ดาวน์โหลดฟรี)<br>
+          <b>VS Code</b> — <code>code.visualstudio.com</code> (code editor ฟรี)<br>
+          <b>Git</b> — มากับ Mac หรือดาวน์โหลดที่ <code>git-scm.com</code>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:rgba(6,182,212,0.12);color:var(--c);border:1px solid rgba(6,182,212,0.28);">4</div>
+      <div class="step-body">
+        <div class="step-title">สร้าง Next.js Project</div>
+        <div class="step-desc">
+          เปิด Terminal แล้วพิมพ์<br>
+          <code>npx create-next-app@latest banthuek-rak</code><br>
+          เลือก: TypeScript ✓ · Tailwind ✓ · App Router ✓<br>
+          แล้วใช้ HTML ไฟล์เดิมเป็น reference แปลงเป็น React components ทีละหน้า
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:rgba(6,182,212,0.12);color:var(--c);border:1px solid rgba(6,182,212,0.28);">5</div>
+      <div class="step-body">
+        <div class="step-title">เชื่อม Supabase (Database + Login)</div>
+        <div class="step-desc">
+          1. สมัคร <code>supabase.com</code> → New Project<br>
+          2. สร้าง Tables: <code>users</code> · <code>posts</code> · <code>pins</code> · <code>families</code><br>
+          3. เปิด Auth → เลือก Email, Google, Apple login<br>
+          4. ติดตั้ง: <code>npm install @supabase/supabase-js</code><br>
+          5. ใส่ URL + API key ใน <code>.env.local</code>
+        </div>
+        <a class="step-link" href="https://supabase.com" target="_blank">→ supabase.com</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:rgba(6,182,212,0.12);color:var(--c);border:1px solid rgba(6,182,212,0.28);">6</div>
+      <div class="step-body">
+        <div class="step-title">เชื่อม Claude API (AI สรุปทริป)</div>
+        <div class="step-desc">
+          1. สมัคร <code>console.anthropic.com</code> → Create API Key<br>
+          2. ใส่ใน <code>.env.local</code>: <code>ANTHROPIC_API_KEY=sk-ant-xxx</code><br>
+          3. สร้าง API Route: <code>/app/api/summarize/route.ts</code><br>
+          4. เรียก Claude ด้วย prompt เช่น "สรุปทริปนี้เป็นภาษาไทย: [โพสต์ของ user]"<br>
+          5. แสดงผลใน AI Summary Card ที่ออกแบบไว้แล้ว
+        </div>
+        <a class="step-link" href="https://console.anthropic.com" target="_blank">→ console.anthropic.com</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:rgba(6,182,212,0.12);color:var(--c);border:1px solid rgba(6,182,212,0.28);">7</div>
+      <div class="step-body">
+        <div class="step-title">เชื่อม Mapbox (แผนที่โลก)</div>
+        <div class="step-desc">
+          1. สมัคร <code>mapbox.com</code> → Copy Access Token<br>
+          2. <code>npm install mapbox-gl react-map-gl</code><br>
+          3. แทนที่ SVG map ใน prototype ด้วย Mapbox GL JS map จริง<br>
+          4. ดึง pins จาก Supabase มาแสดงเป็น markers บนแผนที่
+        </div>
+        <a class="step-link" href="https://mapbox.com" target="_blank">→ mapbox.com</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:rgba(6,182,212,0.12);color:var(--c);border:1px solid rgba(6,182,212,0.28);">8</div>
+      <div class="step-body">
+        <div class="step-title">Deploy บน Vercel</div>
+        <div class="step-desc">
+          1. Push โค้ดขึ้น GitHub<br>
+          2. สมัคร <code>vercel.com</code> → Import Project<br>
+          3. ใส่ Environment Variables (.env ทั้งหมด) ใน Vercel dashboard<br>
+          4. กด Deploy → ได้ URL ทันที เช่น <code>banthuek-rak.vercel.app</code><br>
+          5. ซื้อ Domain เช่น <code>banthuekrak.com</code> (฿400–800/ปี) → ต่อใน Vercel
+        </div>
+        <a class="step-link" href="https://vercel.com" target="_blank">→ vercel.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 3 STEPS -->
+  <div style="margin:28px 0 14px;font-family:'Syne',sans-serif;font-size:0.78rem;font-weight:700;color:var(--g);">📱 PHASE 3 — Mobile App (2–3 เดือนเพิ่ม)</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num" style="background:rgba(16,185,129,0.12);color:var(--g);border:1px solid rgba(16,185,129,0.28);">9</div>
+      <div class="step-body">
+        <div class="step-title">ติดตั้ง Expo (React Native)</div>
+        <div class="step-desc">
+          <code>npm install -g expo-cli</code><br>
+          <code>npx create-expo-app banthuek-rak-app</code><br>
+          แชร์โค้ด logic และ API calls กับ Next.js ได้บางส่วน<br>
+          ทดสอบบนมือถือผ่าน app <b>Expo Go</b> (ฟรี ไม่ต้องขึ้น Store)
+        </div>
+        <a class="step-link" href="https://expo.dev" target="_blank">→ expo.dev</a>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:rgba(16,185,129,0.12);color:var(--g);border:1px solid rgba(16,185,129,0.28);">10</div>
+      <div class="step-body">
+        <div class="step-title">สมัคร Apple Developer + Google Play</div>
+        <div class="step-desc">
+          <b>Apple:</b> <code>developer.apple.com/programs</code> → $99/ปี → ใช้บัตรเครดิต<br>
+          <b>Google:</b> <code>play.google.com/console</code> → $25 ครั้งเดียว<br>
+          ใช้เวลาอนุมัติ Apple 1–2 วันทำการ · Google เกือบทันที
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num" style="background:rgba(16,185,129,0.12);color:var(--g);border:1px solid rgba(16,185,129,0.28);">11</div>
+      <div class="step-body">
+        <div class="step-title">Build + Submit แอพเข้า Store</div>
+        <div class="step-desc">
+          ใช้ <b>EAS Build</b> (Expo Application Services) build แอพบน cloud<br>
+          <code>eas build --platform ios</code> → ได้ .ipa file → Upload ใน App Store Connect<br>
+          <code>eas build --platform android</code> → ได้ .aab file → Upload ใน Google Play Console<br>
+          กรอก metadata: ชื่อแอพ · คำอธิบาย · Screenshots · Privacy Policy<br>
+          <b>Privacy Policy:</b> ต้องมี → ใช้ <code>termly.io</code> หรือ <code>privacypolicygenerator.info</code> ฟรี
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════
+     SECTION 4 — Tech Stack
+═══════════════════════════════ -->
+<div class="sec">
+  <div class="sec-head">
+    <div class="sec-num n-amber">4</div>
+    <div><div class="sec-title">Tech Stack ทั้งหมด</div><div class="sec-sub">เลือกแล้วให้ Developer หรือเรียนเองตาม Stack นี้</div></div>
+  </div>
+
+  <div class="grid2">
+    <div class="card hi-blue">
+      <div class="card-title">🌐 Frontend (Web)</div>
+      <div class="tech-row">
+        <div class="tech-chip"><div class="tech-dot" style="background:var(--b2);"></div>Next.js 15</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#38bdf8;"></div>React 19</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#06b6d4;"></div>TypeScript</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#7dd3fc;"></div>Tailwind CSS</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#a78bfa;"></div>Framer Motion</div>
+      </div>
+    </div>
+    <div class="card hi-cyan">
+      <div class="card-title">📱 Mobile App</div>
+      <div class="tech-row">
+        <div class="tech-chip"><div class="tech-dot" style="background:var(--c);"></div>React Native</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#2563ff;"></div>Expo SDK 52</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#10b981;"></div>EAS Build</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#f59e0b;"></div>Expo Router</div>
+      </div>
+    </div>
+    <div class="card hi-green">
+      <div class="card-title">⚡ Backend + Database</div>
+      <div class="tech-row">
+        <div class="tech-chip"><div class="tech-dot" style="background:var(--g);"></div>Supabase</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#3b82f6;"></div>PostgreSQL</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#8b5cf6;"></div>Next.js API Routes</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#06b6d4;"></div>Edge Functions</div>
+      </div>
+    </div>
+    <div class="card hi-amber">
+      <div class="card-title">🤖 AI + Maps + Media</div>
+      <div class="tech-row">
+        <div class="tech-chip"><div class="tech-dot" style="background:#f59e0b;"></div>Claude API</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#2563ff;"></div>Mapbox GL JS</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#10b981;"></div>Cloudflare R2</div>
+        <div class="tech-chip"><div class="tech-dot" style="background:#f43f5e;"></div>Mux Video</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════
+     SECTION 5 — ค่าใช้จ่าย
+═══════════════════════════════ -->
+<div class="sec">
+  <div class="sec-head">
+    <div class="sec-num n-red">5</div>
+    <div><div class="sec-title">ค่าใช้จ่ายทั้งหมด</div><div class="sec-sub">แยกตามเฟสที่ชัดเจน ไม่มีค่าซ่อน</div></div>
+  </div>
+
+  <div style="margin-bottom:8px;font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;color:var(--g);letter-spacing:0.1em;text-transform:uppercase;">Phase 1 — Validate</div>
+  <div class="card hi-green" style="margin-bottom:20px;">
+    <table class="cost-table">
+      <tr><th>Service</th><th>ค่าใช้จ่าย</th><th>หมายเหตุ</th></tr>
+      <tr><td class="name">GitHub Pages</td><td class="free">฿0</td><td>Host HTML ไฟล์ฟรี</td></tr>
+      <tr><td class="name">Prototype ที่มีอยู่</td><td class="free">฿0</td><td>ใช้ได้เลย</td></tr>
+      <tr><td colspan="2" style="font-weight:700;padding-top:10px;">รวม Phase 1</td><td style="font-weight:700;color:var(--g);">฿0</td></tr>
+    </table>
+  </div>
+
+  <div style="margin-bottom:8px;font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;color:var(--c);letter-spacing:0.1em;text-transform:uppercase;">Phase 2 — Web App MVP (ต่อเดือน)</div>
+  <div class="card hi-cyan" style="margin-bottom:20px;">
+    <table class="cost-table">
+      <tr><th>Service</th><th>ราคา/เดือน</th><th>หมายเหตุ</th></tr>
+      <tr><td class="name">Vercel (Pro)</td><td class="free">฿0–700</td><td>Free tier เพียงพอตอนเริ่ม</td></tr>
+      <tr><td class="name">Supabase</td><td class="free">฿0–875</td><td>Free 500MB → Pro $25</td></tr>
+      <tr><td class="name">Anthropic API</td><td class="paid">฿150–1,500</td><td>ขึ้นกับจำนวน AI calls</td></tr>
+      <tr><td class="name">Mapbox</td><td class="free">฿0–500</td><td>50K loads/เดือน ฟรี</td></tr>
+      <tr><td class="name">Domain (.com)</td><td class="paid">฿50</td><td>ปีละ ~฿600</td></tr>
+      <tr><td class="name">Cloudflare</td><td class="free">฿0</td><td>Free plan เพียงพอ</td></tr>
+      <tr><td colspan="2" style="font-weight:700;padding-top:10px;">รวม Phase 2</td><td style="font-weight:700;color:var(--c);">฿0–3,625/เดือน</td></tr>
+    </table>
+  </div>
+
+  <div style="margin-bottom:8px;font-family:'Syne',sans-serif;font-size:0.72rem;font-weight:700;color:var(--amber);letter-spacing:0.1em;text-transform:uppercase;">Phase 3 — Mobile App (ค่าขึ้น Store ครั้งเดียว)</div>
+  <div class="card hi-amber" style="margin-bottom:20px;">
+    <table class="cost-table">
+      <tr><th>Service</th><th>ราคา</th><th>หมายเหตุ</th></tr>
+      <tr><td class="name">Apple Developer Program</td><td class="paid">$99/ปี (~฿3,500)</td><td>จำเป็นสำหรับ iOS</td></tr>
+      <tr><td class="name">Google Play Console</td><td class="paid">$25 ครั้งเดียว (~฿875)</td><td>ตลอดชีพ</td></tr>
+      <tr><td class="name">EAS Build (Expo)</td><td class="free">฿0</td><td>Free tier 30 builds/เดือน</td></tr>
+      <tr><td colspan="2" style="font-weight:700;padding-top:10px;">รวม Phase 3 (เพิ่มเติม)</td><td style="font-weight:700;color:var(--amber);">~฿4,375 แรกปี</td></tr>
+    </table>
+  </div>
+
+  <div class="alert alert-green">
+    <div class="alert-icon">💡</div>
+    <div><b>สรุปง่ายๆ:</b> Phase 1 ฟรี 100% → Phase 2 เริ่มที่ ฿0 (ฟรีทุก service ช่วงแรก) → Phase 3 ลงทุนครั้งเดียวประมาณ ฿4,375 + ค่า Apple ปีละ ฿3,500</div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ═══════════════════════════════
+     SECTION 6 — ตัวเลือก Developer
+═══════════════════════════════ -->
+<div class="sec">
+  <div class="sec-head">
+    <div class="sec-num n-blue">6</div>
+    <div><div class="sec-title">ถ้าไม่ได้เขียนโค้ดเอง — ตัวเลือก Developer</div></div>
+  </div>
+  <div class="grid3">
+    <div class="card hi-blue">
+      <div class="card-title">🤖 ใช้ AI ช่วยเขียน</div>
+      <div class="card-body">
+        Claude + Cursor IDE<br>
+        เขียนโค้ดกับ AI ทีละหน้า<br>
+        <b>ค่าใช้จ่าย:</b> Cursor $20/เดือน<br>
+        <b>เหมาะกับ:</b> มีเวลาเรียนรู้
+        <div style="margin-top:8px;"><span class="tag tag-g">ถูกสุด</span><span class="tag tag-b">เรียนรู้มาก</span></div>
+      </div>
+    </div>
+    <div class="card hi-cyan">
+      <div class="card-title">👨‍💻 จ้าง Freelancer</div>
+      <div class="card-body">
+        หา Next.js Dev<br>
+        Fiverr / Facebook / Kaidee<br>
+        <b>ค่าใช้จ่าย:</b> ฿15,000–60,000<br>
+        <b>เหมาะกับ:</b> อยากได้เร็ว
+        <div style="margin-top:8px;"><span class="tag tag-c">เร็ว</span><span class="tag tag-a">ปานกลาง</span></div>
+      </div>
+    </div>
+    <div class="card hi-green">
+      <div class="card-title">🏢 จ้าง Agency</div>
+      <div class="card-body">
+        บริษัท Software House ไทย<br>
+        ทีมครบ Design+Dev+QA<br>
+        <b>ค่าใช้จ่าย:</b> ฿200,000+<br>
+        <b>เหมาะกับ:</b> มีงบ+ต้องการคุณภาพ
+        <div style="margin-top:8px;"><span class="tag tag-g">คุณภาพสูง</span><span class="tag tag-r">แพง</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-blue" style="margin-top:16px;">
+    <div class="alert-icon">🎯</div>
+    <div><b>คำแนะนำ:</b> เริ่มด้วย Claude + Cursor เขียนโค้ดเองก่อน จะได้เข้าใจโปรดักต์ตัวเอง เมื่อ validate แล้วค่อยจ้าง Freelancer มาช่วย scale ขึ้น การเข้าใจโค้ดช่วยให้สั่งงาน Developer ได้ตรงกว่ามาก</div>
+  </div>
+</div>
+
+<hr>
+
+<!-- FINAL CHECKLIST -->
+<div class="sec">
+  <div class="sec-head">
+    <div class="sec-num n-green">✓</div>
+    <div><div class="sec-title">Checklist — ทำตามได้เลยทันที</div></div>
+  </div>
+  <div class="card" style="background:var(--s1);">
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.82rem;">
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--g);display:flex;align-items:center;justify-content:center;color:var(--g);font-size:0.7rem;flex-shrink:0;">✓</div><div>มีไฟล์ <b>บันทึกรัก-นักเดินทาง.html</b> แล้ว</div></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--g);display:flex;align-items:center;justify-content:center;color:var(--g);font-size:0.7rem;flex-shrink:0;">✓</div><div>มีไฟล์ <b>mobile-app-preview.html</b> แล้ว</div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding-top:8px;border-top:1px solid var(--line);"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>สมัคร <b>GitHub</b> → อัปโหลด 2 ไฟล์ → ได้ URL แชร์ได้</div></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>ส่ง URL ให้คน 20–30 คนทดสอบ → ถามคำถาม 3 ข้อ</div></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>ลง <b>Node.js</b> และ <b>VS Code</b> บนเครื่อง</div></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>สมัคร <b>Vercel</b> + <b>Supabase</b> (ฟรีทั้งคู่)</div></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>สมัคร <b>Anthropic API</b> → ได้ API Key → ต่อ AI สรุปทริป</div></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>สมัคร <b>Mapbox</b> → ใส่แผนที่จริงแทน SVG</div></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>Deploy บน <b>Vercel</b> → ซื้อ Domain → เว็บใช้งานได้จริง</div></div>
+      <div style="display:flex;align-items:center;gap:10px;padding-top:8px;border-top:1px solid var(--line);"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>ติดตั้ง <b>Expo</b> → แปลงเป็น React Native App</div></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>สมัคร <b>Apple Developer</b> ($99) + <b>Google Play</b> ($25)</div></div>
+      <div style="display:flex;align-items:center;gap:10px;"><div style="width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);flex-shrink:0;"></div><div>Build + Submit แอพ → รอ Review → 🎉 ใช้งานได้บน Store</div></div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:20px 0 0;font-size:0.75rem;color:var(--sub);font-family:'DM Mono',monospace;">
+  บันทึกรัก นักเดินทาง · Roadmap v1.0 · สร้างด้วย Claude AI
+</div>
+
+</div>
+</body>
+</html>
