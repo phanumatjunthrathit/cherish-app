@@ -1,539 +1,538 @@
+cat > /mnt/user-data/outputs/cherish-preview.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<title>บันทึกรัก นักเดินทาง</title>
+<title>Cherish</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans+Thai:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ══════════════════════════════════════════
-   WARM LUXURY × OCEAN TEAL
-   Palette: Ivory + Sand + Teal + Ocean Gold
-══════════════════════════════════════════ */
 :root{
-  /* Warm bases */
-  --ivory:  #fdfaf5;
-  --sand:   #f5f0e8;
-  --cream:  #ede8df;
-  --linen:  #e8e0d3;
-
-  /* Teal ocean */
-  --teal:   #0a8c8c;
-  --teal2:  #0bb3b3;
-  --teal3:  #d6f0f0;
-  --ocean:  #065f5f;
-  --ocean2: #054f4f;
-
-  /* Warm gold accent */
-  --gold:   #c9933a;
-  --gold2:  #e8b86d;
-  --gold3:  #fdf0dc;
-
-  /* Ink */
-  --ink:    #1c1008;
-  --ink2:   #3d2b1a;
-  --ink3:   #7a6352;
-  --ink4:   #bfac9b;
-
-  /* Status */
-  --rose:   #c0392b;
-  --sage:   #4a7c59;
-  --sky:    #2980b9;
-
-  /* Surfaces */
-  --line:   rgba(100,70,40,.1);
-  --line2:  rgba(100,70,40,.05);
-  --glass:  rgba(253,250,245,.88);
-
-  /* Shadows — warm */
-  --sh-xs: 0 1px 3px rgba(60,30,10,.07);
-  --sh-sm: 0 2px 10px rgba(60,30,10,.09),0 1px 3px rgba(60,30,10,.05);
-  --sh-md: 0 6px 28px rgba(60,30,10,.12),0 2px 8px rgba(60,30,10,.06);
-  --sh-lg: 0 16px 56px rgba(60,30,10,.15),0 4px 14px rgba(60,30,10,.08);
-
-  /* Radius */
+  --navy:#2D5B75; --navy2:#3A6F8C; --navy3:#1F4255; --navy4:#14303E;
+  --sky:#E8F0F4; --sky2:#D4E4EC; --sky3:#c2d8e4;
+  --white:#ffffff; --ivory:#fafcfd; --mist:#f1f6f8; --cloud:#e6eef2;
+  --ink:#14222b; --ink2:#324754; --ink3:#6b8492; --ink4:#a8bcc5;
+  --gold:#c9a05a; --gold2:#e0bd80; --gold3:#faf3e6;
+  --rose:#c0392b; --sage:#4a7c59; --amber:#d97706;
+  --line:rgba(45,91,117,.12); --line2:rgba(45,91,117,.06);
+  --glass:rgba(255,255,255,.88);
+  --sh-xs:0 1px 3px rgba(20,40,55,.07);
+  --sh-sm:0 2px 10px rgba(20,40,55,.09),0 1px 3px rgba(20,40,55,.05);
+  --sh-md:0 6px 28px rgba(20,40,55,.13),0 2px 8px rgba(20,40,55,.06);
   --r-sm:12px; --r:18px; --r-lg:26px;
 }
-
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-body{
-  font-family:'Noto Sans Thai',sans-serif;
-  background:linear-gradient(145deg,#c8b89a 0%,#b8a882 50%,#a89870 100%);
-  display:flex;align-items:flex-start;justify-content:center;
-  min-height:100vh;padding:36px 16px 72px;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* ── PHONE ── */
-.phone{
-  width:393px;max-width:100%;background:var(--ivory);
-  border-radius:52px;overflow:hidden;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.25) inset,
-    0 0 0 10px #1c1008,
-    0 0 0 11px #3d2b1a,
-    0 0 0 12px rgba(201,147,58,.25),
-    0 52px 100px rgba(30,10,0,.55),
-    0 0 80px rgba(10,140,140,.08);
-  min-height:852px;display:flex;flex-direction:column;position:relative;
-}
+body{font-family:'Noto Sans Thai',sans-serif;background:linear-gradient(150deg,#14303e 0%,#2d5b75 50%,#3a6f8c 100%);display:flex;align-items:flex-start;justify-content:center;min-height:100vh;padding:36px 16px 72px;-webkit-font-smoothing:antialiased;}
+.phone{width:393px;max-width:100%;background:var(--ivory);border-radius:52px;overflow:hidden;box-shadow:0 0 0 1px rgba(255,255,255,.15) inset,0 0 0 10px #14222b,0 0 0 11px #1f4255,0 0 0 12px rgba(201,160,90,.2),0 52px 100px rgba(10,20,30,.55);min-height:852px;display:flex;flex-direction:column;position:relative;}
 .island{position:absolute;top:12px;left:50%;transform:translateX(-50%);width:122px;height:34px;background:#000;border-radius:20px;z-index:200;}
-.sbar{height:52px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 10px;background:rgba(253,250,245,.96);border-bottom:1px solid var(--line2);flex-shrink:0;}
+.sbar{height:52px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 26px 10px;background:rgba(250,252,253,.96);border-bottom:1px solid var(--line2);flex-shrink:0;}
 .sbar-t{font-size:.78rem;font-weight:700;letter-spacing:-.02em;color:var(--ink);}
 .sbar-r{display:flex;gap:5px;align-items:center;font-size:.7rem;color:var(--ink2);}
-
-/* pages */
 .page{display:none;flex-direction:column;flex:1;min-height:0;}
 .page.on{display:flex;}
 .scroll{flex:1;overflow-y:auto;scrollbar-width:none;}
 .scroll::-webkit-scrollbar{display:none;}
 
 /* ── NAV ── */
-.bnav{
-  background:var(--glass);backdrop-filter:blur(24px) saturate(160%);
-  border-top:1px solid var(--line);
-  padding:10px 0 22px;display:flex;justify-content:space-around;flex-shrink:0;
-}
+.bnav{background:var(--glass);backdrop-filter:blur(24px) saturate(160%);border-top:1px solid var(--line);padding:10px 0 22px;display:flex;justify-content:space-around;flex-shrink:0;}
 .bni{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;border:none;background:none;padding:0 10px;}
 .bni-ic{width:30px;height:30px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.08rem;transition:all .22s;position:relative;}
 .rdot{position:absolute;top:-2px;right:-2px;width:7px;height:7px;border-radius:50%;background:var(--rose);border:1.5px solid var(--ivory);}
 .bni-lb{font-size:.57rem;color:var(--ink3);font-weight:500;}
-.bni.on .bni-lb{color:var(--teal);font-weight:600;}
-.bni.on .bni-ic{background:var(--teal3);}
-.plus-ic{width:46px!important;height:46px!important;background:linear-gradient(145deg,var(--teal2),var(--ocean))!important;border-radius:15px!important;margin-top:-10px;box-shadow:0 6px 22px rgba(10,140,140,.38)!important;font-size:1.4rem!important;color:white!important;}
+.bni.on .bni-lb{color:var(--navy);font-weight:600;}
+.bni.on .bni-ic{background:var(--sky);}
+.plus-ic{width:46px!important;height:46px!important;background:linear-gradient(145deg,var(--navy2),var(--navy4))!important;border-radius:15px!important;margin-top:-10px;box-shadow:0 6px 22px rgba(45,91,117,.4)!important;font-size:1.4rem!important;color:white!important;}
 
 /* ── TOP BAR ── */
-.topbar{background:rgba(253,250,245,.96);backdrop-filter:blur(16px);padding:11px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);flex-shrink:0;}
-.logo{
-  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;font-weight:600;
-  background:linear-gradient(135deg,var(--ocean) 0%,var(--teal) 45%,var(--gold) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  letter-spacing:-.01em;
-}
-.ib{width:34px;height:34px;border-radius:50%;background:var(--sand);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.88rem;cursor:pointer;position:relative;transition:all .18s;}
-.ib:hover{background:var(--teal3);border-color:rgba(10,140,140,.2);}
+.topbar{background:rgba(250,252,253,.96);backdrop-filter:blur(16px);padding:11px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);flex-shrink:0;}
+.logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.45rem;font-weight:600;background:linear-gradient(135deg,var(--navy4) 0%,var(--navy) 50%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.01em;}
+.ib{width:34px;height:34px;border-radius:50%;background:var(--mist);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.88rem;cursor:pointer;position:relative;transition:all .18s;}
 
-/* ── STORIES ── */
-.stories{background:rgba(253,250,245,.96);display:flex;gap:13px;padding:13px 20px 15px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);flex-shrink:0;}
-.stories::-webkit-scrollbar{display:none;}
-.sw{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;}
-.sring{width:60px;height:60px;border-radius:50%;padding:2.5px;background:linear-gradient(145deg,var(--gold2),var(--teal),var(--ocean));}
-.sring.seen{background:var(--linen);}
-.sinner{width:100%;height:100%;border-radius:50%;background:var(--sand);border:2px solid var(--ivory);display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
-.sadd{position:absolute;bottom:-1px;right:-1px;width:18px;height:18px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--ocean));color:white;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;border:2px solid var(--ivory);}
-.sname{font-size:.58rem;color:var(--ink3);font-weight:500;max-width:62px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+/* ── FEED TABS ── */
+.feed-tabs{background:rgba(250,252,253,.96);display:flex;border-bottom:2px solid var(--line);flex-shrink:0;}
+.feed-tab{flex:1;padding:11px 0;text-align:center;font-size:.75rem;font-weight:600;color:var(--ink3);cursor:pointer;position:relative;transition:color .2s;}
+.feed-tab.on{color:var(--navy);}
+.feed-tab.on::after{content:'';position:absolute;bottom:-2px;left:15%;right:15%;height:2px;background:linear-gradient(90deg,var(--navy),var(--navy2));border-radius:2px;}
+
+/* ── FEED PANELS ── */
+.feed-panel{display:none;flex-direction:column;gap:0;}
+.feed-panel.on{display:flex;}
 
 /* ── CATS ── */
-.cats{background:rgba(253,250,245,.96);display:flex;gap:7px;padding:10px 20px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);flex-shrink:0;}
+.cats{background:rgba(250,252,253,.96);display:flex;gap:7px;padding:10px 18px;overflow-x:auto;scrollbar-width:none;flex-shrink:0;}
 .cats::-webkit-scrollbar{display:none;}
-.cat{flex-shrink:0;padding:6px 14px;border-radius:100px;font-size:.7rem;font-weight:500;cursor:pointer;border:1.5px solid var(--line);background:var(--ivory);color:var(--ink3);transition:all .2s;white-space:nowrap;font-family:'Noto Sans Thai',sans-serif;}
-.cat.on{background:linear-gradient(135deg,var(--teal),var(--ocean));border-color:transparent;color:white;box-shadow:0 4px 14px rgba(10,140,140,.3);}
+.cat{flex-shrink:0;padding:6px 13px;border-radius:100px;font-size:.68rem;font-weight:500;cursor:pointer;border:1.5px solid var(--line);background:var(--ivory);color:var(--ink3);transition:all .2s;white-space:nowrap;}
+.cat.on{background:linear-gradient(135deg,var(--navy),var(--navy4));border-color:transparent;color:white;box-shadow:0 4px 14px rgba(45,91,117,.3);}
 
-/* ── FEED ── */
-.feed{padding:14px 16px;display:flex;flex-direction:column;gap:13px;}
-
-/* ── CARD ── */
+/* ── CARDS ── */
+.feed-wrap{padding:12px 14px;display:flex;flex-direction:column;gap:11px;}
 .card{background:white;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh-sm);cursor:pointer;transition:all .18s;}
 .card:active{transform:scale(.985);}
-.card-hd{padding:12px 14px 10px;display:flex;align-items:center;gap:10px;}
-.av{width:33px;height:33px;border-radius:50%;background:var(--sand);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0;}
+.card-hd{padding:11px 13px 9px;display:flex;align-items:center;gap:9px;}
+.av{width:33px;height:33px;border-radius:50%;background:var(--mist);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.88rem;flex-shrink:0;}
 .uname{font-size:.8rem;font-weight:600;color:var(--ink);}
 .utime{font-size:.62rem;color:var(--ink3);margin-top:1px;}
-.flw{margin-left:auto;padding:5px 12px;border-radius:100px;background:var(--teal3);border:1.5px solid rgba(10,140,140,.2);color:var(--teal);font-size:.63rem;font-weight:600;cursor:pointer;white-space:nowrap;font-family:'Noto Sans Thai',sans-serif;transition:all .18s;}
-.flw:hover{background:var(--teal);color:white;}
-.flw.following{background:var(--gold3);border-color:rgba(201,147,58,.3);color:var(--gold);}
-
+.flw{margin-left:auto;padding:5px 11px;border-radius:100px;background:var(--sky);border:1.5px solid rgba(45,91,117,.2);color:var(--navy);font-size:.62rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .18s;}
+.flw:hover{background:var(--navy);color:white;}
+.flw.following{background:var(--gold3);border-color:rgba(201,160,90,.3);color:var(--gold);}
 .cm{width:100%;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:5rem;}
-.cm.r43{aspect-ratio:4/3;} .cm.r11{aspect-ratio:1;} .cm.r916{aspect-ratio:9/16;max-height:400px;}
-.cm-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,0,.68) 0%,rgba(20,8,0,.06) 48%,transparent 100%);}
-.cm-info{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;}
-.cm-loc{font-size:.59rem;color:rgba(240,220,190,.85);font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
-.cm-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.02rem;color:white;line-height:1.25;}
-.ai-pin{position:absolute;top:10px;left:10px;display:flex;align-items:center;gap:4px;padding:4px 9px;border-radius:100px;background:rgba(253,250,245,.92);backdrop-filter:blur(8px);font-size:.59rem;font-weight:600;color:var(--ocean);font-family:'DM Mono',monospace;}
-.vis-pin{position:absolute;top:10px;right:10px;padding:4px 9px;border-radius:100px;background:rgba(10,140,140,.65);backdrop-filter:blur(8px);font-size:.59rem;color:white;font-family:'DM Mono',monospace;}
-.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:rgba(253,250,245,.18);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;font-size:1.25rem;border:1.5px solid rgba(253,250,245,.38);}
-
-.card-bd{padding:11px 14px 13px;}
-.chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
-.chip{padding:3px 9px;border-radius:7px;font-size:.62rem;font-weight:500;background:var(--sand);color:var(--ink2);border:1px solid var(--line);font-family:'DM Mono',monospace;}
-.chip-t{background:var(--teal3);color:var(--teal);border-color:rgba(10,140,140,.18);}
-.chip-g{background:rgba(74,124,89,.12);color:var(--sage);border-color:rgba(74,124,89,.2);}
-.chip-gold{background:var(--gold3);color:var(--gold);border-color:rgba(201,147,58,.2);}
-.acts{display:flex;align-items:center;border-top:1px solid var(--line2);padding-top:10px;}
-.act{flex:1;display:flex;align-items:center;justify-content:center;gap:5px;font-size:.72rem;font-weight:500;color:var(--ink3);cursor:pointer;border:none;background:none;font-family:'Noto Sans Thai',sans-serif;transition:color .15s;}
-.act:hover{color:var(--teal);}
+.cm.r43{aspect-ratio:4/3;} .cm.r916{aspect-ratio:9/16;max-height:390px;}
+.cm-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,30,42,.72) 0%,rgba(15,30,42,.05) 48%,transparent 100%);}
+.cm-info{position:absolute;bottom:0;left:0;right:0;padding:11px 13px;}
+.cm-loc{font-size:.59rem;color:rgba(220,235,245,.85);font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
+.cm-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:white;line-height:1.25;}
+.ai-pin{position:absolute;top:9px;left:9px;display:flex;align-items:center;gap:4px;padding:3px 8px;border-radius:100px;background:rgba(250,252,253,.92);backdrop-filter:blur(8px);font-size:.58rem;font-weight:600;color:var(--navy4);font-family:'DM Mono',monospace;}
+.vis-pin{position:absolute;top:9px;right:9px;padding:3px 8px;border-radius:100px;background:rgba(45,91,117,.65);backdrop-filter:blur(8px);font-size:.58rem;color:white;font-family:'DM Mono',monospace;}
+.play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:50px;height:50px;border-radius:50%;background:rgba(250,252,253,.18);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;font-size:1.25rem;border:1.5px solid rgba(250,252,253,.38);}
+.reel-side{position:absolute;right:10px;bottom:60px;display:flex;flex-direction:column;gap:13px;align-items:center;}
+.ract{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:.57rem;color:rgba(255,255,255,.9);}
+.ract-ic{width:37px;height:37px;border-radius:50%;background:rgba(250,252,253,.15);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;font-size:1rem;border:1px solid rgba(250,252,253,.22);}
+.card-bd{padding:10px 13px 12px;}
+.chips{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:9px;}
+.chip{padding:2px 8px;border-radius:7px;font-size:.6rem;font-weight:500;background:var(--mist);color:var(--ink2);border:1px solid var(--line);font-family:'DM Mono',monospace;}
+.chip-t{background:var(--sky);color:var(--navy);border-color:rgba(45,91,117,.18);}
+.chip-g{background:rgba(74,124,89,.1);color:var(--sage);border-color:rgba(74,124,89,.2);}
+.chip-gold{background:var(--gold3);color:var(--gold);border-color:rgba(201,160,90,.2);}
+.acts{display:flex;align-items:center;border-top:1px solid var(--line2);padding-top:9px;}
+.act{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;font-size:.71rem;font-weight:500;color:var(--ink3);cursor:pointer;border:none;background:none;transition:color .15s;}
+.act:hover{color:var(--navy);}
 .act.liked{color:var(--rose);}
 .act.saved{color:var(--gold);}
-.asep{width:1px;height:14px;background:var(--line);}
+.asep{width:1px;height:13px;background:var(--line);}
 
-/* reel side */
-.reel-side{position:absolute;right:11px;bottom:65px;display:flex;flex-direction:column;gap:14px;align-items:center;}
-.ract{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:.57rem;color:rgba(255,255,255,.9);}
-.ract-ic{width:38px;height:38px;border-radius:50%;background:rgba(253,250,245,.15);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;font-size:1rem;border:1px solid rgba(253,250,245,.22);}
+/* ── "FOR YOU" STATS BANNER ── */
+.stats-banner{margin:12px 14px 0;border-radius:var(--r);background:linear-gradient(135deg,var(--navy4),var(--navy));padding:14px 16px;display:flex;gap:14px;align-items:center;box-shadow:var(--sh-md);}
+.sb-icon{font-size:1.6rem;flex-shrink:0;}
+.sb-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.92rem;color:white;margin-bottom:2px;}
+.sb-sub{font-size:.63rem;color:rgba(255,255,255,.65);line-height:1.6;}
+.sb-chips{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px;}
+.sb-chip{padding:3px 9px;border-radius:100px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);font-size:.6rem;color:rgba(255,255,255,.9);font-family:'DM Mono',monospace;}
 
 /* hscroll */
-.hscroll{display:flex;gap:10px;padding:0 20px 4px;overflow-x:auto;scrollbar-width:none;}
+.hscroll{display:flex;gap:9px;padding:0 14px 4px;overflow-x:auto;scrollbar-width:none;}
 .hscroll::-webkit-scrollbar{display:none;}
-.dcard{flex:0 0 126px;border-radius:var(--r-sm);overflow:hidden;background:white;border:1px solid var(--line);box-shadow:var(--sh-xs);cursor:pointer;transition:all .18s;}
+.dcard{flex:0 0 120px;border-radius:var(--r-sm);overflow:hidden;background:white;border:1px solid var(--line);box-shadow:var(--sh-xs);cursor:pointer;transition:all .18s;}
 .dcard:active{transform:scale(.96);}
-.dcard-img{height:78px;display:flex;align-items:center;justify-content:center;font-size:2.1rem;}
-.dcard-body{padding:8px 10px;}
-.dcard-name{font-family:'Cormorant Garamond',serif;font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:2px;}
-.dcard-stat{font-size:.59rem;color:var(--ink3);line-height:1.8;}
-.dcard-score{font-size:.63rem;color:var(--teal);font-weight:600;margin-top:2px;}
-
-.wcard{background:white;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh-sm);cursor:pointer;display:flex;transition:all .18s;}
+.dcard-img{height:74px;display:flex;align-items:center;justify-content:center;font-size:2rem;}
+.dcard-body{padding:7px 9px;}
+.dcard-name{font-family:'Cormorant Garamond',serif;font-size:.85rem;font-weight:600;color:var(--ink);margin-bottom:1px;}
+.dcard-stat{font-size:.58rem;color:var(--ink3);line-height:1.75;}
+.dcard-score{font-size:.62rem;color:var(--navy);font-weight:600;margin-top:1px;}
+.sec-h{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 8px;}
+.sec-h-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink);}
+.sec-h-a{font-size:.68rem;color:var(--navy);font-weight:600;cursor:pointer;}
+.wcard{background:white;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh-sm);cursor:pointer;display:flex;transition:all .18s;margin:0 14px;}
 .wcard:active{transform:scale(.985);}
-.wc-img{width:105px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:2.8rem;}
-.wc-body{flex:1;padding:12px 14px;}
-.wc-loc{font-size:.59rem;color:var(--teal);font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px;}
-.wc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.92rem;line-height:1.3;margin-bottom:5px;color:var(--ink);}
-.wc-stats{display:flex;gap:8px;font-size:.62rem;color:var(--ink3);}
-
-.sec-h{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 10px;}
-.sec-h-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--ink);}
-.sec-h-a{font-size:.7rem;color:var(--teal);font-weight:600;cursor:pointer;}
+.wc-img{width:100px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:2.6rem;}
+.wc-body{flex:1;padding:11px 13px;}
+.wc-loc{font-size:.58rem;color:var(--navy);font-family:'DM Mono',monospace;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px;}
+.wc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.9rem;line-height:1.3;margin-bottom:4px;color:var(--ink);}
+.wc-stats{display:flex;gap:7px;font-size:.6rem;color:var(--ink3);}
 
 /* ── SEARCH ── */
-.search-hd{background:rgba(253,250,245,.96);padding:12px 20px;border-bottom:1px solid var(--line);flex-shrink:0;}
-.sinput-wrap{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:100px;background:var(--sand);border:1.5px solid var(--line);transition:border-color .2s;}
-.sinput-wrap:focus-within{border-color:var(--teal);}
+.search-hd{background:rgba(250,252,253,.96);padding:12px 18px;border-bottom:1px solid var(--line);flex-shrink:0;}
+.sinput-wrap{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:100px;background:var(--mist);border:1.5px solid var(--line);transition:border-color .2s;}
+.sinput-wrap:focus-within{border-color:var(--navy);}
 .sinput{flex:1;border:none;background:transparent;font-family:'Noto Sans Thai',sans-serif;font-size:.82rem;color:var(--ink);outline:none;}
-.sort-row{background:rgba(253,250,245,.96);display:flex;gap:7px;padding:10px 20px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);flex-shrink:0;}
+.sort-row{background:rgba(250,252,253,.96);display:flex;gap:6px;padding:9px 18px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);flex-shrink:0;}
 .sort-row::-webkit-scrollbar{display:none;}
-.schip{flex-shrink:0;padding:6px 13px;border-radius:100px;font-size:.68rem;font-weight:500;cursor:pointer;border:1.5px solid var(--line);background:var(--ivory);color:var(--ink3);transition:all .2s;font-family:'Noto Sans Thai',sans-serif;white-space:nowrap;}
-.schip.on{background:linear-gradient(135deg,var(--teal),var(--ocean));border-color:transparent;color:white;}
-
-.rcard{background:white;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh-sm);cursor:pointer;transition:all .18s;margin-bottom:10px;}
+.schip{flex-shrink:0;padding:5px 12px;border-radius:100px;font-size:.67rem;font-weight:500;cursor:pointer;border:1.5px solid var(--line);background:var(--ivory);color:var(--ink3);transition:all .2s;white-space:nowrap;}
+.schip.on{background:linear-gradient(135deg,var(--navy),var(--navy4));border-color:transparent;color:white;}
+.rcard{background:white;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh-sm);cursor:pointer;transition:all .18s;margin-bottom:9px;}
 .rcard:active{transform:scale(.985);}
-.rcard-media{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;overflow:hidden;}
+.rcard-media{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;font-size:3.2rem;position:relative;overflow:hidden;}
 .rank-num{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);font-weight:600;}
 
 /* ── MAP ── */
-.map-hd{background:rgba(253,250,245,.96);padding:12px 20px;border-bottom:1px solid var(--line);flex-shrink:0;}
+.map-hd{background:rgba(250,252,253,.96);padding:12px 18px;border-bottom:1px solid var(--line);flex-shrink:0;}
 .map-hd h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--ink);}
-.map-hd p{font-size:.68rem;color:var(--ink3);margin-top:2px;}
-.mf-row{background:rgba(253,250,245,.96);display:flex;gap:7px;padding:10px 20px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);flex-shrink:0;}
+.map-hd p{font-size:.67rem;color:var(--ink3);margin-top:2px;}
+.mf-row{background:rgba(250,252,253,.96);display:flex;gap:6px;padding:9px 18px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--line);flex-shrink:0;}
 .mf-row::-webkit-scrollbar{display:none;}
-.mfc{flex-shrink:0;padding:5px 12px;border-radius:100px;font-size:.67rem;border:1.5px solid var(--line);background:var(--ivory);cursor:pointer;transition:all .2s;white-space:nowrap;color:var(--ink3);font-family:'Noto Sans Thai',sans-serif;}
-.mfc.on{border-color:var(--teal);background:var(--teal3);color:var(--teal);font-weight:600;}
-.map-area{margin:14px 16px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);height:232px;background:linear-gradient(160deg,#d4f0f0,#b8e4e4,#98d4d4);position:relative;box-shadow:var(--sh-md);}
-.mpop{position:absolute;bottom:10px;left:10px;right:10px;background:var(--glass);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-sm);padding:10px 13px;display:flex;align-items:center;gap:10px;box-shadow:var(--sh-md);}
-.pp-e{font-size:1.75rem;flex-shrink:0;}
-.pp-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:var(--ink);}
-.pp-d{font-size:.6rem;color:var(--teal);font-family:'DM Mono',monospace;margin-top:1px;}
-.pp-a{font-size:.63rem;color:var(--ink3);margin-top:3px;line-height:1.5;}
-.pp-tags{display:flex;gap:4px;margin-top:5px;}
-.ptag{padding:2px 7px;border-radius:5px;background:var(--teal3);font-size:.58rem;color:var(--teal);border:1px solid rgba(10,140,140,.15);}
-.pin-title{padding:4px 20px 8px;font-size:.62rem;font-weight:600;color:var(--ink3);letter-spacing:.07em;text-transform:uppercase;}
-.pin-hscroll{display:flex;gap:8px;padding:0 20px 12px;overflow-x:auto;scrollbar-width:none;}
+.mfc{flex-shrink:0;padding:5px 11px;border-radius:100px;font-size:.66rem;border:1.5px solid var(--line);background:var(--ivory);cursor:pointer;transition:all .2s;white-space:nowrap;color:var(--ink3);}
+.mfc.on{border-color:var(--navy);background:var(--sky);color:var(--navy);font-weight:600;}
+
+.map-area{margin:12px 14px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);height:240px;background:linear-gradient(160deg,#e8f0f4,#cfdfe8,#a8c4d3);position:relative;box-shadow:var(--sh-md);}
+.mpop{position:absolute;bottom:9px;left:9px;right:9px;background:var(--glass);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6);border-radius:var(--r-sm);padding:10px 12px;display:flex;align-items:center;gap:9px;box-shadow:var(--sh-md);}
+.pp-e{font-size:1.7rem;flex-shrink:0;}
+.pp-t{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.86rem;color:var(--ink);}
+.pp-d{font-size:.59rem;color:var(--navy);font-family:'DM Mono',monospace;margin-top:1px;}
+.pp-a{font-size:.62rem;color:var(--ink3);margin-top:3px;line-height:1.5;}
+.pp-tags{display:flex;gap:4px;margin-top:4px;}
+.ptag{padding:2px 6px;border-radius:5px;background:var(--sky);font-size:.57rem;color:var(--navy);border:1px solid rgba(45,91,117,.15);}
+
+/* map visibility toggle */
+.map-vis-toggle{margin:0 14px 10px;display:flex;align-items:center;justify-content:space-between;background:white;border-radius:var(--r-sm);border:1px solid var(--line);padding:11px 14px;box-shadow:var(--sh-xs);}
+.mvt-label{font-size:.75rem;font-weight:600;color:var(--ink);}
+.mvt-sub{font-size:.62rem;color:var(--ink3);margin-top:1px;}
+.toggle{width:44px;height:24px;border-radius:100px;background:var(--navy);position:relative;cursor:pointer;transition:background .2s;flex-shrink:0;}
+.toggle.off{background:var(--cloud);}
+.toggle-dot{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:white;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.2);}
+.toggle.off .toggle-dot{left:3px;}
+.toggle:not(.off) .toggle-dot{left:23px;}
+
+.pin-title{padding:4px 18px 7px;font-size:.61rem;font-weight:600;color:var(--ink3);letter-spacing:.07em;text-transform:uppercase;}
+.pin-hscroll{display:flex;gap:7px;padding:0 18px 11px;overflow-x:auto;scrollbar-width:none;}
 .pin-hscroll::-webkit-scrollbar{display:none;}
-.pchip{flex:0 0 auto;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:white;border:1.5px solid var(--line);cursor:pointer;transition:all .2s;box-shadow:var(--sh-xs);}
-.pchip.sel{border-color:var(--teal);background:var(--teal3);}
-.pf{font-size:1.05rem;}
-.pn{font-size:.73rem;font-weight:600;color:var(--ink);}
-.pd{font-size:.58rem;color:var(--ink3);}
-.stat-row{display:flex;gap:9px;padding:0 16px 14px;}
-.stat-box{flex:1;background:white;border-radius:var(--r-sm);border:1px solid var(--line);padding:12px;text-align:center;box-shadow:var(--sh-xs);}
-.stat-n{font-family:'Cormorant Garamond',serif;font-size:1.5rem;background:linear-gradient(135deg,var(--teal),var(--ocean));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.stat-l{font-size:.58rem;color:var(--ink3);font-weight:500;margin-top:1px;}
+.pchip{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:7px 11px;border-radius:11px;background:white;border:1.5px solid var(--line);cursor:pointer;transition:all .2s;box-shadow:var(--sh-xs);}
+.pchip.sel{border-color:var(--navy);background:var(--sky);}
+.pf{font-size:1rem;}
+.pn{font-size:.72rem;font-weight:600;color:var(--ink);}
+.pd{font-size:.57rem;color:var(--ink3);}
+.stat-row{display:flex;gap:8px;padding:0 14px 12px;}
+.stat-box{flex:1;background:white;border-radius:var(--r-sm);border:1px solid var(--line);padding:11px;text-align:center;box-shadow:var(--sh-xs);}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:1.45rem;background:linear-gradient(135deg,var(--navy),var(--navy4));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-l{font-size:.57rem;color:var(--ink3);font-weight:500;margin-top:1px;}
 
 /* ── NEW POST ── */
-.np-hd{background:rgba(253,250,245,.96);padding:12px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);flex-shrink:0;}
+.np-hd{background:rgba(250,252,253,.96);padding:12px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);flex-shrink:0;}
 .np-back{font-size:1.05rem;cursor:pointer;color:var(--ink3);}
 .np-hd h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink);}
-.np-post{margin-left:auto;padding:7px 18px;border-radius:100px;background:linear-gradient(135deg,var(--teal),var(--ocean));border:none;color:white;font-size:.72rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(10,140,140,.3);font-family:'Noto Sans Thai',sans-serif;}
-.np-picker{margin:14px 16px;border-radius:var(--r);border:2px dashed rgba(10,140,140,.3);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;background:var(--sand);transition:all .2s;}
-.np-picker:hover{border-color:var(--teal);background:var(--teal3);}
-.picker-ic{font-size:2.5rem;}
-.picker-lb{font-size:.78rem;color:var(--teal);font-weight:600;}
-.picker-sub{font-size:.63rem;color:var(--ink3);}
-.picker-btns{display:flex;gap:8px;margin-top:4px;}
-.pbtn{padding:5px 12px;border-radius:100px;background:white;border:1.5px solid var(--line);font-size:.64rem;cursor:pointer;color:var(--ink2);font-family:'Noto Sans Thai',sans-serif;transition:all .2s;}
-.pbtn:hover{border-color:var(--teal);color:var(--teal);}
-.np-types{display:flex;gap:7px;padding:0 16px 12px;overflow-x:auto;scrollbar-width:none;}
+.np-post{margin-left:auto;padding:7px 17px;border-radius:100px;background:linear-gradient(135deg,var(--navy),var(--navy4));border:none;color:white;font-size:.72rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(45,91,117,.3);font-family:'Noto Sans Thai',sans-serif;}
+.np-picker{margin:13px 14px;border-radius:var(--r);border:2px dashed rgba(45,91,117,.3);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;cursor:pointer;background:var(--mist);transition:all .2s;}
+.np-picker:hover{border-color:var(--navy);background:var(--sky);}
+.picker-btns{display:flex;gap:7px;margin-top:4px;}
+.pbtn{padding:5px 11px;border-radius:100px;background:white;border:1.5px solid var(--line);font-size:.63rem;cursor:pointer;color:var(--ink2);transition:all .2s;}
+.pbtn:hover{border-color:var(--navy);color:var(--navy);}
+.np-slbl{padding:7px 18px 5px;font-size:.61rem;font-weight:600;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;}
+.np-types{display:flex;gap:6px;padding:0 14px 10px;overflow-x:auto;scrollbar-width:none;}
 .np-types::-webkit-scrollbar{display:none;}
-.nptype{flex-shrink:0;padding:7px 14px;border-radius:10px;border:1.5px solid var(--line);background:white;font-size:.7rem;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap;color:var(--ink2);font-family:'Noto Sans Thai',sans-serif;}
-.nptype.on{border-color:var(--teal);background:var(--teal3);color:var(--teal);}
-.np-slbl{padding:8px 20px 5px;font-size:.62rem;font-weight:600;color:var(--ink3);letter-spacing:.06em;text-transform:uppercase;}
-.npf{margin:0 16px 9px;border-radius:var(--r-sm);border:1.5px solid var(--line);background:white;overflow:hidden;transition:border-color .2s;}
-.npf:focus-within{border-color:var(--teal);}
-.npf-lbl{font-size:.59rem;font-weight:600;color:var(--ink3);padding:8px 14px 0;letter-spacing:.04em;text-transform:uppercase;}
-.npf input,.npf textarea{width:100%;padding:5px 14px 9px;border:none;background:transparent;font-family:'Noto Sans Thai',sans-serif;font-size:.82rem;color:var(--ink);outline:none;resize:none;}
-.npf textarea{min-height:76px;}
-.vis-row{margin:0 16px 12px;display:flex;gap:8px;}
-.vopt{flex:1;padding:11px 8px;border-radius:var(--r-sm);border:1.5px solid var(--line);background:white;text-align:center;cursor:pointer;transition:all .2s;}
-.vopt.on{border-color:var(--teal);background:var(--teal3);}
-.vopt-ic{font-size:1.2rem;margin-bottom:3px;}
-.vopt-lb{font-size:.65rem;font-weight:600;color:var(--ink2);}
-.vopt-sub{font-size:.57rem;color:var(--ink3);margin-top:1px;}
-.vopt.on .vopt-lb{color:var(--teal);}
+.nptype{flex-shrink:0;padding:6px 13px;border-radius:10px;border:1.5px solid var(--line);background:white;font-size:.68rem;font-weight:500;cursor:pointer;transition:all .2s;white-space:nowrap;color:var(--ink2);}
+.nptype.on{border-color:var(--navy);background:var(--sky);color:var(--navy);}
+.npf{margin:0 14px 8px;border-radius:var(--r-sm);border:1.5px solid var(--line);background:white;overflow:hidden;transition:border-color .2s;}
+.npf:focus-within{border-color:var(--navy);}
+.npf-lbl{font-size:.58rem;font-weight:600;color:var(--ink3);padding:7px 13px 0;letter-spacing:.04em;text-transform:uppercase;}
+.npf input,.npf textarea{width:100%;padding:4px 13px 8px;border:none;background:transparent;font-family:'Noto Sans Thai',sans-serif;font-size:.8rem;color:var(--ink);outline:none;resize:none;}
+.npf textarea{min-height:74px;}
+.vis-row{margin:0 14px 11px;display:flex;gap:7px;}
+.vopt{flex:1;padding:10px 7px;border-radius:var(--r-sm);border:1.5px solid var(--line);background:white;text-align:center;cursor:pointer;transition:all .2s;}
+.vopt.on{border-color:var(--navy);background:var(--sky);}
+.vopt-ic{font-size:1.15rem;margin-bottom:3px;}
+.vopt-lb{font-size:.63rem;font-weight:600;color:var(--ink2);}
+.vopt-sub{font-size:.56rem;color:var(--ink3);margin-top:1px;}
+.vopt.on .vopt-lb{color:var(--navy);}
+.mood-row{display:flex;gap:7px;padding:0 14px 10px;overflow-x:auto;scrollbar-width:none;}
+.mood-row::-webkit-scrollbar{display:none;}
+.mood{flex-shrink:0;padding:5px 11px;border-radius:100px;background:var(--mist);border:1.5px solid var(--line);font-size:.68rem;cursor:pointer;color:var(--ink2);transition:all .2s;}
+.mood.on{border-color:var(--navy);background:var(--sky);color:var(--navy);}
 
 /* ── AI CHAT ── */
-.ai-btn{display:flex;align-items:center;justify-content:center;gap:7px;margin:0 16px 8px;padding:12px 16px;border-radius:var(--r-sm);background:linear-gradient(135deg,var(--teal),var(--ocean));border:none;color:white;cursor:pointer;font-family:'Noto Sans Thai',sans-serif;font-weight:600;font-size:.82rem;box-shadow:0 4px 18px rgba(10,140,140,.28);transition:all .2s;width:calc(100% - 32px);}
+.ai-btn{display:flex;align-items:center;justify-content:center;gap:7px;margin:0 14px 7px;padding:11px 14px;border-radius:var(--r-sm);background:linear-gradient(135deg,var(--navy),var(--navy4));border:none;color:white;cursor:pointer;font-family:'Noto Sans Thai',sans-serif;font-weight:600;font-size:.8rem;box-shadow:0 4px 18px rgba(45,91,117,.3);transition:all .2s;width:calc(100% - 28px);}
 .ai-btn:active{transform:scale(.98);}
-.ai-btn.warm{background:linear-gradient(135deg,var(--gold),#a07030);box-shadow:0 4px 18px rgba(201,147,58,.3);}
+.ai-btn.warm{background:linear-gradient(135deg,var(--gold),#8a6020);box-shadow:0 4px 18px rgba(201,160,90,.3);}
 .ai-btn.sage{background:linear-gradient(135deg,#4a7c59,#2d5c3a);box-shadow:0 4px 18px rgba(74,124,89,.3);}
 .ai-btn.rose{background:linear-gradient(135deg,#c0392b,#922b21);box-shadow:0 4px 18px rgba(192,57,43,.28);}
-.ai-panel{display:none;margin:0 16px;border-radius:var(--r-sm);border:1.5px solid rgba(10,140,140,.16);background:white;overflow:hidden;box-shadow:var(--sh-sm);}
+.ai-panel{display:none;margin:0 14px;border-radius:var(--r-sm);border:1.5px solid rgba(45,91,117,.18);background:white;overflow:hidden;box-shadow:var(--sh-sm);}
 .ai-panel.open{display:block;}
-.ai-msgs{padding:12px 13px;max-height:215px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;}
+.ai-msgs{padding:11px 12px;max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:9px;}
 .ai-msg{display:flex;gap:7px;}
 .ai-msg.user{flex-direction:row-reverse;}
-.ai-bub{max-width:76%;padding:8px 11px;border-radius:13px;font-size:.74rem;line-height:1.65;font-family:'Noto Sans Thai',sans-serif;}
-.ai-msg.bot .ai-bub{background:var(--teal3);color:var(--ink);border-radius:4px 13px 13px 13px;}
-.ai-msg.user .ai-bub{background:linear-gradient(135deg,var(--teal),var(--ocean));color:white;border-radius:13px 4px 13px 13px;}
-.ai-av{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.72rem;}
-.ai-av.bot{background:linear-gradient(135deg,var(--teal),var(--ocean));color:white;font-size:.62rem;}
-.ai-qbtns{display:flex;gap:6px;padding:0 12px 10px;overflow-x:auto;scrollbar-width:none;}
+.ai-bub{max-width:76%;padding:7px 10px;border-radius:12px;font-size:.72rem;line-height:1.65;font-family:'Noto Sans Thai',sans-serif;}
+.ai-msg.bot .ai-bub{background:var(--sky);color:var(--ink);border-radius:4px 12px 12px 12px;}
+.ai-msg.user .ai-bub{background:linear-gradient(135deg,var(--navy),var(--navy4));color:white;border-radius:12px 4px 12px 12px;}
+.ai-av{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.7rem;}
+.ai-av.bot{background:linear-gradient(135deg,var(--navy),var(--navy4));color:white;font-size:.6rem;}
+.ai-qbtns{display:flex;gap:5px;padding:0 11px 9px;overflow-x:auto;scrollbar-width:none;}
 .ai-qbtns::-webkit-scrollbar{display:none;}
-.ai-qb{flex-shrink:0;padding:5px 10px;border-radius:100px;border:1px solid rgba(10,140,140,.22);background:var(--teal3);color:var(--teal);font-size:.62rem;cursor:pointer;white-space:nowrap;font-family:'Noto Sans Thai',sans-serif;transition:all .15s;}
-.ai-qb:hover{background:var(--teal);color:white;}
-.ai-inp-row{display:flex;gap:8px;padding:9px 12px;border-top:1px solid var(--line);align-items:center;}
-.ai-inp{flex:1;padding:7px 13px;border-radius:100px;border:1.5px solid var(--line);background:var(--sand);font-family:'Noto Sans Thai',sans-serif;font-size:.78rem;color:var(--ink);outline:none;transition:border-color .2s;}
-.ai-inp:focus{border-color:var(--teal);}
-.ai-send{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--ocean));border:none;color:white;font-size:.88rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ai-qb{flex-shrink:0;padding:4px 9px;border-radius:100px;border:1px solid rgba(45,91,117,.22);background:var(--sky);color:var(--navy);font-size:.6rem;cursor:pointer;white-space:nowrap;font-family:'Noto Sans Thai',sans-serif;transition:all .15s;}
+.ai-qb:hover{background:var(--navy);color:white;}
+.ai-inp-row{display:flex;gap:7px;padding:8px 11px;border-top:1px solid var(--line);align-items:center;}
+.ai-inp{flex:1;padding:6px 12px;border-radius:100px;border:1.5px solid var(--line);background:var(--mist);font-family:'Noto Sans Thai',sans-serif;font-size:.76rem;color:var(--ink);outline:none;}
+.ai-inp:focus{border-color:var(--navy);}
+.ai-send{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy4));border:none;color:white;font-size:.85rem;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 
 /* ── POST DETAIL ── */
-.pd-hd{background:rgba(253,250,245,.96);padding:12px 20px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);flex-shrink:0;}
+.pd-hd{background:rgba(250,252,253,.96);padding:12px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);flex-shrink:0;}
 .pd-back{font-size:1.05rem;cursor:pointer;color:var(--ink3);}
 .pd-hd h2{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink);}
 .pd-media{width:100%;aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.pd-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,0,.72) 0%,rgba(20,8,0,.06) 50%,transparent 100%);}
-.pd-top{position:absolute;top:0;left:0;right:0;padding:14px 16px;display:flex;align-items:center;gap:9px;}
-.pd-bot{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;}
-.pd-loc{font-size:.6rem;color:rgba(240,220,180,.82);font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px;}
-.pd-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.4rem;color:white;line-height:1.2;margin-bottom:4px;}
-.pd-desc{font-size:.72rem;color:rgba(255,255,255,.65);line-height:1.65;}
-.pd-acts{background:rgba(253,250,245,.96);padding:10px 18px;display:flex;align-items:center;gap:4px;border-bottom:1px solid var(--line);flex-shrink:0;}
-.pa{display:flex;align-items:center;gap:4px;font-size:.76rem;font-weight:500;color:var(--ink3);cursor:pointer;border:none;background:none;font-family:'Noto Sans Thai',sans-serif;margin-right:12px;transition:color .15s;}
+.pd-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,30,42,.72) 0%,rgba(15,30,42,.06) 50%,transparent 100%);}
+.pd-top{position:absolute;top:0;left:0;right:0;padding:13px 15px;display:flex;align-items:center;gap:9px;}
+.pd-bot{position:absolute;bottom:0;left:0;right:0;padding:13px 15px;}
+.pd-loc{font-size:.58rem;color:rgba(220,235,245,.82);font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px;}
+.pd-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.35rem;color:white;line-height:1.2;margin-bottom:3px;}
+.pd-desc{font-size:.7rem;color:rgba(255,255,255,.65);line-height:1.65;}
+.pd-acts{background:rgba(250,252,253,.96);padding:9px 17px;display:flex;align-items:center;border-bottom:1px solid var(--line);flex-shrink:0;}
+.pa{display:flex;align-items:center;gap:4px;font-size:.74rem;font-weight:500;color:var(--ink3);cursor:pointer;border:none;background:none;font-family:'Noto Sans Thai',sans-serif;margin-right:11px;}
 .pa.liked{color:var(--rose);}
-.pa-share{margin-left:auto;padding:7px 16px;border-radius:100px;background:linear-gradient(135deg,var(--teal),var(--ocean));border:none;color:white;font-size:.7rem;font-weight:600;cursor:pointer;box-shadow:0 3px 10px rgba(10,140,140,.28);font-family:'Noto Sans Thai',sans-serif;}
-
-.ai-sum{margin:12px 16px 0;border-radius:var(--r-sm);overflow:hidden;border:1.5px solid rgba(10,140,140,.16);background:white;box-shadow:var(--sh-sm);}
-.ai-sum-hd{display:flex;align-items:center;gap:10px;padding:11px 14px;background:linear-gradient(135deg,var(--teal3),var(--sand));border-bottom:1px solid rgba(10,140,140,.1);}
-.ai-sum-ic{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,var(--teal),var(--ocean));display:flex;align-items:center;justify-content:center;font-size:.82rem;}
-.ai-sum-t{font-size:.82rem;font-weight:700;color:var(--ink);}
-.ai-sum-s{font-size:.59rem;color:var(--ink3);}
+.pa-share{margin-left:auto;padding:6px 15px;border-radius:100px;background:linear-gradient(135deg,var(--navy),var(--navy4));border:none;color:white;font-size:.68rem;font-weight:600;cursor:pointer;box-shadow:0 3px 10px rgba(45,91,117,.3);}
+.ai-sum{margin:11px 14px 0;border-radius:var(--r-sm);overflow:hidden;border:1.5px solid rgba(45,91,117,.18);background:white;box-shadow:var(--sh-sm);}
+.ai-sum-hd{display:flex;align-items:center;gap:9px;padding:10px 13px;background:linear-gradient(135deg,var(--sky),var(--mist));border-bottom:1px solid rgba(45,91,117,.1);}
+.ai-sum-ic{width:27px;height:27px;border-radius:9px;background:linear-gradient(135deg,var(--navy),var(--navy4));display:flex;align-items:center;justify-content:center;font-size:.8rem;}
+.ai-sum-t{font-size:.8rem;font-weight:700;color:var(--ink);}
+.ai-sum-s{font-size:.58rem;color:var(--ink3);}
 .ai-rows{padding:2px 0;}
-.ai-row{display:flex;justify-content:space-between;align-items:center;padding:7px 14px;border-bottom:1px solid var(--line2);}
+.ai-row{display:flex;justify-content:space-between;align-items:center;padding:7px 13px;border-bottom:1px solid var(--line2);}
 .ai-row:last-child{border-bottom:none;}
-.ai-k{font-size:.69rem;color:var(--ink3);}
-.ai-v{font-size:.73rem;font-weight:600;color:var(--ink);}
-.ai-v.hi{color:var(--teal);}
+.ai-k{font-size:.68rem;color:var(--ink3);}
+.ai-v{font-size:.72rem;font-weight:600;color:var(--ink);}
+.ai-v.hi{color:var(--navy);}
 .ai-v.gold{color:var(--gold);}
-
-.ft-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin:10px 16px;width:calc(100% - 32px);padding:13px;border-radius:var(--r-sm);background:var(--ink);border:none;color:white;font-family:'Noto Sans Thai',sans-serif;font-weight:700;font-size:.83rem;cursor:pointer;box-shadow:var(--sh-md);transition:all .2s;}
+.ft-btn{display:flex;align-items:center;justify-content:center;gap:6px;margin:9px 14px;width:calc(100% - 28px);padding:12px;border-radius:var(--r-sm);background:var(--ink);border:none;color:white;font-family:'Noto Sans Thai',sans-serif;font-weight:700;font-size:.8rem;cursor:pointer;box-shadow:var(--sh-md);transition:all .2s;}
 .ft-btn:active{transform:scale(.98);}
-.fam-card{margin:0 16px 14px;background:white;border-radius:var(--r-sm);border:1px solid var(--line);padding:13px;box-shadow:var(--sh-xs);}
-.fam-t{font-size:.76rem;font-weight:600;margin-bottom:9px;color:var(--ink);}
-.fam-avs{display:flex;gap:10px;margin-bottom:10px;}
+.fam-card{margin:0 14px 12px;background:white;border-radius:var(--r-sm);border:1px solid var(--line);padding:12px;box-shadow:var(--sh-xs);}
+.fam-t{font-size:.74rem;font-weight:600;margin-bottom:8px;color:var(--ink);}
+.fam-avs{display:flex;gap:9px;margin-bottom:9px;}
 .fav{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;}
-.favr{width:44px;height:44px;border-radius:50%;padding:2.5px;background:linear-gradient(135deg,var(--gold2),var(--teal));}
-.favi{width:100%;height:100%;border-radius:50%;background:var(--sand);border:2px solid var(--ivory);display:flex;align-items:center;justify-content:center;font-size:1rem;}
-.favn{font-size:.58rem;color:var(--ink3);font-weight:500;}
-.fam-btn{width:100%;padding:9px;border-radius:10px;background:var(--sand);border:1.5px solid var(--line);color:var(--teal);font-family:'Noto Sans Thai',sans-serif;font-size:.74rem;font-weight:600;cursor:pointer;transition:all .2s;}
-.fam-btn:hover{border-color:var(--teal);background:var(--teal3);}
+.favr{width:42px;height:42px;border-radius:50%;padding:2px;background:linear-gradient(135deg,var(--gold2),var(--navy));}
+.favi{width:100%;height:100%;border-radius:50%;background:var(--mist);border:2px solid var(--ivory);display:flex;align-items:center;justify-content:center;font-size:.95rem;}
+.favn{font-size:.57rem;color:var(--ink3);font-weight:500;}
+.fam-btn{width:100%;padding:8px;border-radius:9px;background:var(--mist);border:1.5px solid var(--line);color:var(--navy);font-family:'Noto Sans Thai',sans-serif;font-size:.72rem;font-weight:600;cursor:pointer;transition:all .2s;}
 
-/* ── PROFILE ── */
-.prof-cover{position:relative;height:178px;overflow:hidden;
-  background:linear-gradient(145deg,#c8b89a 0%,#d4c4a0 35%,#b8d8d8 70%,#90c4c4 100%);}
-.pc-ov{position:absolute;inset:0;background:radial-gradient(ellipse at 75% 30%,rgba(255,255,255,.35),transparent 55%),radial-gradient(ellipse at 15% 65%,rgba(10,95,95,.15),transparent 50%);}
-.pc-quote{position:absolute;bottom:16px;left:20px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.88rem;color:rgba(20,8,0,.45);letter-spacing:.03em;}
-.pc-edit{position:absolute;top:12px;right:12px;padding:5px 12px;border-radius:100px;background:rgba(253,250,245,.85);backdrop-filter:blur(8px);border:1px solid rgba(10,140,140,.2);font-size:.64rem;cursor:pointer;font-weight:500;color:var(--ocean);}
-.prof-body{padding:0 20px;transform:translateY(-42px);}
-.prof-top{display:flex;align-items:flex-end;gap:12px;margin-bottom:12px;}
-.prof-av{width:80px;height:80px;border-radius:50%;background:white;border:3px solid white;display:flex;align-items:center;justify-content:center;font-size:2.3rem;box-shadow:0 4px 18px rgba(10,140,140,.2),var(--sh-md);flex-shrink:0;}
-.prof-acts{margin-left:auto;display:flex;gap:8px;align-items:flex-end;padding-bottom:4px;}
-.prof-flw{padding:8px 18px;border-radius:100px;background:linear-gradient(135deg,var(--teal),var(--ocean));border:none;color:white;font-family:'Noto Sans Thai',sans-serif;font-size:.73rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(10,140,140,.3);}
-.prof-more{width:34px;height:34px;border-radius:10px;background:white;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.95rem;cursor:pointer;box-shadow:var(--sh-xs);}
-.prof-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.22rem;background:linear-gradient(135deg,var(--ocean),var(--teal),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1px;}
-.prof-handle{font-size:.7rem;color:var(--ink3);margin-bottom:7px;}
-.prof-badges{display:flex;gap:5px;margin-bottom:13px;}
-.pb{padding:3px 9px;border-radius:6px;font-family:'DM Mono',monospace;font-size:.57rem;font-weight:500;letter-spacing:.04em;}
-.pb-t{background:var(--teal3);border:1px solid rgba(10,140,140,.22);color:var(--teal);}
-.pb-g{background:var(--gold3);border:1px solid rgba(201,147,58,.25);color:var(--gold);}
-.prof-stats{display:flex;background:white;border:1px solid var(--line);border-radius:var(--r-sm);box-shadow:var(--sh-sm);margin-bottom:13px;overflow:hidden;}
-.pst{flex:1;padding:12px 8px;text-align:center;}
+/* ── PROFILE (redesigned) ── */
+.prof-hero{position:relative;height:195px;overflow:hidden;}
+.ph-bg{position:absolute;inset:0;background:linear-gradient(145deg,#14303e 0%,#2d5b75 45%,#4a7090 80%,#7aa4b8 100%);}
+.ph-pattern{position:absolute;inset:0;opacity:.08;background-image:repeating-linear-gradient(45deg,white 0,white 1px,transparent 0,transparent 50%);background-size:14px 14px;}
+.ph-glow{position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(201,160,90,.25),transparent 70%);}
+.ph-quote{position:absolute;bottom:14px;left:18px;right:18px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.82rem;color:rgba(255,255,255,.55);letter-spacing:.03em;}
+.ph-edit{position:absolute;top:12px;right:12px;padding:4px 11px;border-radius:100px;background:rgba(250,252,253,.85);backdrop-filter:blur(8px);border:1px solid rgba(45,91,117,.2);font-size:.62rem;cursor:pointer;font-weight:500;color:var(--navy4);}
+
+/* AVATAR ring */
+.prof-av-wrap{position:relative;display:inline-block;}
+.prof-av-ring{width:88px;height:88px;border-radius:50%;padding:3px;background:linear-gradient(145deg,var(--gold2),var(--navy),var(--navy4));box-shadow:var(--sh-md);}
+.prof-av{width:100%;height:100%;border-radius:50%;background:var(--mist);border:3px solid var(--ivory);display:flex;align-items:center;justify-content:center;font-size:2.4rem;}
+.prof-verified{position:absolute;bottom:2px;right:2px;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--navy4));border:2px solid var(--ivory);display:flex;align-items:center;justify-content:center;font-size:.62rem;}
+
+.prof-body{padding:0 18px;transform:translateY(-44px);}
+.prof-top{display:flex;align-items:flex-end;gap:10px;margin-bottom:10px;}
+.prof-acts{margin-left:auto;display:flex;gap:7px;align-items:flex-end;padding-bottom:4px;}
+.prof-flw{padding:7px 16px;border-radius:100px;background:linear-gradient(135deg,var(--navy),var(--navy4));border:none;color:white;font-family:'Noto Sans Thai',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;box-shadow:0 4px 14px rgba(45,91,117,.3);}
+.prof-more{width:32px;height:32px;border-radius:10px;background:white;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.9rem;cursor:pointer;box-shadow:var(--sh-xs);}
+
+.prof-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;background:linear-gradient(135deg,var(--navy4),var(--navy),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1px;}
+.prof-handle{font-size:.69rem;color:var(--ink3);margin-bottom:6px;}
+.prof-bio{font-size:.72rem;color:var(--ink2);line-height:1.65;margin-bottom:9px;}
+.prof-badges{display:flex;gap:5px;margin-bottom:12px;}
+.pb{padding:3px 8px;border-radius:6px;font-family:'DM Mono',monospace;font-size:.56rem;font-weight:500;letter-spacing:.04em;}
+.pb-t{background:var(--sky);border:1px solid rgba(45,91,117,.22);color:var(--navy);}
+.pb-g{background:var(--gold3);border:1px solid rgba(201,160,90,.25);color:var(--gold);}
+
+/* stats bar — new horizontal card */
+.prof-stat-bar{display:flex;background:white;border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--sh-sm);margin-bottom:12px;overflow:hidden;}
+.pst{flex:1;padding:11px 6px;text-align:center;}
 .pst+.pst{border-left:1px solid var(--line);}
-.psn{font-family:'Cormorant Garamond',serif;font-size:1.28rem;background:linear-gradient(135deg,var(--teal),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.psl{font-size:.57rem;color:var(--ink3);font-weight:500;margin-top:1px;}
-.ptabs{display:flex;border:1.5px solid var(--line);border-radius:var(--r-sm);overflow:hidden;margin-bottom:12px;background:white;}
-.ptab{flex:1;padding:8px 5px;font-size:.64rem;font-weight:600;border:none;background:transparent;color:var(--ink3);cursor:pointer;font-family:'Noto Sans Thai',sans-serif;transition:all .2s;}
-.ptab.on{background:linear-gradient(135deg,var(--teal),var(--ocean));color:white;}
-.ctags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:11px;}
-.ctag{padding:4px 9px;border-radius:7px;background:white;border:1px solid var(--line);font-size:.66rem;box-shadow:var(--sh-xs);color:var(--ink2);}
-.theme-row{display:flex;align-items:center;gap:8px;margin-bottom:13px;}
-.tlb{font-size:.62rem;color:var(--ink3);font-weight:500;}
-.tdot{width:19px;height:19px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .2s;}
+.psn{font-family:'Cormorant Garamond',serif;font-size:1.25rem;background:linear-gradient(135deg,var(--navy),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.psl{font-size:.55rem;color:var(--ink3);font-weight:500;margin-top:1px;}
+
+/* taste profile */
+.taste-card{background:linear-gradient(135deg,var(--navy4),var(--navy));border-radius:var(--r);padding:13px 15px;margin-bottom:12px;box-shadow:var(--sh-md);}
+.tc-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.92rem;color:white;margin-bottom:8px;}
+.tc-items{display:flex;flex-direction:column;gap:5px;}
+.tc-item{display:flex;align-items:center;gap:8px;}
+.tc-label{font-size:.65rem;color:rgba(255,255,255,.72);width:90px;flex-shrink:0;}
+.tc-bar{flex:1;height:5px;border-radius:100px;background:rgba(255,255,255,.15);overflow:hidden;}
+.tc-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--gold2),var(--gold));}
+.tc-pct{font-size:.6rem;color:rgba(255,255,255,.65);font-family:'DM Mono',monospace;width:28px;text-align:right;}
+
+/* tabs */
+.ptabs{display:flex;border:1.5px solid var(--line);border-radius:var(--r-sm);overflow:hidden;margin-bottom:11px;background:white;}
+.ptab{flex:1;padding:8px 4px;font-size:.62rem;font-weight:600;border:none;background:transparent;color:var(--ink3);cursor:pointer;font-family:'Noto Sans Thai',sans-serif;transition:all .2s;}
+.ptab.on{background:linear-gradient(135deg,var(--navy),var(--navy4));color:white;}
+
+.ctags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.ctag{padding:3px 8px;border-radius:7px;background:white;border:1px solid var(--line);font-size:.64rem;box-shadow:var(--sh-xs);color:var(--ink2);}
+.theme-row{display:flex;align-items:center;gap:7px;margin-bottom:12px;}
+.tlb{font-size:.61rem;color:var(--ink3);font-weight:500;}
+.tdot{width:18px;height:18px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:all .2s;}
 .tdot:hover{transform:scale(1.22);}
 .tdot.on{border-color:var(--ink);box-shadow:0 0 0 2px var(--ivory),0 0 0 3.5px var(--ink);}
+
+/* photo grid - masonry style */
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.pgi{aspect-ratio:1;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:1.9rem;cursor:pointer;position:relative;overflow:hidden;}
+.pgi{aspect-ratio:1;background:var(--mist);display:flex;align-items:center;justify-content:center;font-size:1.85rem;cursor:pointer;position:relative;overflow:hidden;}
 .pgi:hover{filter:brightness(.9);}
-.pgio{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,8,0,.6),transparent 60%);display:flex;align-items:flex-end;padding:6px;opacity:0;transition:opacity .2s;}
+.pgio{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,30,42,.62),transparent 60%);display:flex;align-items:flex-end;padding:5px;opacity:0;transition:opacity .2s;}
 .pgi:hover .pgio{opacity:1;}
-.pgi-loc{font-size:.5rem;color:white;text-transform:uppercase;letter-spacing:.08em;font-family:'DM Mono',monospace;}
+.pgi-loc{font-size:.48rem;color:white;text-transform:uppercase;letter-spacing:.08em;font-family:'DM Mono',monospace;}
+.pgi.wide{grid-column:span 2;}
+.pgi.tall{grid-row:span 2;aspect-ratio:unset;}
 
-/* ── BG SWATCHES ── */
-.bg-jp{background:linear-gradient(160deg,#fff7ed,#fed7aa);}
-.bg-fr{background:linear-gradient(160deg,#d4f0f0,#b8e4e4);}
-.bg-bl{background:linear-gradient(160deg,#f0fdf4,#bbf7d0);}
-.bg-kr{background:linear-gradient(160deg,#fdf4ff,#e9d5ff);}
-.bg-ml{background:linear-gradient(160deg,#caf0f8,#90e0ef);}
-.bg-sw{background:linear-gradient(160deg,#f8fafc,#e2e8f0);}
-.bg-du{background:linear-gradient(160deg,#fffbeb,#fde68a);}
-.bg-warm{background:linear-gradient(160deg,#fdf6ec,#f5e6cc);}
+/* bg swatches */
+.bg-jp{background:linear-gradient(160deg,#e8eff4,#c8dce8);}
+.bg-fr{background:linear-gradient(160deg,#dce8ee,#b8d0dc);}
+.bg-bl{background:linear-gradient(160deg,#e0eee8,#b8d8c4);}
+.bg-kr{background:linear-gradient(160deg,#e8e0ee,#c8b4d8);}
+.bg-ml{background:linear-gradient(160deg,#d8e8f0,#a8c8d8);}
+.bg-sw{background:linear-gradient(160deg,#eaeef2,#ccd8e0);}
+.bg-du{background:linear-gradient(160deg,#f0ecdc,#d8c888);}
+.bg-th{background:linear-gradient(160deg,#e4edf0,#b0ccd8);}
 
-.spacer{height:16px;}
-
-@media(max-width:440px){
-  body{padding:0;background:var(--ivory);}
-  .phone{border-radius:0;box-shadow:none;min-height:100vh;}
-}
+.spacer{height:14px;}
 </style>
 </head>
 <body>
 <div class="phone">
 <div class="island"></div>
-<div class="sbar"><span class="sbar-t">9:41</span><div class="sbar-r"><span>●●●</span><span>WiFi</span><span>🔋</span></div></div>
+<div class="sbar"><span class="sbar-t">9:41</span><div class="sbar-r"><span>●●●</span><span>5G</span><span>🔋</span></div></div>
 
 <!-- ════ FEED ════ -->
 <div id="pg-feed" class="page on">
   <div class="topbar">
-    <div class="logo">บันทึกรัก นักเดินทาง</div>
-    <div style="display:flex;gap:8px"><button class="ib">🔍</button><button class="ib">🔔<div class="rdot"></div></button></div>
-  </div>
-  <div class="stories">
-    <div class="sw" style="position:relative"><div class="sring" style="position:relative"><div class="sinner">😊</div><div class="sadd">+</div></div><div class="sname" style="font-weight:600;color:var(--ink2)">ของฉัน</div></div>
-    <div class="sw"><div class="sring"><div class="sinner">👩</div></div><div class="sname">นิ่ม</div></div>
-    <div class="sw"><div class="sring"><div class="sinner">🧑</div></div><div class="sname">ต้น</div></div>
-    <div class="sw"><div class="sring seen"><div class="sinner">👩</div></div><div class="sname">มิ้น</div></div>
-    <div class="sw"><div class="sring seen"><div class="sinner">🧑</div></div><div class="sname">กอล์ฟ</div></div>
-    <div class="sw"><div class="sring seen"><div class="sinner">👩</div></div><div class="sname">ฝน</div></div>
-  </div>
-  <div class="cats">
-    <div class="cat on">🌊 ทั้งหมด</div><div class="cat">▶ คลิป</div><div class="cat">📸 รูป</div>
-    <div class="cat">🗼 ยุโรป</div><div class="cat">🏔️ เอเชีย</div><div class="cat">🌊 ทะเล</div><div class="cat">🍜 อาหาร</div>
-  </div>
-  <div class="scroll">
-    <div class="feed">
-      <!-- Card 1 -->
-      <div class="card" onclick="go('pg-post')">
-        <div class="card-hd">
-          <div class="av">👩</div>
-          <div><div class="uname">นิ่ม สุภาพร</div><div class="utime">2 ชั่วโมงที่แล้ว · 🇫🇷 Paris</div></div>
-          <button class="flw">+ ติดตาม</button>
-        </div>
-        <div class="cm r43 bg-fr">
-          <div style="position:absolute;inset:0;background:linear-gradient(160deg,#d4f0f0,#b8e4e4,#8cc8c8)"></div>
-          <span style="position:relative;z-index:1">🗼</span>
-          <div class="cm-ov"></div>
-          <div class="cm-info"><div class="cm-loc">📍 Eiffel Tower · Paris</div><div class="cm-title">วันที่ฉันหลงรักปารีส</div></div>
-          <div class="ai-pin">🤖 AI สรุป</div><div class="vis-pin">🌐 สาธารณะ</div>
-        </div>
-        <div class="card-bd">
-          <div class="chips"><span class="chip">💰 ฿92,400</span><span class="chip">📅 8 วัน</span><span class="chip chip-t">✈️ TG</span><span class="chip chip-g">⭐ 5.0</span></div>
-          <div class="acts">
-            <button class="act liked" id="lk1" onclick="event.stopPropagation();tgl('lk1','lc1')">❤️ <span id="lc1">4,218</span></button>
-            <div class="asep"></div><button class="act">💬 342</button>
-            <div class="asep"></div><button class="act">↗️ แชร์</button>
-            <div class="asep"></div><button class="act saved">🔖</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Reel -->
-      <div class="card" onclick="go('pg-post')" style="overflow:hidden">
-        <div class="cm r916 bg-jp" style="max-height:400px">
-          <div style="position:absolute;inset:0;background:linear-gradient(160deg,#fff7ed,#fed7aa,#fdba74)"></div>
-          <span style="position:relative;z-index:1;font-size:6rem">⛩️</span>
-          <div class="cm-ov"></div>
-          <div class="play-btn">▶</div>
-          <div class="vis-pin" style="top:10px;right:10px">🌐</div>
-          <div class="cm-info">
-            <div class="cm-loc">📍 Kyoto · Japan 🇯🇵</div>
-            <div class="cm-title" style="font-size:.98rem">ซากุระ 12 วัน ความทรงจำที่ดีที่สุด</div>
-            <div style="display:flex;align-items:center;gap:7px;margin-top:6px"><div class="av" style="width:22px;height:22px;font-size:.7rem">🧑</div><span style="font-size:.66rem;color:rgba(255,255,255,.9)">ต้น ณัฐพล</span><span style="margin-left:auto;font-size:.63rem;color:rgba(255,255,255,.7)">❤️ 2.1k · 👁 18k</span></div>
-          </div>
-          <div class="reel-side">
-            <div class="ract"><div class="ract-ic">❤️</div>2.1k</div>
-            <div class="ract"><div class="ract-ic">💬</div>184</div>
-            <div class="ract"><div class="ract-ic">↗️</div>แชร์</div>
-            <div class="ract"><div class="ract-ic">🔖</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- New: Memory Album Card -->
-      <div class="card" onclick="go('pg-post')">
-        <div class="card-hd">
-          <div class="av">👨‍👩‍👧</div>
-          <div><div class="uname">Family Memory ✦</div><div class="utime">ทริปครอบครัว · 🇯🇵 Osaka</div></div>
-          <button class="flw following">👨‍👩‍👧 ครอบครัว</button>
-        </div>
-        <div class="cm r43 bg-jp">
-          <div style="position:absolute;inset:0;background:linear-gradient(160deg,#fffbeb,#fde68a,#f5c842)"></div>
-          <span style="position:relative;z-index:1">🏯</span>
-          <div class="cm-ov"></div>
-          <div class="cm-info"><div class="cm-loc">📍 Osaka Castle · Japan</div><div class="cm-title">ครอบครัวเราใน Osaka วันที่อบอุ่นที่สุด</div></div>
-          <div class="ai-pin">🤖 AI</div><div class="vis-pin">👨‍👩‍👧 ครอบครัว</div>
-        </div>
-        <div class="card-bd">
-          <div class="chips"><span class="chip">💰 ฿65,000</span><span class="chip">📅 5 วัน</span><span class="chip chip-gold">❤️ ความทรงจำ</span></div>
-          <div class="acts">
-            <button class="act" id="lk3" onclick="event.stopPropagation();tgl('lk3','lc3')">❤️ <span id="lc3">128</span></button>
-            <div class="asep"></div><button class="act">💬 24</button>
-            <div class="asep"></div><button class="act">↗️ แชร์</button>
-            <div class="asep"></div><button class="act saved">🔖</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="sec-h"><div class="sec-h-t">🔥 Trending ตอนนี้</div><div class="sec-h-a" onclick="go('pg-map')">ดูแผนที่ →</div></div>
-    </div>
-    <div class="hscroll" style="margin-bottom:6px">
-      <div class="dcard"><div class="dcard-img bg-jp">⛩️</div><div class="dcard-body"><div class="dcard-name">ญี่ปุ่น</div><div class="dcard-stat">👥 12,400<br>💰 ฿45,000</div><div class="dcard-score">★ 4.9</div></div></div>
-      <div class="dcard"><div class="dcard-img bg-ml">🌊</div><div class="dcard-body"><div class="dcard-name">มัลดีฟส์</div><div class="dcard-stat">👥 4,200<br>💰 ฿95,000</div><div class="dcard-score">★ 5.0</div></div></div>
-      <div class="dcard"><div class="dcard-img bg-bl">🌴</div><div class="dcard-body"><div class="dcard-name">บาหลี</div><div class="dcard-stat">👥 9,800<br>💰 ฿28,000</div><div class="dcard-score">★ 4.7</div></div></div>
-      <div class="dcard"><div class="dcard-img bg-kr">🌸</div><div class="dcard-body"><div class="dcard-name">เกาหลี</div><div class="dcard-stat">👥 11,200<br>💰 ฿35,000</div><div class="dcard-score">★ 4.8</div></div></div>
-      <div class="dcard"><div class="dcard-img bg-du">🕌</div><div class="dcard-body"><div class="dcard-name">ดูไบ</div><div class="dcard-stat">👥 7,200<br>💰 ฿65,000</div><div class="dcard-score">★ 4.6</div></div></div>
-    </div>
-    <div class="feed" style="padding-top:6px">
-      <div class="wcard" onclick="go('pg-post')">
-        <div class="wc-img bg-ml">🌊</div>
-        <div class="wc-body">
-          <div class="wc-loc">📍 Maldives · Indian Ocean</div>
-          <div class="wc-title">มัลดีฟส์ฮันนีมูน ทะเลสีฟ้าที่สวยที่สุด</div>
-          <div class="wc-stats"><span>❤️ 5,280</span><span>💬 318</span><span>👁 62k</span></div>
-        </div>
-      </div>
-      <div class="card" onclick="go('pg-post')">
-        <div class="card-hd">
-          <div class="av">👩</div>
-          <div><div class="uname">มิ้น ปิยาภรณ์</div><div class="utime">เมื่อวาน · 🇮🇩 Bali</div></div>
-          <button class="flw following">✓ ติดตาม</button>
-        </div>
-        <div class="cm r43 bg-bl">
-          <div style="position:absolute;inset:0;background:linear-gradient(160deg,#f0fdf4,#bbf7d0,#86efac)"></div>
-          <span style="position:relative;z-index:1">🌿</span>
-          <div class="cm-ov"></div>
-          <div class="cm-info"><div class="cm-loc">📍 Ubud · Bali</div><div class="cm-title">7 วันใน Bali ที่เปลี่ยนชีวิต</div></div>
-          <div class="vis-pin">👨‍👩‍👧 ครอบครัว</div>
-        </div>
-        <div class="card-bd">
-          <div class="chips"><span class="chip">💰 ฿28,000</span><span class="chip">📅 7 วัน</span><span class="chip chip-g">⭐ 4.9</span></div>
-          <div class="acts">
-            <button class="act" id="lk2" onclick="event.stopPropagation();tgl('lk2','lc2')">❤️ <span id="lc2">2,481</span></button>
-            <div class="asep"></div><button class="act">💬 196</button>
-            <div class="asep"></div><button class="act">↗️</button>
-            <div class="asep"></div><button class="act saved">🔖</button>
-          </div>
-        </div>
-      </div>
-      <div class="spacer"></div>
+    <div class="logo">Cherish</div>
+    <div style="display:flex;gap:8px">
+      <button class="ib">🔍</button>
+      <button class="ib">🔔<div class="rdot"></div></button>
     </div>
   </div>
+
+  <!-- Two-tab feed: Following / For You -->
+  <div class="feed-tabs">
+    <div class="feed-tab on" id="tab-following" onclick="switchFeedTab('following')">กำลังติดตาม</div>
+    <div class="feed-tab" id="tab-foryou" onclick="switchFeedTab('foryou')">แนะนำสำหรับคุณ</div>
+  </div>
+
+  <!-- FOLLOWING FEED -->
+  <div id="feed-following" class="feed-panel on">
+    <div class="cats">
+      <div class="cat on">🌊 ทั้งหมด</div><div class="cat">▶ คลิป</div><div class="cat">📸 รูป</div>
+      <div class="cat">🗼 ยุโรป</div><div class="cat">🏔️ เอเชีย</div><div class="cat">🌊 ทะเล</div><div class="cat">🍜 อาหาร</div>
+    </div>
+    <div class="scroll">
+      <div class="feed-wrap">
+        <div class="card" onclick="go('pg-post')">
+          <div class="card-hd">
+            <div class="av">👩</div>
+            <div><div class="uname">นิ่ม สุภาพร</div><div class="utime">2 ชม. · 🇫🇷 Paris</div></div>
+            <button class="flw following">✓ ติดตาม</button>
+          </div>
+          <div class="cm r43 bg-fr">
+            <div style="position:absolute;inset:0;background:linear-gradient(160deg,#dce8ee,#b8d0dc,#8cb5c8)"></div>
+            <span style="position:relative;z-index:1">🗼</span>
+            <div class="cm-ov"></div>
+            <div class="cm-info"><div class="cm-loc">📍 Eiffel Tower · Paris</div><div class="cm-title">วันที่ฉันหลงรักปารีส</div></div>
+            <div class="ai-pin">🤖 AI</div><div class="vis-pin">🌐 สาธารณะ</div>
+          </div>
+          <div class="card-bd">
+            <div class="chips"><span class="chip">💰 ฿92,400</span><span class="chip">📅 8 วัน</span><span class="chip chip-t">✈️ TG</span><span class="chip chip-g">⭐ 5.0</span></div>
+            <div class="acts">
+              <button class="act liked" id="lk1" onclick="event.stopPropagation();tgl('lk1','lc1')">❤️ <span id="lc1">4,218</span></button>
+              <div class="asep"></div><button class="act">💬 342</button>
+              <div class="asep"></div><button class="act">↗️ แชร์</button>
+              <div class="asep"></div><button class="act saved">🔖</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="go('pg-post')" style="overflow:hidden">
+          <div class="card-hd">
+            <div class="av">🧑</div>
+            <div><div class="uname">ต้น ณัฐพล</div><div class="utime">5 ชม. · 🇯🇵 Kyoto</div></div>
+            <button class="flw following">✓ ติดตาม</button>
+          </div>
+          <div class="cm r916 bg-jp" style="max-height:380px">
+            <div style="position:absolute;inset:0;background:linear-gradient(160deg,#e8eff4,#c8dce8,#9abccf)"></div>
+            <span style="position:relative;z-index:1;font-size:5.5rem">⛩️</span>
+            <div class="cm-ov"></div>
+            <div class="play-btn">▶</div>
+            <div class="vis-pin" style="top:9px;right:9px">🌐</div>
+            <div class="cm-info">
+              <div class="cm-loc">📍 Fushimi Inari · Kyoto 🇯🇵</div>
+              <div class="cm-title" style="font-size:.96rem">ซากุระ 12 วัน ในฝัน</div>
+              <div style="display:flex;align-items:center;gap:7px;margin-top:6px"><div class="av" style="width:21px;height:21px;font-size:.68rem">🧑</div><span style="font-size:.64rem;color:rgba(255,255,255,.9)">ต้น ณัฐพล</span><span style="margin-left:auto;font-size:.62rem;color:rgba(255,255,255,.7)">❤️ 2.1k · 👁 18k</span></div>
+            </div>
+            <div class="reel-side">
+              <div class="ract"><div class="ract-ic">❤️</div>2.1k</div>
+              <div class="ract"><div class="ract-ic">💬</div>184</div>
+              <div class="ract"><div class="ract-ic">↗️</div></div>
+              <div class="ract"><div class="ract-ic">🔖</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="go('pg-post')">
+          <div class="card-hd">
+            <div class="av">👩</div>
+            <div><div class="uname">มิ้น ปิยาภรณ์</div><div class="utime">เมื่อวาน · 🇮🇩 Bali</div></div>
+            <button class="flw following">✓ ติดตาม</button>
+          </div>
+          <div class="cm r43 bg-bl">
+            <div style="position:absolute;inset:0;background:linear-gradient(160deg,#e0eee8,#b8d8c4,#8cc8a4)"></div>
+            <span style="position:relative;z-index:1">🌿</span>
+            <div class="cm-ov"></div>
+            <div class="cm-info"><div class="cm-loc">📍 Ubud · Bali</div><div class="cm-title">7 วันใน Bali ที่เปลี่ยนชีวิต</div></div>
+            <div class="vis-pin">👨‍👩‍👧 ครอบครัว</div>
+          </div>
+          <div class="card-bd">
+            <div class="chips"><span class="chip">💰 ฿28,000</span><span class="chip">📅 7 วัน</span><span class="chip chip-g">⭐ 4.9</span></div>
+            <div class="acts">
+              <button class="act" id="lk2" onclick="event.stopPropagation();tgl('lk2','lc2')">❤️ <span id="lc2">2,481</span></button>
+              <div class="asep"></div><button class="act">💬 196</button>
+              <div class="asep"></div><button class="act">↗️</button>
+              <div class="asep"></div><button class="act saved">🔖</button>
+            </div>
+          </div>
+        </div>
+        <div class="spacer"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOR YOU FEED -->
+  <div id="feed-foryou" class="feed-panel">
+    <div class="scroll">
+      <div class="feed-wrap">
+        <!-- Taste summary banner -->
+        <div class="stats-banner">
+          <div class="sb-icon">✨</div>
+          <div>
+            <div class="sb-title">แนะนำตามรสนิยมคุณ</div>
+            <div class="sb-sub">จากการวิเคราะห์ความชอบของคุณ</div>
+            <div class="sb-chips">
+              <span class="sb-chip">🇯🇵 ญี่ปุ่น</span>
+              <span class="sb-chip">🏖️ ทะเล</span>
+              <span class="sb-chip">🍜 อาหาร</span>
+              <span class="sb-chip">📸 ภาพ</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="go('pg-post')">
+          <div class="card-hd">
+            <div class="av">👩</div>
+            <div><div class="uname">ฝน วรารัตน์</div><div class="utime">🌊 Maldives · ❤️ 5,280</div></div>
+            <button class="flw">+ ติดตาม</button>
+          </div>
+          <div class="cm r43 bg-ml">
+            <div style="position:absolute;inset:0;background:linear-gradient(160deg,#d8e8f0,#a8c8d8,#7aaccc)"></div>
+            <span style="position:relative;z-index:1">🌊</span>
+            <div class="cm-ov"></div>
+            <div class="cm-info"><div class="cm-loc">📍 Maldives · Indian Ocean</div><div class="cm-title">มัลดีฟส์ฮันนีมูน ทะเลใสสีฟ้า</div></div>
+            <div class="ai-pin">🤖 แนะนำ</div><div class="vis-pin">🌐 สาธารณะ</div>
+          </div>
+          <div class="card-bd">
+            <div class="chips"><span class="chip">💰 ฿95,000</span><span class="chip">📅 7 วัน</span><span class="chip chip-g">⭐ 5.0</span></div>
+            <div class="acts">
+              <button class="act" id="lk3" onclick="event.stopPropagation();tgl('lk3','lc3')">❤️ <span id="lc3">5,280</span></button>
+              <div class="asep"></div><button class="act">💬 318</button>
+              <div class="asep"></div><button class="act">↗️</button>
+              <div class="asep"></div><button class="act">🔖</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="sec-h"><div class="sec-h-t">🔥 Trending ที่คุณน่าจะชอบ</div><div class="sec-h-a" onclick="go('pg-map')">ดูแผนที่ →</div></div>
+      </div>
+      <div class="hscroll" style="margin-bottom:8px">
+        <div class="dcard"><div class="dcard-img bg-jp">⛩️</div><div class="dcard-body"><div class="dcard-name">ญี่ปุ่น</div><div class="dcard-stat">👥 12,400<br>💰 ฿45,000</div><div class="dcard-score">★ 4.9</div></div></div>
+        <div class="dcard"><div class="dcard-img bg-ml">🌊</div><div class="dcard-body"><div class="dcard-name">มัลดีฟส์</div><div class="dcard-stat">👥 4,200<br>💰 ฿95,000</div><div class="dcard-score">★ 5.0</div></div></div>
+        <div class="dcard"><div class="dcard-img bg-bl">🌴</div><div class="dcard-body"><div class="dcard-name">บาหลี</div><div class="dcard-stat">👥 9,800<br>💰 ฿28,000</div><div class="dcard-score">★ 4.7</div></div></div>
+        <div class="dcard"><div class="dcard-img bg-kr">🌸</div><div class="dcard-body"><div class="dcard-name">เกาหลี</div><div class="dcard-stat">👥 11,200<br>💰 ฿35,000</div><div class="dcard-score">★ 4.8</div></div></div>
+        <div class="dcard"><div class="dcard-img bg-du">🕌</div><div class="dcard-body"><div class="dcard-name">ดูไบ</div><div class="dcard-stat">👥 7,200<br>💰 ฿65,000</div><div class="dcard-score">★ 4.6</div></div></div>
+      </div>
+      <div class="feed-wrap" style="padding-top:4px">
+        <div class="wcard" style="margin:0">
+          <div class="wc-img bg-kr">🌸</div>
+          <div class="wc-body">
+            <div class="wc-loc">📍 Seoul · Korea</div>
+            <div class="wc-title">เกาหลีฤดูใบไม้ร่วง ตามรอยซีรีส์</div>
+            <div class="wc-stats"><span>❤️ 3,720</span><span>👁 45k</span></div>
+          </div>
+        </div>
+        <div class="spacer"></div>
+      </div>
+    </div>
+  </div>
+
   <div class="bnav">
     <button class="bni on" onclick="go('pg-feed',this)"><div class="bni-ic">🏠</div><div class="bni-lb">หน้าหลัก</div></button>
     <button class="bni" onclick="go('pg-search',this)"><div class="bni-ic">🔍</div><div class="bni-lb">ค้นหา</div></button>
@@ -545,34 +544,32 @@ body{
 
 <!-- ════ SEARCH ════ -->
 <div id="pg-search" class="page">
-  <div class="search-hd">
-    <div class="sinput-wrap"><span style="font-size:.9rem">🔍</span><input class="sinput" placeholder="ค้นหาสถานที่ ประเทศ คน..."></div>
-  </div>
+  <div class="search-hd"><div class="sinput-wrap"><span style="font-size:.9rem">🔍</span><input class="sinput" placeholder="ค้นหาสถานที่ ประเทศ คน..."></div></div>
   <div class="sort-row">
     <div class="schip on">🔥 ยอดนิยม</div><div class="schip">❤️ ถูกใจสุด</div>
     <div class="schip">✨ น่ารักสุด</div><div class="schip">💰 ประหยัดสุด</div>
     <div class="schip">🌟 ใหม่สุด</div><div class="schip">👁 วิวสูงสุด</div><div class="schip">🎬 วิดีโอ</div>
   </div>
   <div class="scroll">
-    <div style="padding:14px 20px 8px;display:flex;justify-content:space-between;align-items:center">
+    <div style="padding:12px 18px 7px;display:flex;justify-content:space-between;align-items:center">
       <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--ink)">ผลการค้นหา</span>
-      <span style="font-size:.63rem;color:var(--ink3)">แสดงทั้งหมด</span>
+      <span style="font-size:.62rem;color:var(--ink3)">แสดงทั้งหมด</span>
     </div>
-    <div style="padding:0 16px">
+    <div style="padding:0 14px">
       <div class="rcard" onclick="go('pg-post')">
         <div class="card-hd"><div class="av">👩</div><div><div class="uname">นิ่ม สุภาพร</div><div class="utime">🇫🇷 Paris · ❤️ 4,218 · 👁 28k</div></div><div class="rank-num">#1</div></div>
-        <div class="rcard-media bg-fr"><div style="position:absolute;inset:0;background:linear-gradient(160deg,#d4f0f0,#b8e4e4)"></div><span style="position:relative;z-index:1">🗼</span><div class="cm-ov"></div><div class="cm-info"><div class="cm-loc">Paris, France</div><div class="cm-title" style="font-size:.9rem">วันที่ฉันหลงรักปารีส</div></div></div>
-        <div style="padding:9px 14px 12px"><div class="chips"><span class="chip chip-g">❤️ 4,218</span><span class="chip chip-t">👁 28,400</span><span class="chip">💰 ฿92,400</span></div></div>
+        <div class="rcard-media bg-fr"><div style="position:absolute;inset:0;background:linear-gradient(160deg,#dce8ee,#b8d0dc)"></div><span style="position:relative;z-index:1">🗼</span><div class="cm-ov"></div><div class="cm-info"><div class="cm-loc">Paris, France</div><div class="cm-title" style="font-size:.88rem">วันที่ฉันหลงรักปารีส</div></div></div>
+        <div style="padding:8px 13px 11px"><div class="chips"><span class="chip chip-g">❤️ 4,218</span><span class="chip chip-t">👁 28,400</span><span class="chip">💰 ฿92,400</span></div></div>
       </div>
       <div class="rcard" onclick="go('pg-post')">
-        <div class="card-hd"><div class="av">👩</div><div><div class="uname">มิ้น ปิยาภรณ์</div><div class="utime">🌊 Maldives · ❤️ 5,280 · 👁 62k</div></div><div class="rank-num">#2</div></div>
-        <div class="rcard-media bg-ml"><div style="position:absolute;inset:0;background:linear-gradient(160deg,#caf0f8,#90e0ef)"></div><span style="position:relative;z-index:1">🌊</span><div class="cm-ov"></div><div class="cm-info"><div class="cm-loc">Maldives</div><div class="cm-title" style="font-size:.9rem">มัลดีฟส์ฮันนีมูนในฝัน</div></div></div>
-        <div style="padding:9px 14px 12px"><div class="chips"><span class="chip chip-g">❤️ 5,280</span><span class="chip chip-t">👁 62,000</span><span class="chip">💰 ฿95,000</span></div></div>
+        <div class="card-hd"><div class="av">👩</div><div><div class="uname">ฝน วรารัตน์</div><div class="utime">🌊 Maldives · ❤️ 5,280 · 👁 62k</div></div><div class="rank-num">#2</div></div>
+        <div class="rcard-media bg-ml"><div style="position:absolute;inset:0;background:linear-gradient(160deg,#d8e8f0,#a8c8d8)"></div><span style="position:relative;z-index:1">🌊</span><div class="cm-ov"></div><div class="cm-info"><div class="cm-loc">Maldives</div><div class="cm-title" style="font-size:.88rem">มัลดีฟส์ฮันนีมูนในฝัน</div></div></div>
+        <div style="padding:8px 13px 11px"><div class="chips"><span class="chip chip-g">❤️ 5,280</span><span class="chip chip-t">👁 62,000</span><span class="chip">💰 ฿95,000</span></div></div>
       </div>
       <div class="rcard" onclick="go('pg-post')">
         <div class="card-hd"><div class="av">🧑</div><div><div class="uname">ต้น ณัฐพล</div><div class="utime">🇯🇵 Japan · ❤️ 2,100 · 👁 18k</div></div><div class="rank-num">#3</div></div>
-        <div class="rcard-media bg-jp"><div style="position:absolute;inset:0;background:linear-gradient(160deg,#fff7ed,#fed7aa)"></div><span style="position:relative;z-index:1">⛩️</span><div class="cm-ov"></div><div class="cm-info"><div class="cm-loc">Kyoto, Japan</div><div class="cm-title" style="font-size:.9rem">ซากุระ 12 วัน</div></div></div>
-        <div style="padding:9px 14px 12px"><div class="chips"><span class="chip chip-g">❤️ 2,100</span><span class="chip chip-t">👁 18,000</span><span class="chip">💰 ฿48,200</span></div></div>
+        <div class="rcard-media bg-jp"><div style="position:absolute;inset:0;background:linear-gradient(160deg,#e8eff4,#c8dce8)"></div><span style="position:relative;z-index:1">⛩️</span><div class="cm-ov"></div><div class="cm-info"><div class="cm-loc">Kyoto, Japan</div><div class="cm-title" style="font-size:.88rem">ซากุระ 12 วัน</div></div></div>
+        <div style="padding:8px 13px 11px"><div class="chips"><span class="chip chip-g">❤️ 2,100</span><span class="chip chip-t">👁 18,000</span><span class="chip">💰 ฿48,200</span></div></div>
       </div>
     </div>
     <div class="spacer"></div>
@@ -591,30 +588,28 @@ body{
   <div class="np-hd"><button class="np-back" onclick="go('pg-feed')">←</button><h2>สร้างโพสต์ใหม่</h2><button class="np-post" onclick="alert('โพสต์สำเร็จ! 🌊✨')">โพสต์</button></div>
   <div class="scroll">
     <div class="np-picker">
-      <div class="picker-ic">🌊</div>
-      <div class="picker-lb">เพิ่มรูปหรือวิดีโอ</div>
-      <div class="picker-sub">JPG · PNG · MP4 · MOV</div>
+      <div style="font-size:2.4rem">🌊</div>
+      <div style="font-size:.76rem;color:var(--navy);font-weight:600">เพิ่มรูปหรือวิดีโอ</div>
+      <div style="font-size:.62rem;color:var(--ink3)">JPG · PNG · MP4 · MOV</div>
       <div class="picker-btns"><div class="pbtn">📷 กล้อง</div><div class="pbtn">🖼 คลัง</div><div class="pbtn">🎬 วิดีโอ</div></div>
     </div>
     <div class="np-slbl">ประเภทโพสต์</div>
     <div class="np-types">
       <div class="nptype on">✈️ ทริป</div><div class="nptype">📸 รีวิว</div>
-      <div class="nptype">🎬 วิดีโอสั้น</div><div class="nptype">💭 ความรู้สึก</div><div class="nptype">👨‍👩‍👧 ครอบครัว</div>
+      <div class="nptype">🎬 คลิปสั้น</div><div class="nptype">💭 ความรู้สึก</div><div class="nptype">👨‍👩‍👧 ครอบครัว</div>
     </div>
     <div class="np-slbl">รายละเอียด</div>
     <div class="npf"><div class="npf-lbl">หัวข้อ</div><input placeholder="เช่น วันที่ฉันหลงรักปารีส..."></div>
     <div class="npf"><div class="npf-lbl">เรื่องราว</div><textarea placeholder="เล่าความทรงจำของคุณ..."></textarea></div>
     <div class="npf"><div class="npf-lbl">📍 สถานที่</div><input placeholder="เช่น Paris, France"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 16px 9px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 14px 8px">
       <div class="npf"><div class="npf-lbl">💰 งบ (฿)</div><input placeholder="92,400" type="number"></div>
-      <div class="npf"><div class="npf-lbl">📅 จำนวนวัน</div><input placeholder="8" type="number"></div>
+      <div class="npf"><div class="npf-lbl">📅 วัน</div><input placeholder="8" type="number"></div>
     </div>
     <div class="np-slbl">ความรู้สึก</div>
-    <div style="display:flex;gap:8px;padding:0 16px 12px;overflow-x:auto">
-      <div style="flex-shrink:0;padding:6px 12px;border-radius:100px;background:var(--gold3);border:1.5px solid rgba(201,147,58,.25);font-size:.72rem;cursor:pointer;color:var(--gold)">😍 ประทับใจมาก</div>
-      <div style="flex-shrink:0;padding:6px 12px;border-radius:100px;background:var(--sand);border:1.5px solid var(--line);font-size:.72rem;cursor:pointer;color:var(--ink2)">🥰 อบอุ่นใจ</div>
-      <div style="flex-shrink:0;padding:6px 12px;border-radius:100px;background:var(--sand);border:1.5px solid var(--line);font-size:.72rem;cursor:pointer;color:var(--ink2)">🌊 สงบใจ</div>
-      <div style="flex-shrink:0;padding:6px 12px;border-radius:100px;background:var(--sand);border:1.5px solid var(--line);font-size:.72rem;cursor:pointer;color:var(--ink2)">🎉 สนุกมาก</div>
+    <div class="mood-row">
+      <div class="mood on">😍 ประทับใจมาก</div><div class="mood">🥰 อบอุ่นใจ</div>
+      <div class="mood">🌊 สงบใจ</div><div class="mood">🎉 สนุกมาก</div><div class="mood">😢 คิดถึง</div>
     </div>
     <div class="np-slbl">ใครมองเห็น?</div>
     <div class="vis-row">
@@ -627,18 +622,18 @@ body{
     <button class="ai-btn warm" onclick="openAI('np','image')" style="margin-top:0">🎨 ให้ AI สร้างภาพประกอบ</button>
     <button class="ai-btn sage" onclick="openAI('np','video')" style="margin-top:0">🎬 ให้ AI สร้างวิดีโอสั้น</button>
     <button class="ai-btn rose" onclick="openAI('np','summary')" style="margin-top:0">📋 AI สรุปทริปอัตโนมัติ</button>
-    <div id="ai-panel-np" class="ai-panel" style="margin:8px 16px 14px">
+    <div id="ai-panel-np" class="ai-panel" style="margin:7px 14px 12px">
       <div class="ai-msgs" id="ai-msgs-np">
-        <div class="ai-msg bot"><div class="ai-av bot">🤖</div><div class="ai-bub">สวัสดีครับ! ฉัน AI ผู้ช่วยส่วนตัวของคุณ 🌊<br><br>บอกฉันว่าไปที่ไหนมา แล้วฉันจะช่วยเขียน สร้างภาพ ทำวิดีโอ หรือสรุปทริปให้ทันที ✨</div></div>
+        <div class="ai-msg bot"><div class="ai-av bot">✦</div><div class="ai-bub">สวัสดีครับ! ฉัน AI ผู้ช่วยของ Cherish 🌊<br>บอกว่าไปที่ไหนมา จะช่วยเขียน สร้างภาพ หรือสรุปทริปให้ทันที ✨</div></div>
       </div>
       <div class="ai-qbtns">
         <button class="ai-qb" onclick="sendAI('np','เขียนคำบรรยายให้หน่อย')">✍️ เขียนให้</button>
-        <button class="ai-qb" onclick="sendAI('np','สร้างภาพสวยๆให้หน่อย')">🎨 สร้างภาพ</button>
+        <button class="ai-qb" onclick="sendAI('np','สร้างภาพให้หน่อย')">🎨 สร้างภาพ</button>
         <button class="ai-qb" onclick="sendAI('np','สรุปทริปให้หน่อย')">📋 สรุปทริป</button>
-        <button class="ai-qb" onclick="sendAI('np','ทำวิดีโอสั้นให้หน่อย')">🎬 วิดีโอ</button>
+        <button class="ai-qb" onclick="sendAI('np','ทำวิดีโอให้หน่อย')">🎬 วิดีโอ</button>
       </div>
       <div class="ai-inp-row">
-        <input class="ai-inp" id="ai-input-np" placeholder="พิมพ์ถาม AI ได้เลย..." onkeydown="if(event.key==='Enter')sendAI('np',this.value)">
+        <input class="ai-inp" id="ai-input-np" placeholder="พิมพ์ถาม AI..." onkeydown="if(event.key==='Enter')sendAI('np',this.value)">
         <button class="ai-send" onclick="sendAI('np',document.getElementById('ai-input-np').value)">↑</button>
       </div>
     </div>
@@ -665,54 +660,81 @@ body{
     <div class="map-area">
       <svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <linearGradient id="mbg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#d4f0f0"/><stop offset="100%" style="stop-color:#a8dada"/></linearGradient>
+          <linearGradient id="mbg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#e8f0f4"/><stop offset="100%" style="stop-color:#b8d0dc"/></linearGradient>
           <filter id="gl"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
         </defs>
         <rect width="400" height="220" fill="url(#mbg)"/>
-        <g stroke="rgba(10,100,80,.09)" stroke-width="0.5">
+        <g stroke="rgba(45,91,117,.09)" stroke-width="0.5">
           <line x1="0" y1="55" x2="400" y2="55"/><line x1="0" y1="110" x2="400" y2="110"/><line x1="0" y1="165" x2="400" y2="165"/>
           <line x1="100" y1="0" x2="100" y2="220"/><line x1="200" y1="0" x2="200" y2="220"/><line x1="300" y1="0" x2="300" y2="220"/>
         </g>
-        <path d="M32 26 Q40 22 60 24 Q88 26 88 36 Q92 48 84 60 Q76 72 68 78 Q52 86 44 88 Q36 80 34 70 Q28 56 32 40Z" fill="rgba(10,95,75,.1)" stroke="rgba(10,95,75,.2)" stroke-width=".8"/>
-        <path d="M68 96 Q76 94 80 100 Q84 108 86 124 Q87 136 80 148 Q72 158 64 156 Q56 154 54 144 Q52 132 54 120 Q56 108 62 100Z" fill="rgba(10,95,75,.08)" stroke="rgba(10,95,75,.15)" stroke-width=".7"/>
-        <path d="M176 26 Q184 22 192 26 Q200 30 203 38 Q204 44 200 50 Q195 55 188 54 Q180 52 177 44 Q174 36 176 26Z" fill="rgba(10,95,75,.12)" stroke="rgba(10,95,75,.22)" stroke-width=".9"/>
-        <path d="M178 56 Q188 52 196 56 Q204 62 206 72 Q208 86 206 100 Q204 112 198 122 Q191 130 183 128 Q175 126 171 116 Q167 104 168 90 Q168 76 172 66Z" fill="rgba(10,95,75,.08)" stroke="rgba(10,95,75,.14)" stroke-width=".7"/>
-        <path d="M208 24 Q228 18 256 20 Q296 22 316 30 Q332 38 330 48 Q324 58 300 60 Q260 62 228 56 Q212 50 208 40Z" fill="rgba(10,95,75,.11)" stroke="rgba(10,95,75,.2)" stroke-width=".9"/>
-        <path d="M240 66 Q248 62 254 66 Q258 72 256 82 Q254 90 248 94 Q242 96 238 90 Q234 82 236 74Z" fill="rgba(10,95,75,.08)" stroke="rgba(10,95,75,.14)" stroke-width=".7"/>
-        <path d="M276 68 Q296 64 304 70 Q312 76 310 86 Q306 96 288 98 Q272 98 268 86 Q266 76 276 68Z" fill="rgba(10,95,75,.09)" stroke="rgba(10,95,75,.16)" stroke-width=".7"/>
-        <path d="M314 40 Q319 36 323 40 Q326 44 324 50 Q321 55 316 53 Q312 50 312 44Z" fill="rgba(10,140,140,.2)" stroke="rgba(10,140,140,.6)" stroke-width="1" filter="url(#gl)"/>
-        <path d="M300 112 Q320 108 336 112 Q348 118 350 130 Q351 142 343 150 Q334 156 320 154 Q306 152 299 142 Q294 132 296 120Z" fill="rgba(10,95,75,.06)" stroke="rgba(10,95,75,.12)" stroke-width=".7"/>
-        <!-- Pins -->
+        <path d="M32 26 Q40 22 60 24 Q88 26 88 36 Q92 48 84 60 Q76 72 68 78 Q52 86 44 88 Q36 80 34 70 Q28 56 32 40Z" fill="rgba(45,91,117,.1)" stroke="rgba(45,91,117,.2)" stroke-width=".8"/>
+        <path d="M68 96 Q76 94 80 100 Q84 108 86 124 Q87 136 80 148 Q72 158 64 156 Q56 154 54 144 Q52 132 54 120 Q56 108 62 100Z" fill="rgba(45,91,117,.08)" stroke="rgba(45,91,117,.15)" stroke-width=".7"/>
+        <path d="M176 26 Q184 22 192 26 Q200 30 203 38 Q204 44 200 50 Q195 55 188 54 Q180 52 177 44 Q174 36 176 26Z" fill="rgba(45,91,117,.13)" stroke="rgba(45,91,117,.25)" stroke-width=".9"/>
+        <path d="M178 56 Q188 52 196 56 Q204 62 206 72 Q208 86 206 100 Q204 112 198 122 Q191 130 183 128 Q175 126 171 116 Q167 104 168 90 Q168 76 172 66Z" fill="rgba(45,91,117,.08)" stroke="rgba(45,91,117,.14)" stroke-width=".7"/>
+        <path d="M208 24 Q228 18 256 20 Q296 22 316 30 Q332 38 330 48 Q324 58 300 60 Q260 62 228 56 Q212 50 208 40Z" fill="rgba(45,91,117,.11)" stroke="rgba(45,91,117,.2)" stroke-width=".9"/>
+        <path d="M240 66 Q248 62 254 66 Q258 72 256 82 Q254 90 248 94 Q242 96 238 90 Q234 82 236 74Z" fill="rgba(45,91,117,.08)" stroke="rgba(45,91,117,.14)" stroke-width=".7"/>
+        <path d="M276 68 Q296 64 304 70 Q312 76 310 86 Q306 96 288 98 Q272 98 268 86 Q266 76 276 68Z" fill="rgba(45,91,117,.09)" stroke="rgba(45,91,117,.16)" stroke-width=".7"/>
+        <path d="M314 40 Q319 36 323 40 Q326 44 324 50 Q321 55 316 53 Q312 50 312 44Z" fill="rgba(45,91,117,.22)" stroke="rgba(45,91,117,.6)" stroke-width="1" filter="url(#gl)"/>
+        <path d="M300 112 Q320 108 336 112 Q348 118 350 130 Q351 142 343 150 Q334 156 320 154 Q306 152 299 142 Q294 132 296 120Z" fill="rgba(45,91,117,.07)" stroke="rgba(45,91,117,.13)" stroke-width=".7"/>
+        <!-- Pins with vis indicators -->
         <g transform="translate(317,38)" onclick="selPin('japan')" style="cursor:pointer">
-          <circle r="9" fill="white" stroke="rgba(10,140,140,.45)" stroke-width="1.5" filter="url(#gl)"/>
-          <circle r="4.5" fill="#0a8c8c"/>
-          <circle r="9" fill="none" stroke="rgba(10,140,140,.35)" stroke-width="1"><animate attributeName="r" from="5" to="16" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" from=".7" to="0" dur="2.2s" repeatCount="indefinite"/></circle>
-          <text x="0" y="-12" text-anchor="middle" fill="#1c1008" font-size="5.5" font-family="Noto Sans Thai" font-weight="600">🇯🇵 ญี่ปุ่น</text>
+          <circle r="9" fill="white" stroke="rgba(45,91,117,.48)" stroke-width="1.5" filter="url(#gl)"/>
+          <circle r="4.5" fill="#2d5b75"/>
+          <circle r="9" fill="none" stroke="rgba(45,91,117,.38)" stroke-width="1"><animate attributeName="r" from="5" to="16" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" from=".7" to="0" dur="2.2s" repeatCount="indefinite"/></circle>
+          <text x="0" y="-12" text-anchor="middle" fill="#14222b" font-size="5.5" font-family="Noto Sans Thai" font-weight="600">🇯🇵 ญี่ปุ่น 🌐</text>
         </g>
-        <g transform="translate(184,33)" onclick="selPin('france')" style="cursor:pointer"><circle r="6.5" fill="white" stroke="rgba(10,140,140,.35)" stroke-width="1.2"/><circle r="3.2" fill="#0a8c8c"/><text x="0" y="-11" text-anchor="middle" fill="#1c1008" font-size="5" font-family="Noto Sans Thai">🇫🇷</text></g>
-        <g transform="translate(196,44)" onclick="selPin('italy')" style="cursor:pointer"><circle r="6.5" fill="white" stroke="rgba(6,95,95,.3)" stroke-width="1.2"/><circle r="3.2" fill="#065f5f"/><text x="0" y="-11" text-anchor="middle" fill="#1c1008" font-size="5" font-family="Noto Sans Thai">🇮🇹</text></g>
-        <g transform="translate(291,78)" onclick="selPin('bali')" style="cursor:pointer"><circle r="6.5" fill="white" stroke="rgba(74,124,89,.4)" stroke-width="1.2"/><circle r="3.2" fill="#4a7c59"/><text x="0" y="-11" text-anchor="middle" fill="#1c1008" font-size="5" font-family="Noto Sans Thai">🇮🇩</text></g>
-        <g transform="translate(309,50)" onclick="selPin('korea')" style="cursor:pointer"><circle r="6.5" fill="white" stroke="rgba(10,140,140,.35)" stroke-width="1.2"/><circle r="3.2" fill="#0bb3b3"/><text x="0" y="-11" text-anchor="middle" fill="#1c1008" font-size="5" font-family="Noto Sans Thai">🇰🇷</text></g>
-        <g transform="translate(160,68)" onclick="selPin('chiangmai')" style="cursor:pointer"><circle r="6.5" fill="white" stroke="rgba(201,147,58,.45)" stroke-width="1.2"/><circle r="3.2" fill="#c9933a"/><text x="0" y="-11" text-anchor="middle" fill="#1c1008" font-size="5" font-family="Noto Sans Thai">🔒 ไทย</text></g>
+        <g transform="translate(184,33)" onclick="selPin('france')" style="cursor:pointer">
+          <circle r="7" fill="white" stroke="rgba(45,91,117,.38)" stroke-width="1.2"/><circle r="3.5" fill="#2d5b75"/>
+          <text x="0" y="-12" text-anchor="middle" fill="#14222b" font-size="5" font-family="Noto Sans Thai">🇫🇷 🌐</text>
+        </g>
+        <g transform="translate(196,44)" onclick="selPin('italy')" style="cursor:pointer">
+          <circle r="7" fill="white" stroke="rgba(31,66,85,.32)" stroke-width="1.2"/><circle r="3.5" fill="#1f4255"/>
+          <text x="0" y="-12" text-anchor="middle" fill="#14222b" font-size="5" font-family="Noto Sans Thai">🇮🇹 🌐</text>
+        </g>
+        <g transform="translate(291,78)" onclick="selPin('bali')" style="cursor:pointer">
+          <circle r="7" fill="white" stroke="rgba(74,124,89,.4)" stroke-width="1.2"/><circle r="3.5" fill="#4a7c59"/>
+          <text x="0" y="-12" text-anchor="middle" fill="#14222b" font-size="5" font-family="Noto Sans Thai">🇮🇩 👨‍👩‍👧</text>
+        </g>
+        <g transform="translate(309,50)" onclick="selPin('korea')" style="cursor:pointer">
+          <circle r="7" fill="white" stroke="rgba(58,111,140,.38)" stroke-width="1.2"/><circle r="3.5" fill="#3a6f8c"/>
+          <text x="0" y="-12" text-anchor="middle" fill="#14222b" font-size="5" font-family="Noto Sans Thai">🇰🇷 🌐</text>
+        </g>
+        <g transform="translate(160,68)" onclick="selPin('chiangmai')" style="cursor:pointer">
+          <circle r="7" fill="white" stroke="rgba(192,57,43,.42)" stroke-width="1.2"/><circle r="3.5" fill="#c0392b"/>
+          <text x="0" y="-12" text-anchor="middle" fill="#14222b" font-size="5" font-family="Noto Sans Thai">🇹🇭 🔒</text>
+        </g>
       </svg>
       <div class="mpop" id="mpop">
         <div class="pp-e" id="pp-e">⛩️</div>
-        <div>
+        <div style="flex:1">
           <div class="pp-t" id="pp-t">ซากุระที่เกียวโต</div>
           <div class="pp-d" id="pp-d">มีนาคม 2567 · 12 วัน</div>
-          <div class="pp-a" id="pp-a">งบ ฿48,200 · 6 เมือง · ดูซากุระ</div>
+          <div class="pp-a" id="pp-a">งบ ฿48,200 · ดูซากุระ</div>
           <div class="pp-tags" id="pp-tags"><span class="ptag">💰 ฿48,200</span><span class="ptag">⭐ 5/5</span><span class="ptag">🌐 สาธารณะ</span></div>
         </div>
       </div>
     </div>
-    <div class="pin-title">📍 หมุดทั้งหมด</div>
+
+    <!-- Map visibility toggle -->
+    <div class="map-vis-toggle">
+      <div>
+        <div class="mvt-label">🌐 แผนที่เปิดสาธารณะ</div>
+        <div class="mvt-sub">คนอื่นเห็นได้เฉพาะหมุดโพสต์สาธารณะ</div>
+      </div>
+      <div class="toggle" id="map-toggle" onclick="toggleMap()">
+        <div class="toggle-dot"></div>
+      </div>
+    </div>
+
+    <div class="pin-title">📍 หมุดของคุณ</div>
     <div class="pin-hscroll">
-      <div class="pchip sel" onclick="selPin('japan');mc(this)"><span class="pf">🇯🇵</span><div><div class="pn">ญี่ปุ่น</div><div class="pd">มี.ค. 2567</div></div></div>
-      <div class="pchip" onclick="selPin('france');mc(this)"><span class="pf">🇫🇷</span><div><div class="pn">ฝรั่งเศส</div><div class="pd">ก.ย. 2566</div></div></div>
-      <div class="pchip" onclick="selPin('italy');mc(this)"><span class="pf">🇮🇹</span><div><div class="pn">อิตาลี</div><div class="pd">ก.ย. 2566</div></div></div>
-      <div class="pchip" onclick="selPin('bali');mc(this)"><span class="pf">🇮🇩</span><div><div class="pn">บาหลี</div><div class="pd">ม.ค. 2566</div></div></div>
-      <div class="pchip" onclick="selPin('korea');mc(this)"><span class="pf">🇰🇷</span><div><div class="pn">เกาหลี</div><div class="pd">พ.ย. 2565</div></div></div>
-      <div class="pchip" onclick="selPin('chiangmai');mc(this)"><span class="pf">🔒</span><div><div class="pn">เชียงใหม่</div><div class="pd">ม.ค. 2568 · ส่วนตัว</div></div></div>
+      <div class="pchip sel" onclick="selPin('japan');mc(this)"><span class="pf">🇯🇵</span><div><div class="pn">ญี่ปุ่น</div><div class="pd">มี.ค. 2567 · 🌐</div></div></div>
+      <div class="pchip" onclick="selPin('france');mc(this)"><span class="pf">🇫🇷</span><div><div class="pn">ฝรั่งเศส</div><div class="pd">ก.ย. 2566 · 🌐</div></div></div>
+      <div class="pchip" onclick="selPin('italy');mc(this)"><span class="pf">🇮🇹</span><div><div class="pn">อิตาลี</div><div class="pd">ก.ย. 2566 · 🌐</div></div></div>
+      <div class="pchip" onclick="selPin('bali');mc(this)"><span class="pf">🇮🇩</span><div><div class="pn">บาหลี</div><div class="pd">ม.ค. 2566 · 👨‍👩‍👧</div></div></div>
+      <div class="pchip" onclick="selPin('korea');mc(this)"><span class="pf">🇰🇷</span><div><div class="pn">เกาหลี</div><div class="pd">พ.ย. 2565 · 🌐</div></div></div>
+      <div class="pchip" onclick="selPin('chiangmai');mc(this)"><span class="pf">🇹🇭</span><div><div class="pn">เชียงใหม่</div><div class="pd">ม.ค. 2568 · 🔒</div></div></div>
     </div>
     <div class="stat-row">
       <div class="stat-box"><div class="stat-n">42</div><div class="stat-l">ประเทศ</div></div>
@@ -730,51 +752,109 @@ body{
   </div>
 </div>
 
-<!-- ════ PROFILE ════ -->
+<!-- ════ PROFILE (redesigned) ════ -->
 <div id="pg-profile" class="page">
   <div class="scroll">
-    <div class="prof-cover">
-      <div class="pc-ov"></div>
-      <div class="pc-quote">"ทุกการเดินทาง คือความทรงจำที่มีคุณค่า"</div>
-      <button class="pc-edit">✏️ แก้ไขโปรไฟล์</button>
+    <!-- Hero cover -->
+    <div class="prof-hero">
+      <div class="ph-bg"></div>
+      <div class="ph-pattern"></div>
+      <div class="ph-glow"></div>
+      <div class="ph-quote">"ทุกการเดินทาง คือความทรงจำที่มีคุณค่า"</div>
+      <button class="ph-edit">✏️ แก้ไขโปรไฟล์</button>
     </div>
+
     <div class="prof-body">
+      <!-- Avatar + actions -->
       <div class="prof-top">
-        <div class="prof-av" id="pav">👩</div>
+        <div class="prof-av-wrap">
+          <div class="prof-av-ring">
+            <div class="prof-av" id="pav">👩</div>
+          </div>
+          <div class="prof-verified">✦</div>
+        </div>
         <div class="prof-acts">
           <button class="prof-flw">+ ติดตาม</button>
           <div class="prof-more">⋯</div>
         </div>
       </div>
+
+      <!-- Name / bio -->
       <div class="prof-name" id="pname">นิ่ม สุภาพร</div>
       <div class="prof-handle">@nimsupaporn · กรุงเทพฯ, ไทย</div>
-      <div class="prof-badges"><span class="pb pb-t">TOP CREATOR</span><span class="pb pb-g">WORLD TRAVELER</span></div>
-      <div class="prof-stats">
+      <div class="prof-bio">นักเดินทางชาวไทย ชอบค้นหาความทรงจำใหม่ๆ<br>📍 42 ประเทศ · 🍜 Foodie · 📸 Photographer</div>
+      <div class="prof-badges">
+        <span class="pb pb-t">TOP CREATOR</span>
+        <span class="pb pb-g">WORLD TRAVELER</span>
+        <span class="pb pb-t" style="background:var(--gold3);border-color:rgba(201,160,90,.25);color:var(--gold)">VERIFIED ✦</span>
+      </div>
+
+      <!-- Stats bar -->
+      <div class="prof-stat-bar">
         <div class="pst"><div class="psn">42</div><div class="psl">ประเทศ</div></div>
         <div class="pst"><div class="psn">2.4M</div><div class="psl">ยอดวิว</div></div>
         <div class="pst"><div class="psn">84K</div><div class="psl">ผู้ติดตาม</div></div>
         <div class="pst"><div class="psn">312</div><div class="psl">โพสต์</div></div>
+        <div class="pst"><div class="psn">18K</div><div class="psl">❤️ รับ</div></div>
       </div>
+
+      <!-- Taste profile — unique feature -->
+      <div class="taste-card">
+        <div class="tc-title">✦ รสนิยมการท่องเที่ยวของคุณ</div>
+        <div class="tc-items">
+          <div class="tc-item">
+            <div class="tc-label">🇯🇵 ญี่ปุ่น</div>
+            <div class="tc-bar"><div class="tc-fill" style="width:88%"></div></div>
+            <div class="tc-pct">88%</div>
+          </div>
+          <div class="tc-item">
+            <div class="tc-label">🌊 ทะเล</div>
+            <div class="tc-bar"><div class="tc-fill" style="width:72%"></div></div>
+            <div class="tc-pct">72%</div>
+          </div>
+          <div class="tc-item">
+            <div class="tc-label">🍜 อาหาร</div>
+            <div class="tc-bar"><div class="tc-fill" style="width:65%"></div></div>
+            <div class="tc-pct">65%</div>
+          </div>
+          <div class="tc-item">
+            <div class="tc-label">📸 ภาพ</div>
+            <div class="tc-bar"><div class="tc-fill" style="width:91%"></div></div>
+            <div class="tc-pct">91%</div>
+          </div>
+          <div class="tc-item">
+            <div class="tc-label">🎬 วิดีโอ</div>
+            <div class="tc-bar"><div class="tc-fill" style="width:43%"></div></div>
+            <div class="tc-pct">43%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
       <div class="ptabs">
         <button class="ptab on" onclick="setTab(this)">🌐 ทั้งหมด</button>
         <button class="ptab" onclick="setTab(this)">สาธารณะ</button>
-        <button class="ptab" onclick="setTab(this)">ครอบครัว</button>
+        <button class="ptab" onclick="setTab(this)">👨‍👩‍👧 ครอบครัว</button>
         <button class="ptab" onclick="setTab(this)">🔒 ส่วนตัว</button>
       </div>
+
       <div class="ctags">
         <span class="ctag">🇯🇵 ญี่ปุ่น</span><span class="ctag">🇫🇷 ฝรั่งเศส</span>
-        <span class="ctag">🌊 มัลดีฟส์</span><span class="ctag">🇰🇷 เกาหลี</span><span class="ctag">+38 ประเทศ</span>
+        <span class="ctag">🌊 มัลดีฟส์</span><span class="ctag">🇰🇷 เกาหลี</span><span class="ctag">+38</span>
       </div>
+
       <div class="theme-row">
-        <span class="tlb">สีธีม</span>
-        <div class="tdot on" style="background:linear-gradient(135deg,#0a8c8c,#065f5f)" onclick="setTheme('#0a8c8c','#d6f0f0',this)"></div>
-        <div class="tdot" style="background:linear-gradient(135deg,#c9933a,#8a6020)" onclick="setTheme('#c9933a','#fdf0dc',this)"></div>
+        <span class="tlb">ธีมสี</span>
+        <div class="tdot on" style="background:linear-gradient(135deg,#2d5b75,#14303e)" onclick="setTheme('#2d5b75','#e8f0f4',this)"></div>
+        <div class="tdot" style="background:linear-gradient(135deg,#c9a05a,#8a6020)" onclick="setTheme('#c9a05a','#faf3e6',this)"></div>
         <div class="tdot" style="background:linear-gradient(135deg,#7c3aed,#5b21b6)" onclick="setTheme('#7c3aed','#f5f3ff',this)"></div>
         <div class="tdot" style="background:linear-gradient(135deg,#4a7c59,#2d5c3a)" onclick="setTheme('#4a7c59','#f0fdf4',this)"></div>
         <div class="tdot" style="background:linear-gradient(135deg,#c0392b,#922b21)" onclick="setTheme('#c0392b','#fff0f0',this)"></div>
       </div>
+
+      <!-- Photo grid — varied layout -->
       <div class="pgrid">
-        <div class="pgi bg-jp">⛩️<div class="pgio"><div class="pgi-loc">Kyoto · 🌐</div></div></div>
+        <div class="pgi bg-jp wide">⛩️<div class="pgio"><div class="pgi-loc">Kyoto · 🌐</div></div></div>
         <div class="pgi bg-fr">🗼<div class="pgio"><div class="pgi-loc">Paris · 🌐</div></div></div>
         <div class="pgi bg-ml">🌊<div class="pgio"><div class="pgi-loc">Maldives · 🌐</div></div></div>
         <div class="pgi bg-bl">🌿<div class="pgio"><div class="pgi-loc">Bali · 👨‍👩‍👧</div></div></div>
@@ -782,20 +862,21 @@ body{
         <div class="pgi bg-sw">🏔️<div class="pgio"><div class="pgi-loc">Swiss · 🌐</div></div></div>
         <div class="pgi bg-du">🕌<div class="pgio"><div class="pgi-loc">Dubai · 🔒</div></div></div>
         <div class="pgi bg-jp">🏯<div class="pgio"><div class="pgi-loc">Osaka · 👨‍👩‍👧</div></div></div>
-        <div class="pgi bg-warm">🌅<div class="pgio"><div class="pgi-loc">Phuket · 🌐</div></div></div>
+        <div class="pgi bg-th">🌅<div class="pgio"><div class="pgi-loc">Phuket · 🌐</div></div></div>
       </div>
-      <!-- AI ส่วนตัว -->
+
+      <!-- AI assistant -->
       <div style="margin:14px 0 0">
-        <button class="ai-btn" onclick="togglePanel('ai-panel-prof')">🤖 AI ผู้ช่วยส่วนตัว</button>
-        <div id="ai-panel-prof" class="ai-panel" style="margin:0 0 14px">
+        <button class="ai-btn" onclick="togglePanel('ai-panel-prof')">✦ AI ผู้ช่วยส่วนตัว</button>
+        <div id="ai-panel-prof" class="ai-panel" style="margin:0 0 12px">
           <div class="ai-msgs" id="ai-msgs-prof">
-            <div class="ai-msg bot"><div class="ai-av bot">🤖</div><div class="ai-bub">สวัสดีครับ นิ่ม! 🌊<br><br>วิเคราะห์โปรไฟล์แล้ว — <b>42 ประเทศ</b> · <b>2.4M ยอดวิว</b> 🎉<br>จะให้ช่วยอะไรได้บ้างวันนี้?</div></div>
+            <div class="ai-msg bot"><div class="ai-av bot">✦</div><div class="ai-bub">สวัสดีครับ นิ่ม! ✨<br><br>วิเคราะห์โปรไฟล์แล้ว — <b>42 ประเทศ</b> · <b>2.4M ยอดวิว</b> · รสนิยม: ชอบ <b>ถ่ายรูป 91%</b> และ <b>ญี่ปุ่น 88%</b> 🎉</div></div>
           </div>
           <div class="ai-qbtns">
-            <button class="ai-qb" onclick="sendAI('prof','วิเคราะห์ยอดวิวของฉัน')">📊 วิเคราะห์</button>
+            <button class="ai-qb" onclick="sendAI('prof','วิเคราะห์ยอดวิว')">📊 วิเคราะห์</button>
             <button class="ai-qb" onclick="sendAI('prof','แนะนำทริปต่อไป')">✈️ ทริปใหม่</button>
-            <button class="ai-qb" onclick="sendAI('prof','สรุปความทรงจำปีนี้')">📖 สรุปปีนี้</button>
-            <button class="ai-qb" onclick="sendAI('prof','สร้างภาพสวยๆให้หน่อย')">🎨 สร้างภาพ</button>
+            <button class="ai-qb" onclick="sendAI('prof','สรุปปีนี้')">📖 สรุปปีนี้</button>
+            <button class="ai-qb" onclick="sendAI('prof','สร้างภาพให้หน่อย')">🎨 สร้างภาพ</button>
           </div>
           <div class="ai-inp-row">
             <input class="ai-inp" id="ai-input-prof" placeholder="ถามอะไรก็ได้..." onkeydown="if(event.key==='Enter')sendAI('prof',this.value)">
@@ -819,18 +900,18 @@ body{
   <div class="pd-hd"><button class="pd-back" onclick="go('pg-feed')">←</button><h2>ความทรงจำปารีส</h2></div>
   <div class="scroll">
     <div class="pd-media bg-fr" style="aspect-ratio:4/5">
-      <div style="position:absolute;inset:0;background:linear-gradient(160deg,#d4f0f0,#b8e4e4,#90c8c8)"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(160deg,#dce8ee,#b8d0dc,#8cb5c8)"></div>
       <span style="position:relative;z-index:1;font-size:8rem">🗼</span>
       <div class="pd-grad"></div>
       <div class="pd-top">
         <div class="av">👩</div>
         <div><div style="font-size:.78rem;font-weight:600;color:white">นิ่ม สุภาพร</div><div style="font-size:.6rem;color:rgba(255,255,255,.7)">@nimsupaporn</div></div>
-        <button style="margin-left:auto;padding:5px 11px;border-radius:100px;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:white;font-size:.65rem;cursor:pointer;backdrop-filter:blur(8px);font-family:'Noto Sans Thai',sans-serif;font-weight:600">+ ติดตาม</button>
+        <button style="margin-left:auto;padding:5px 10px;border-radius:100px;border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:white;font-size:.63rem;cursor:pointer;backdrop-filter:blur(8px);font-family:'Noto Sans Thai',sans-serif;font-weight:600">+ ติดตาม</button>
       </div>
       <div class="pd-bot">
-        <div class="pd-loc">📍 Eiffel Tower · Paris, France · 🌐 สาธารณะ</div>
+        <div class="pd-loc">📍 Eiffel Tower · Paris · 🌐 สาธารณะ</div>
         <div class="pd-title">วันที่ฉันหลงรักปารีส<br>ความทรงจำที่ไม่มีวันลืม</div>
-        <div class="pd-desc">"เดินเล่นริมแม่น้ำแซน กินครัวซองค์ร้อนๆ ยามเช้า..."</div>
+        <div class="pd-desc">"เดินเล่นริมแม่น้ำแซน กินครัวซองค์ยามเช้า..."</div>
       </div>
     </div>
     <div class="pd-acts">
@@ -841,7 +922,7 @@ body{
     </div>
     <div class="ai-sum">
       <div class="ai-sum-hd">
-        <div class="ai-sum-ic">🤖</div>
+        <div class="ai-sum-ic">✦</div>
         <div><div class="ai-sum-t">AI สรุปทริปอัตโนมัติ</div><div class="ai-sum-s">Claude AI · วิเคราะห์ทุกรายละเอียด</div></div>
       </div>
       <div class="ai-rows">
@@ -850,37 +931,36 @@ body{
         <div class="ai-row"><span class="ai-k">💰 ค่าใช้จ่าย</span><span class="ai-v hi">฿92,400</span></div>
         <div class="ai-row"><span class="ai-k">✈️ สายการบิน</span><span class="ai-v">Thai Airways</span></div>
         <div class="ai-row"><span class="ai-k">🏨 ที่พัก</span><span class="ai-v">Hotel du Louvre</span></div>
-        <div class="ai-row"><span class="ai-k">🍽️ อาหารเด่น</span><span class="ai-v">Croissant · Escargot</span></div>
         <div class="ai-row"><span class="ai-k">😍 ความรู้สึก</span><span class="ai-v gold">ประทับใจมาก ★★★★★</span></div>
       </div>
     </div>
-    <button class="ai-btn" onclick="togglePanel('ai-panel-post')" style="margin-top:10px">🤖 ถาม AI เกี่ยวกับทริปนี้</button>
+    <button class="ai-btn" onclick="togglePanel('ai-panel-post')" style="margin-top:9px">✦ ถาม AI เกี่ยวกับทริปนี้</button>
     <div id="ai-panel-post" class="ai-panel">
       <div class="ai-msgs" id="ai-msgs-post">
-        <div class="ai-msg bot"><div class="ai-av bot">🤖</div><div class="ai-bub">อ่านโพสต์นี้แล้วครับ 🌊<br>ทริปปารีส 8 วันของนิ่ม อบอุ่นและน่าประทับใจมาก!<br>จะให้ฉันช่วยอะไรได้บ้าง?</div></div>
+        <div class="ai-msg bot"><div class="ai-av bot">✦</div><div class="ai-bub">อ่านโพสต์นี้แล้วครับ 🗼<br>ทริปปารีส 8 วัน น่าประทับใจมากเลย!<br>จะให้ช่วยอะไรได้บ้าง?</div></div>
       </div>
       <div class="ai-qbtns">
-        <button class="ai-qb" onclick="sendAI('post','วางแผนตามรอยให้หน่อย')">🗺️ ตามรอย</button>
-        <button class="ai-qb" onclick="sendAI('post','คำนวณงบให้หน่อย')">💰 คำนวณงบ</button>
-        <button class="ai-qb" onclick="sendAI('post','แนะนำร้านอาหาร Paris')">🍽️ ร้านอาหาร</button>
-        <button class="ai-qb" onclick="sendAI('post','สร้างภาพ Paris ให้หน่อย')">🎨 สร้างภาพ</button>
+        <button class="ai-qb" onclick="sendAI('post','วางแผนตามรอย')">🗺️ ตามรอย</button>
+        <button class="ai-qb" onclick="sendAI('post','คำนวณงบ')">💰 คำนวณงบ</button>
+        <button class="ai-qb" onclick="sendAI('post','ร้านอาหาร Paris')">🍽️ ร้านอาหาร</button>
+        <button class="ai-qb" onclick="sendAI('post','สร้างภาพ Paris')">🎨 สร้างภาพ</button>
       </div>
       <div class="ai-inp-row">
         <input class="ai-inp" id="ai-input-post" placeholder="ถามเกี่ยวกับทริปนี้..." onkeydown="if(event.key==='Enter')sendAI('post',this.value)">
         <button class="ai-send" onclick="sendAI('post',document.getElementById('ai-input-post').value)">↑</button>
       </div>
     </div>
-    <button class="ft-btn" style="margin-top:10px" onclick="sendAI('post','วางแผนตามรอยทริปปารีสให้ครบ');document.getElementById('ai-panel-post').classList.add('open')">🗺️ ตามรอยทริปนี้ด้วย AI</button>
+    <button class="ft-btn" style="margin-top:9px" onclick="sendAI('post','วางแผนตามรอย');document.getElementById('ai-panel-post').classList.add('open')">🗺️ ตามรอยทริปนี้ด้วย AI</button>
     <div class="fam-card">
       <div class="fam-t">📸 แชร์ให้ครอบครัว</div>
       <div class="fam-avs">
         <div class="fav"><div class="favr"><div class="favi">👨</div></div><div class="favn">พ่อ</div></div>
-        <div class="fav"><div class="favr" style="background:linear-gradient(135deg,#e8b86d,#c9933a)"><div class="favi">👩</div></div><div class="favn">แม่</div></div>
-        <div class="fav"><div class="favr" style="background:linear-gradient(135deg,#4a7c59,#0a8c8c)"><div class="favi">👧</div></div><div class="favn">น้อง</div></div>
-        <div class="fav"><div class="favr" style="background:linear-gradient(135deg,#c9933a,#6b4020)"><div class="favi">👴</div></div><div class="favn">ปู่</div></div>
-        <div class="fav"><div class="favr" style="background:var(--linen)"><div class="favi" style="color:var(--ink3)">＋</div></div><div class="favn">เพิ่ม</div></div>
+        <div class="fav"><div class="favr" style="background:linear-gradient(135deg,#e0bd80,#c9a05a)"><div class="favi">👩</div></div><div class="favn">แม่</div></div>
+        <div class="fav"><div class="favr" style="background:linear-gradient(135deg,#4a7c59,#2d5b75)"><div class="favi">👧</div></div><div class="favn">น้อง</div></div>
+        <div class="fav"><div class="favr" style="background:linear-gradient(135deg,#c9a05a,#6b4020)"><div class="favi">👴</div></div><div class="favn">ปู่</div></div>
+        <div class="fav"><div class="favr" style="background:var(--cloud)"><div class="favi" style="color:var(--ink3)">＋</div></div><div class="favn">เพิ่ม</div></div>
       </div>
-      <button class="fam-btn" onclick="this.textContent='💌 ส่งแล้ว! 🌊'">💌 ส่งให้ Family Space</button>
+      <button class="fam-btn" onclick="this.textContent='💌 ส่งแล้ว! ✦'">💌 ส่งให้ Family Space</button>
     </div>
     <div class="spacer"></div>
   </div>
@@ -894,7 +974,7 @@ body{
 </div>
 
 <script>
-/* ── Navigation ── */
+/* Navigation */
 function go(id,btn){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
   document.querySelectorAll('.bni').forEach(b=>b.classList.remove('on'));
@@ -903,7 +983,15 @@ function go(id,btn){
   document.getElementById(id).querySelector('.scroll')?.scrollTo(0,0);
 }
 
-/* ── Likes ── */
+/* Feed tab switch */
+function switchFeedTab(tab){
+  document.querySelectorAll('.feed-tab').forEach(t=>t.classList.remove('on'));
+  document.querySelectorAll('.feed-panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById('tab-'+tab).classList.add('on');
+  document.getElementById('feed-'+tab).classList.add('on');
+}
+
+/* Likes */
 function tgl(bid,cid){
   const b=document.getElementById(bid),c=document.getElementById(cid);
   const liked=b.classList.toggle('liked');
@@ -911,30 +999,42 @@ function tgl(bid,cid){
   c.textContent=(liked?n+1:n-1).toLocaleString();
 }
 
-/* ── Selectors ── */
+/* Map toggle */
+function toggleMap(){
+  const t=document.getElementById('map-toggle');
+  t.classList.toggle('off');
+  const on=!t.classList.contains('off');
+  t.nextSibling;
+  // visual feedback
+  const lbl=t.previousElementSibling.querySelector('.mvt-label');
+  const sub=t.previousElementSibling.querySelector('.mvt-sub');
+  if(on){lbl.textContent='🌐 แผนที่เปิดสาธารณะ';sub.textContent='คนอื่นเห็นได้เฉพาะหมุดโพสต์สาธารณะ';}
+  else{lbl.textContent='🔒 แผนที่ส่วนตัว';sub.textContent='ไม่มีใครเห็นหมุดของคุณได้';}
+}
+
+/* Selectors */
 function selV(el){document.querySelectorAll('.vopt').forEach(v=>v.classList.remove('on'));el.classList.add('on');}
 function setTab(el){document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('on'));el.classList.add('on');}
+function setTheme(col,light,el){
+  document.querySelectorAll('.tdot').forEach(d=>d.classList.remove('on'));
+  el.classList.add('on');
+  document.documentElement.style.setProperty('--navy',col);
+  document.documentElement.style.setProperty('--sky',light);
+}
 document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{c.closest('.cats').querySelectorAll('.cat').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
 document.querySelectorAll('.schip').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.schip').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
 document.querySelectorAll('.mfc').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.mfc').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
 document.querySelectorAll('.nptype').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.nptype').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
+document.querySelectorAll('.mood').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.mood').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
 
-/* ── Theme ── */
-function setTheme(col,light,el){
-  document.querySelectorAll('.tdot').forEach(d=>d.classList.remove('on'));
-  el.classList.add('on');
-  document.documentElement.style.setProperty('--teal',col);
-  document.documentElement.style.setProperty('--teal3',light);
-}
-
-/* ── Map pins ── */
+/* Map pins */
 const pinDB={
-  japan:    {e:'⛩️',t:'ซากุระที่เกียวโต',d:'มีนาคม 2567 · 12 วัน',a:'งบ ฿48,200 · 6 เมือง · ดูซากุระ',tags:['💰 ฿48,200','⭐ 5/5','🌐 สาธารณะ']},
-  france:   {e:'🗼',t:'ปารีสในฝัน',d:'กันยายน 2566 · 8 วัน',a:'งบ ฿92,400 · หอไอเฟล · ลูฟวร์',tags:['💰 ฿92,400','⭐ 5/5','🌐 สาธารณะ']},
-  italy:    {e:'🏛️',t:'โรมยามค่ำ',d:'กันยายน 2566 · 5 วัน',a:'งบ ฿55,000 · Colosseum · Vatican',tags:['💰 ฿55,000','⭐ 4.8','🌐 สาธารณะ']},
-  bali:     {e:'🌴',t:'บาหลีในฝัน',d:'มกราคม 2566 · 7 วัน',a:'งบ ฿28,000 · Yoga · นาขั้นบันได',tags:['💰 ฿28,000','⭐ 4.9','👨‍👩‍👧 ครอบครัว']},
-  korea:    {e:'🌸',t:'โซลหน้าหนาว',d:'พฤศจิกายน 2565 · 6 วัน',a:'งบ ฿38,500 · Myeongdong · K-Food',tags:['💰 ฿38,500','⭐ 4.7','🌐 สาธารณะ']},
-  chiangmai:{e:'🌿',t:'เชียงใหม่ยามหนาว',d:'มกราคม 2568 · 4 วัน',a:'งบ ฿8,500 · ดอยอินทนนท์ · คาเฟ่',tags:['💰 ฿8,500','⭐ 5/5','🔒 ส่วนตัว']},
+  japan:    {e:'⛩️',t:'ซากุระที่เกียวโต',d:'มีนาคม 2567 · 12 วัน',a:'งบ ฿48,200 · 6 เมือง',tags:['💰 ฿48,200','⭐ 5/5','🌐 สาธารณะ']},
+  france:   {e:'🗼',t:'ปารีสในฝัน',d:'กันยายน 2566 · 8 วัน',a:'งบ ฿92,400 · หอไอเฟล',tags:['💰 ฿92,400','⭐ 5/5','🌐 สาธารณะ']},
+  italy:    {e:'🏛️',t:'โรมยามค่ำ',d:'กันยายน 2566 · 5 วัน',a:'งบ ฿55,000 · Vatican',tags:['💰 ฿55,000','⭐ 4.8','🌐 สาธารณะ']},
+  bali:     {e:'🌴',t:'บาหลีในฝัน',d:'มกราคม 2566 · 7 วัน',a:'งบ ฿28,000 · Ubud',tags:['💰 ฿28,000','⭐ 4.9','👨‍👩‍👧 ครอบครัว']},
+  korea:    {e:'🌸',t:'โซลหน้าหนาว',d:'พฤศจิกายน 2565 · 6 วัน',a:'งบ ฿38,500 · K-Food',tags:['💰 ฿38,500','⭐ 4.7','🌐 สาธารณะ']},
+  chiangmai:{e:'🌿',t:'เชียงใหม่ยามหนาว',d:'มกราคม 2568 · 4 วัน',a:'งบ ฿8,500 · ดอย',tags:['💰 ฿8,500','⭐ 5/5','🔒 ส่วนตัว']},
 };
 function selPin(id){
   const d=pinDB[id];if(!d)return;
@@ -946,20 +1046,19 @@ function selPin(id){
 }
 function mc(el){document.querySelectorAll('.pchip').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');}
 
-/* ── AI ── */
+/* AI panel */
 function togglePanel(id){document.getElementById(id).classList.toggle('open');}
-
 const aiLib={
-  write:'ฉันเขียนให้เลยครับ ✍️\n\n"ปารีส... เมืองที่ทำให้หัวใจอบอุ่นทุกครั้งที่นึกถึง 🗼\n\nยามเช้า กลิ่นกาแฟและครัวซองค์ผสมกับแสงแดดอ่อนๆ ริมแม่น้ำแซน ฉันรู้ว่า — นี่คือความทรงจำที่จะอยู่กับฉันตลอดไป 💙"',
-  image:'🎨 กำลังสร้างภาพ...\n\n[ภาพ: หอไอเฟลยามพระอาทิตย์ตก ท้องฟ้าสีทอง-ส้ม อบอุ่น ริมแม่น้ำแซน สไตล์ Warm Film Photography]\n\n✅ ภาพพร้อม! ความละเอียด 4K',
-  video:'🎬 สร้างวิดีโอ 30 วิ...\n\n0:00 → เปิดด้วย Eiffel Tower ยามเช้า\n0:07 → เดินริมแม่น้ำแซน\n0:14 → คาเฟ่ กาแฟ ครัวซองค์\n0:21 → พระอาทิตย์ตก Trocadéro\n0:26 → Title card + เพลง French Jazz\n\n✅ วิดีโอพร้อม! Warm tone',
-  summary:'📋 AI สรุปทริปปารีส:\n\n✈️ 8 วัน 7 คืน · Thai Airways\n💰 งบรวม ฿92,400\n🏨 Hotel du Louvre (4★)\n📍 8 สถานที่ · 16 ร้านอาหาร\n📸 240 รูป · 5 วิดีโอ\n😍 ความรู้สึก: ประทับใจมากที่สุด ★★★★★',
-  plan:'🗺️ แผนตามรอยทริปนิ่ม:\n\nDay 1: BKK → CDG · Check-in\nDay 2: Eiffel Tower + Champs-Élysées\nDay 3: Louvre + Seine River Cruise\nDay 4: Versailles Day Trip\nDay 5: Montmartre + Sacré-Cœur\nDay 6: Shopping + Cafes\nDay 7: พระอาทิตย์ตก Trocadéro\nDay 8: CDG → BKK\n\n💰 งบแนะนำ ฿75,000–95,000',
-  budget:'💰 คำนวณงบ 8 วัน:\n\n✈️ ตั๋ว BKK↔CDG: ฿28,000\n🏨 ที่พัก 7 คืน: ฿24,500\n🍽️ อาหาร: ฿14,000\n🎫 ค่าเข้าชม: ฿8,000\n🛍️ ช้อปปิ้ง: ฿12,000\n🚇 Transport: ฿5,900\n──────────\n💙 รวม: ฿92,400\n💡 Tip: จองล่วงหน้า 3 เดือน ประหยัด 30%',
-  restaurant:'🍽️ ร้านดังใน Paris:\n\n1. Café de Flore — Historic Café ริม Seine\n2. L\'Ambroisie ⭐⭐⭐ — Michelin 3 ดาว\n3. Pierre Hermé — Macaron ดีที่สุดในโลก\n4. Septime — Modern French ต้องจอง\n5. Bouillon Chartier — Retro บรรยากาศดี',
-  analyze:'📊 วิเคราะห์โปรไฟล์:\n\n📈 ยอดวิว 2.4M (+12%/เดือน)\n❤️ Engagement: 8.3% (สูงกว่า avg 3×)\n👥 Followers: +2,400/เดือน\n\n🏆 โพสต์ดีสุด: มัลดีฟส์ (62k วิว)\n⏰ เวลาที่ดีสุด: 19:00–21:00 น.\n💡 แนะนำ: เพิ่ม Warm content มากขึ้น',
-  trip:'✈️ ทริปต่อไปสำหรับคุณ:\n\n🇵🇹 โปรตุเกส — Lisbon + Algarve\n→ บรรยากาศอบอุ่น ค่าใช้จ่ายต่ำ ฿65,000\n\n🇲🇦 โมร็อกโก — Marrakech\n→ สีสันสดใส content สวย ฿55,000\n\n🌊 มัลดีฟส์ ทริป 2\n→ ทะเลใส ผ่อนคลาย ฿80,000',
-  d:['เข้าใจแล้วครับ! 🌊 กำลังช่วยคุณทันที...','น่าสนใจมากเลย! ฉันจะดูแลให้ดีที่สุด ✨','โอเคครับ ให้ฉันเตรียมคำตอบที่ดีที่สุดสำหรับคุณ 🎯'],
+  write:'เขียนให้เลยครับ ✍️\n\n"ปารีส... เมืองที่ทำให้หัวใจเต้นแรงทุกครั้ง 🗼\n\nยามเช้า กลิ่นกาแฟและครัวซองค์ผสมกับแสงแดดอ่อนๆ ริมแม่น้ำแซน ฉันรู้ว่า — นี่คือความทรงจำที่จะอยู่ตลอดไป 💙"',
+  image:'🎨 กำลังสร้างภาพ...\n\n[ภาพ: หอไอเฟลยามพระอาทิตย์ตก ท้องฟ้าสีน้ำเงิน-ทอง ริมแม่น้ำแซน สไตล์ Fine Art]\n\n✅ ภาพพร้อม! 4K · ดาวน์โหลดได้เลย',
+  video:'🎬 สร้างวิดีโอ 30 วิ...\n\n0:00 Eiffel Tower ยามเช้า\n0:07 เดินริมแม่น้ำแซน\n0:14 คาเฟ่ กาแฟ ครัวซองค์\n0:21 พระอาทิตย์ตก Trocadéro\n\n✅ พร้อมแล้ว!',
+  summary:'📋 สรุปทริปปารีส:\n\n✈️ 8 วัน · Thai Airways\n💰 ฿92,400\n🏨 Hotel du Louvre (4★)\n📍 8 สถานที่ · 16 ร้านดัง\n😍 ประทับใจมาก ★★★★★',
+  plan:'🗺️ แผนตามรอย:\n\nDay 1: BKK → CDG Check-in\nDay 2: Eiffel + Champs-Élysées\nDay 3: Louvre + Seine Cruise\nDay 4: Versailles\nDay 5: Montmartre\nDay 6: Shopping\nDay 7: Sunset Trocadéro\nDay 8: CDG → BKK\n\n💰 งบ ฿75K–95K',
+  budget:'💰 คำนวณงบ 8 วัน:\n\n✈️ ตั๋ว: ฿28,000\n🏨 ที่พัก: ฿24,500\n🍽️ อาหาร: ฿14,000\n🎫 ค่าเข้าชม: ฿8,000\n🛍️ ช้อปปิ้ง: ฿12,000\n🚇 Transport: ฿5,900\n─────────\n💙 รวม: ฿92,400',
+  restaurant:'🍽️ ร้านดังใน Paris:\n\n1. Café de Flore — Historic\n2. L\'Ambroisie ⭐⭐⭐\n3. Pierre Hermé — Macaron\n4. Septime — Modern French\n5. Bouillon Chartier — Retro',
+  analyze:'📊 วิเคราะห์:\n\n📈 ยอดวิว 2.4M (+12%)\n❤️ Engagement 8.3%\n👥 Followers +2,400/เดือน\n\n🏆 โพสต์ดีสุด: มัลดีฟส์ (62k)\n💡 แนะนำ: โพสต์เพิ่มช่วง 19:00–21:00',
+  trip:'✈️ ทริปต่อไป:\n\n🇵🇹 โปรตุเกส ฿65K\n🇬🇷 กรีซ ฿85K\n🌊 มัลดีฟส์ ทริป 2 ฿80K',
+  d:['เข้าใจแล้วครับ! 🌊 กำลังช่วยทันที...','น่าสนใจมากเลย ฉันจะดูแลให้ดีที่สุด ✨','โอเคครับ กำลังเตรียมคำตอบที่ดีที่สุด 🎯'],
 };
 function getReply(msg){
   const m=msg.toLowerCase();
@@ -968,7 +1067,7 @@ function getReply(msg){
   if(m.includes('วิดีโอ')||m.includes('คลิป'))return aiLib.video;
   if(m.includes('สรุป'))return aiLib.summary;
   if(m.includes('ตาม')||m.includes('แผน')||m.includes('วางแผน'))return aiLib.plan;
-  if(m.includes('งบ')||m.includes('ราคา')||m.includes('คำนวณ'))return aiLib.budget;
+  if(m.includes('งบ')||m.includes('คำนวณ'))return aiLib.budget;
   if(m.includes('ร้าน')||m.includes('อาหาร'))return aiLib.restaurant;
   if(m.includes('วิเคราะห์')||m.includes('ยอดวิว'))return aiLib.analyze;
   if(m.includes('ทริป')||m.includes('แนะนำ'))return aiLib.trip;
@@ -978,14 +1077,14 @@ function addBubble(pid,text,role){
   const msgs=document.getElementById('ai-msgs-'+pid);
   const el=document.createElement('div');
   el.className='ai-msg '+role;
-  const bAv='<div class="ai-av bot">🤖</div>';
-  const uAv='<div class="ai-av" style="background:var(--sand);border:1px solid var(--line);font-size:.88rem">👩</div>';
+  const bAv='<div class="ai-av bot">✦</div>';
+  const uAv='<div class="ai-av" style="background:var(--mist);border:1px solid var(--line);font-size:.88rem">👩</div>';
   el.innerHTML=(role==='bot'?bAv:'')+'<div class="ai-bub">'+text.replace(/\n/g,'<br>')+'</div>'+(role==='user'?uAv:'');
   msgs.appendChild(el);msgs.scrollTop=msgs.scrollHeight;
 }
 function openAI(panel,type){
   document.getElementById('ai-panel-'+panel).classList.add('open');
-  const prompts={write:'ช่วยเขียนคำบรรยายสวยๆ ให้หน่อยนะ',image:'ช่วยสร้างภาพสวยๆ ให้หน่อย',video:'ช่วยทำวิดีโอสั้น 30 วิให้หน่อย',summary:'ช่วยสรุปทริปให้หน่อย'};
+  const prompts={write:'ช่วยเขียนคำบรรยายให้หน่อยนะ',image:'ช่วยสร้างภาพให้หน่อย',video:'ช่วยทำวิดีโอสั้นให้หน่อย',summary:'ช่วยสรุปทริปให้หน่อย'};
   addBubble(panel,prompts[type],'user');
   setTimeout(()=>addBubble(panel,getReply(prompts[type]),'bot'),700+Math.random()*300);
 }
@@ -1000,3 +1099,5 @@ function sendAI(panel,msg){
 </script>
 </body>
 </html>
+HTMLEOF
+echo "Done: $(wc -c < /mnt/user-data/outputs/cherish-preview.html) bytes"
