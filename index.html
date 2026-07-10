@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>Cherish</title>
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans+Thai:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -1126,120 +1126,173 @@ function sendAI(panel,msg){
 
 <script>
 // ══════════════════════════════════════
-// CHERISH — Supabase Integration
+// CHERISH — Supabase Minimal Client (no SDK needed)
 // ══════════════════════════════════════
 const SUPABASE_URL = 'https://ozugpdjorgmjjhmnjmhl.supabase.com';
 const SUPABASE_KEY = 'sb_publishable_lvVKbjc11nS2S-WmIs9QLA_7uYH1Vzs';
 
-const { createClient } = supabase;
-const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+// Simple Supabase REST client — ไม่ต้องพึ่ง SDK
+const sb = {
+  headers: {
+    'apikey': SUPABASE_KEY,
+    'Authorization': 'Bearer ' + SUPABASE_KEY,
+    'Content-Type': 'application/json'
+  },
+  
+  // Auth
+  auth: {
+    _token: null,
+    _user: null,
+    
+    async signUp(email, password) {
+      const r = await fetch(SUPABASE_URL + '/auth/v1/signup', {
+        method: 'POST',
+        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const d = await r.json();
+      if (d.access_token) { sb.auth._token = d.access_token; sb.auth._user = d.user; }
+      return d;
+    },
+    
+    async signIn(email, password) {
+      const r = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
+        method: 'POST',
+        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+      const d = await r.json();
+      if (d.access_token) {
+        sb.auth._token = d.access_token;
+        sb.auth._user = d.user;
+        localStorage.setItem('cherish_token', d.access_token);
+        localStorage.setItem('cherish_user', JSON.stringify(d.user));
+      }
+      return d;
+    },
+    
+    async signOut() {
+      localStorage.removeItem('cherish_token');
+      localStorage.removeItem('cherish_user');
+      sb.auth._token = null; sb.auth._user = null;
+      showAuthScreen();
+    },
+    
+    getUser() {
+      if (sb.auth._user) return sb.auth._user;
+      const u = localStorage.getItem('cherish_user');
+      return u ? JSON.parse(u) : null;
+    },
+    
+    getToken() {
+      return sb.auth._token || localStorage.getItem('cherish_token');
+    }
+  },
+  
+  // Database
+  from(table) {
+    return {
+      async insert(rows) {
+        const token = sb.auth.getToken();
+        const r = await fetch(SUPABASE_URL + '/rest/v1/' + table, {
+          method: 'POST',
+          headers: { ...sb.headers, 'Authorization': 'Bearer ' + token, 'Prefer': 'return=minimal' },
+          body: JSON.stringify(rows[0])
+        });
+        return { error: r.ok ? null : await r.json() };
+      },
+      async select(cols) {
+        const token = sb.auth.getToken();
+        const r = await fetch(SUPABASE_URL + '/rest/v1/' + table + '?select=' + (cols||'*') + '&order=created_at.desc&limit=20', {
+          headers: { ...sb.headers, 'Authorization': 'Bearer ' + token }
+        });
+        const d = await r.json();
+        return { data: Array.isArray(d) ? d : [], error: r.ok ? null : d };
+      }
+    };
+  }
+};
 
 // ── AUTH STATE ──
 let currentUser = null;
 
-// ตรวจสอบ session ตอนเปิดแอพ
-async function initAuth() {
-  const { data: { session } } = await sb.auth.getSession();
-  if (session) {
-    currentUser = session.user;
+function initAuth() {
+  // เช็ค token ที่เก็บไว้
+  const token = localStorage.getItem('cherish_token');
+  const user = localStorage.getItem('cherish_user');
+  if (token && user) {
+    currentUser = JSON.parse(user);
+    sb.auth._token = token;
+    sb.auth._user = currentUser;
     showApp();
   } else {
     showAuthScreen();
   }
-
-  // ฟัง event เมื่อ login/logout
-  sb.auth.onAuthStateChange((_event, session) => {
-    currentUser = session?.user ?? null;
-    if (currentUser) showApp();
-    else showAuthScreen();
-  });
 }
 
-// ── แสดงหน้า Login ──
 function showAuthScreen() {
   document.getElementById('auth-screen').style.display = 'flex';
   document.getElementById('main-app').style.display = 'none';
 }
 
-// ── แสดงแอพหลัก ──
 function showApp() {
   document.getElementById('auth-screen').style.display = 'none';
   document.getElementById('main-app').style.display = 'flex';
 }
 
-// ── Login ด้วย Email ──
 async function loginWithEmail() {
   const email = document.getElementById('auth-email').value.trim();
   const password = document.getElementById('auth-password').value;
   const msg = document.getElementById('auth-msg');
-
   if (!email || !password) { msg.textContent = 'กรุณากรอก email และ password'; return; }
-
+  if (password.length < 6) { msg.textContent = 'password ต้องมีอย่างน้อย 6 ตัว'; return; }
+  
   msg.textContent = 'กำลังเข้าสู่ระบบ...';
-  const { error } = await sb.auth.signInWithPassword({ email, password });
-  if (error) {
-    // ถ้า login ไม่ได้ ลอง signup
-    const { error: signUpError } = await sb.auth.signUp({ email, password });
-    if (signUpError) msg.textContent = '❌ ' + signUpError.message;
-    else msg.textContent = '✅ สมัครสมาชิกแล้ว! เช็ค email เพื่อยืนยัน';
+  
+  // ลอง login ก่อน
+  const loginResult = await sb.auth.signIn(email, password);
+  if (loginResult.access_token) {
+    currentUser = loginResult.user;
+    msg.textContent = '✅ เข้าสู่ระบบสำเร็จ!';
+    setTimeout(showApp, 500);
+    return;
+  }
+  
+  // ถ้า login ไม่ได้ ลอง signup
+  const signupResult = await sb.auth.signUp(email, password);
+  if (signupResult.access_token) {
+    currentUser = signupResult.user;
+    msg.textContent = '✅ สมัครสมาชิกสำเร็จ!';
+    setTimeout(showApp, 500);
+  } else if (signupResult.id) {
+    msg.textContent = '✅ สมัครแล้ว! เช็ค email เพื่อยืนยัน';
+  } else {
+    const errMsg = loginResult.error_description || signupResult.message || 'เกิดข้อผิดพลาด';
+    msg.textContent = '❌ ' + errMsg;
   }
 }
 
-// ── Logout ──
 async function logout() {
   await sb.auth.signOut();
 }
 
-// ── โหลด Posts จาก Supabase ──
-async function loadPosts() {
-  const { data, error } = await sb.from('posts')
-    .select('*')
-    .order('created_at', { ascending: false })
-    .limit(20);
-
-  if (error) { console.log('posts error:', error); return; }
-  if (data && data.length > 0) {
-    console.log('โหลด posts สำเร็จ:', data.length, 'โพสต์');
-    // เมื่อเชื่อม database แล้ว จะ render posts ที่นี่
-  }
-}
-
-// ── บันทึก Post ใหม่ ──
 async function savePost(postData) {
   if (!currentUser) { alert('กรุณา login ก่อน'); return; }
-
-  const { data, error } = await sb.from('posts').insert([{
+  const { error } = await sb.from('posts').insert([{
     user_id: currentUser.id,
-    title: postData.title,
-    story: postData.story,
-    location: postData.location,
-    budget: postData.budget,
-    days: postData.days,
-    mood: postData.mood,
-    visibility: postData.visibility,
+    title: postData.title || '',
+    story: postData.story || '',
+    location: postData.location || '',
+    budget: postData.budget || 0,
+    days: postData.days || 0,
+    mood: postData.mood || '',
+    visibility: postData.visibility || 'family',
     created_at: new Date().toISOString()
   }]);
-
-  if (error) { console.log('save error:', error); alert('บันทึกไม่สำเร็จ: ' + error.message); return; }
+  if (error) { alert('บันทึกไม่สำเร็จ'); return; }
   alert('โพสต์สำเร็จ! 🌊✨');
 }
 
-// ── บันทึก Map Pin ──
-async function savePin(pinData) {
-  if (!currentUser) return;
-  const { error } = await sb.from('pins').insert([{
-    user_id: currentUser.id,
-    country: pinData.country,
-    city: pinData.city,
-    lat: pinData.lat,
-    lng: pinData.lng,
-    visibility: pinData.visibility,
-    visited_at: pinData.date
-  }]);
-  if (error) console.log('pin error:', error);
-}
-
-// เริ่มต้นแอพ
 window.addEventListener('load', initAuth);
 </script>
 </div>
