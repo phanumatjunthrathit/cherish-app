@@ -997,346 +997,317 @@ body{font-family:'Noto Sans Thai',sans-serif;background:linear-gradient(150deg,#
   </div>
 </div>
 
-<script>
-/* Navigation */
-function go(id,btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.bni').forEach(b=>b.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-  if(btn)btn.classList.add('on');
-  document.getElementById(id).querySelector('.scroll')?.scrollTo(0,0);
-}
-
-/* Feed tab switch */
-function switchFeedTab(tab){
-  document.querySelectorAll('.feed-tab').forEach(t=>t.classList.remove('on'));
-  document.querySelectorAll('.feed-panel').forEach(p=>p.classList.remove('on'));
-  document.getElementById('tab-'+tab).classList.add('on');
-  document.getElementById('feed-'+tab).classList.add('on');
-}
-
-/* Likes */
-function tgl(bid,cid){
-  const b=document.getElementById(bid),c=document.getElementById(cid);
-  const liked=b.classList.toggle('liked');
-  const n=parseInt(c.textContent.replace(',',''));
-  c.textContent=(liked?n+1:n-1).toLocaleString();
-}
-
-/* Map toggle */
-function toggleMap(){
-  const t=document.getElementById('map-toggle');
-  t.classList.toggle('off');
-  const on=!t.classList.contains('off');
-  t.nextSibling;
-  // visual feedback
-  const lbl=t.previousElementSibling.querySelector('.mvt-label');
-  const sub=t.previousElementSibling.querySelector('.mvt-sub');
-  if(on){lbl.textContent='🌐 แผนที่เปิดสาธารณะ';sub.textContent='คนอื่นเห็นได้เฉพาะหมุดโพสต์สาธารณะ';}
-  else{lbl.textContent='🔒 แผนที่ส่วนตัว';sub.textContent='ไม่มีใครเห็นหมุดของคุณได้';}
-}
-
-/* Selectors */
-function selV(el){document.querySelectorAll('.vopt').forEach(v=>v.classList.remove('on'));el.classList.add('on');}
-function setTab(el){document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('on'));el.classList.add('on');}
-function setTheme(col,light,el){
-  document.querySelectorAll('.tdot').forEach(d=>d.classList.remove('on'));
-  el.classList.add('on');
-  document.documentElement.style.setProperty('--navy',col);
-  document.documentElement.style.setProperty('--sky',light);
-}
-document.querySelectorAll('.cat').forEach(c=>c.addEventListener('click',()=>{c.closest('.cats').querySelectorAll('.cat').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
-document.querySelectorAll('.schip').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.schip').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
-document.querySelectorAll('.mfc').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.mfc').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
-document.querySelectorAll('.nptype').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.nptype').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
-document.querySelectorAll('.mood').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.mood').forEach(x=>x.classList.remove('on'));c.classList.add('on');}));
-
-/* Map pins */
-const pinDB={
-  japan:    {e:'⛩️',t:'ซากุระที่เกียวโต',d:'มีนาคม 2567 · 12 วัน',a:'งบ ฿48,200 · 6 เมือง',tags:['💰 ฿48,200','⭐ 5/5','🌐 สาธารณะ']},
-  france:   {e:'🗼',t:'ปารีสในฝัน',d:'กันยายน 2566 · 8 วัน',a:'งบ ฿92,400 · หอไอเฟล',tags:['💰 ฿92,400','⭐ 5/5','🌐 สาธารณะ']},
-  italy:    {e:'🏛️',t:'โรมยามค่ำ',d:'กันยายน 2566 · 5 วัน',a:'งบ ฿55,000 · Vatican',tags:['💰 ฿55,000','⭐ 4.8','🌐 สาธารณะ']},
-  bali:     {e:'🌴',t:'บาหลีในฝัน',d:'มกราคม 2566 · 7 วัน',a:'งบ ฿28,000 · Ubud',tags:['💰 ฿28,000','⭐ 4.9','👨‍👩‍👧 ครอบครัว']},
-  korea:    {e:'🌸',t:'โซลหน้าหนาว',d:'พฤศจิกายน 2565 · 6 วัน',a:'งบ ฿38,500 · K-Food',tags:['💰 ฿38,500','⭐ 4.7','🌐 สาธารณะ']},
-  chiangmai:{e:'🌿',t:'เชียงใหม่ยามหนาว',d:'มกราคม 2568 · 4 วัน',a:'งบ ฿8,500 · ดอย',tags:['💰 ฿8,500','⭐ 5/5','🔒 ส่วนตัว']},
-};
-function selPin(id){
-  const d=pinDB[id];if(!d)return;
-  document.getElementById('pp-e').textContent=d.e;
-  document.getElementById('pp-t').textContent=d.t;
-  document.getElementById('pp-d').textContent=d.d;
-  document.getElementById('pp-a').textContent=d.a;
-  document.getElementById('pp-tags').innerHTML=d.tags.map(t=>`<span class="ptag">${t}</span>`).join('');
-}
-function mc(el){document.querySelectorAll('.pchip').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');}
-
-/* AI panel */
-function togglePanel(id){document.getElementById(id).classList.toggle('open');}
-const aiLib={
-  write:'เขียนให้เลยครับ ✍️\n\n"ปารีส... เมืองที่ทำให้หัวใจเต้นแรงทุกครั้ง 🗼\n\nยามเช้า กลิ่นกาแฟและครัวซองค์ผสมกับแสงแดดอ่อนๆ ริมแม่น้ำแซน ฉันรู้ว่า — นี่คือความทรงจำที่จะอยู่ตลอดไป 💙"',
-  image:'🎨 กำลังสร้างภาพ...\n\n[ภาพ: หอไอเฟลยามพระอาทิตย์ตก ท้องฟ้าสีน้ำเงิน-ทอง ริมแม่น้ำแซน สไตล์ Fine Art]\n\n✅ ภาพพร้อม! 4K · ดาวน์โหลดได้เลย',
-  video:'🎬 สร้างวิดีโอ 30 วิ...\n\n0:00 Eiffel Tower ยามเช้า\n0:07 เดินริมแม่น้ำแซน\n0:14 คาเฟ่ กาแฟ ครัวซองค์\n0:21 พระอาทิตย์ตก Trocadéro\n\n✅ พร้อมแล้ว!',
-  summary:'📋 สรุปทริปปารีส:\n\n✈️ 8 วัน · Thai Airways\n💰 ฿92,400\n🏨 Hotel du Louvre (4★)\n📍 8 สถานที่ · 16 ร้านดัง\n😍 ประทับใจมาก ★★★★★',
-  plan:'🗺️ แผนตามรอย:\n\nDay 1: BKK → CDG Check-in\nDay 2: Eiffel + Champs-Élysées\nDay 3: Louvre + Seine Cruise\nDay 4: Versailles\nDay 5: Montmartre\nDay 6: Shopping\nDay 7: Sunset Trocadéro\nDay 8: CDG → BKK\n\n💰 งบ ฿75K–95K',
-  budget:'💰 คำนวณงบ 8 วัน:\n\n✈️ ตั๋ว: ฿28,000\n🏨 ที่พัก: ฿24,500\n🍽️ อาหาร: ฿14,000\n🎫 ค่าเข้าชม: ฿8,000\n🛍️ ช้อปปิ้ง: ฿12,000\n🚇 Transport: ฿5,900\n─────────\n💙 รวม: ฿92,400',
-  restaurant:'🍽️ ร้านดังใน Paris:\n\n1. Café de Flore — Historic\n2. L\'Ambroisie ⭐⭐⭐\n3. Pierre Hermé — Macaron\n4. Septime — Modern French\n5. Bouillon Chartier — Retro',
-  analyze:'📊 วิเคราะห์:\n\n📈 ยอดวิว 2.4M (+12%)\n❤️ Engagement 8.3%\n👥 Followers +2,400/เดือน\n\n🏆 โพสต์ดีสุด: มัลดีฟส์ (62k)\n💡 แนะนำ: โพสต์เพิ่มช่วง 19:00–21:00',
-  trip:'✈️ ทริปต่อไป:\n\n🇵🇹 โปรตุเกส ฿65K\n🇬🇷 กรีซ ฿85K\n🌊 มัลดีฟส์ ทริป 2 ฿80K',
-  d:['เข้าใจแล้วครับ! 🌊 กำลังช่วยทันที...','น่าสนใจมากเลย ฉันจะดูแลให้ดีที่สุด ✨','โอเคครับ กำลังเตรียมคำตอบที่ดีที่สุด 🎯'],
-};
-function getReply(msg){
-  const m=msg.toLowerCase();
-  if(m.includes('เขียน')||m.includes('คำบรรยาย'))return aiLib.write;
-  if(m.includes('ภาพ')||m.includes('รูป')||m.includes('สร้าง'))return aiLib.image;
-  if(m.includes('วิดีโอ')||m.includes('คลิป'))return aiLib.video;
-  if(m.includes('สรุป'))return aiLib.summary;
-  if(m.includes('ตาม')||m.includes('แผน')||m.includes('วางแผน'))return aiLib.plan;
-  if(m.includes('งบ')||m.includes('คำนวณ'))return aiLib.budget;
-  if(m.includes('ร้าน')||m.includes('อาหาร'))return aiLib.restaurant;
-  if(m.includes('วิเคราะห์')||m.includes('ยอดวิว'))return aiLib.analyze;
-  if(m.includes('ทริป')||m.includes('แนะนำ'))return aiLib.trip;
-  return aiLib.d[Math.floor(Math.random()*aiLib.d.length)];
-}
-function addBubble(pid,text,role){
-  const msgs=document.getElementById('ai-msgs-'+pid);
-  const el=document.createElement('div');
-  el.className='ai-msg '+role;
-  const bAv='<div class="ai-av bot">✦</div>';
-  const uAv='<div class="ai-av" style="background:var(--mist);border:1px solid var(--line);font-size:.88rem">👩</div>';
-  el.innerHTML=(role==='bot'?bAv:'')+'<div class="ai-bub">'+text.replace(/\n/g,'<br>')+'</div>'+(role==='user'?uAv:'');
-  msgs.appendChild(el);msgs.scrollTop=msgs.scrollHeight;
-}
-function openAI(panel,type){
-  document.getElementById('ai-panel-'+panel).classList.add('open');
-  const prompts={write:'ช่วยเขียนคำบรรยายให้หน่อยนะ',image:'ช่วยสร้างภาพให้หน่อย',video:'ช่วยทำวิดีโอสั้นให้หน่อย',summary:'ช่วยสรุปทริปให้หน่อย'};
-  addBubble(panel,prompts[type],'user');
-  setTimeout(()=>addBubble(panel,getReply(prompts[type]),'bot'),700+Math.random()*300);
-}
-function sendAI(panel,msg){
-  if(!msg?.trim())return;
-  const inp=document.getElementById('ai-input-'+panel);
-  if(inp)inp.value='';
-  document.getElementById('ai-panel-'+panel)?.classList.add('open');
-  addBubble(panel,msg,'user');
-  setTimeout(()=>addBubble(panel,getReply(msg),'bot'),600+Math.random()*400);
-}
-</script>
-
+</div>
+</div>
 
 <script>
-// ══════════════════════════════════════
-// CHERISH — Supabase Minimal Client (no SDK needed)
-// ══════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// CHERISH — Script รวมทุกอย่างในที่เดียว
+// ═══════════════════════════════════════════════════
+
 const SUPABASE_URL = 'https://ozugpdjorgmjjhmnjmhl.supabase.com';
-const SUPABASE_KEY = 'sb_publishable_lvVKbjc11nS2S-WmIs9QLA_7uYH1Vzs';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96dWdwZGpvcmdtampobW5qbWhsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM2OTIxNDksImV4cCI6MjA5OTI2ODE0OX0.Zjg7WeCajYI1GlvxF9Lzpz3UtaLkDktRz6soK_F7Ubk';
 
-// Simple Supabase REST client — ไม่ต้องพึ่ง SDK
-const sb = {
-  headers: {
-    'apikey': SUPABASE_KEY,
-    'Authorization': 'Bearer ' + SUPABASE_KEY,
-    'Content-Type': 'application/json'
-  },
-  
-  // Auth
-  auth: {
-    _token: null,
-    _user: null,
-    
-    async signUp(email, password) {
-      const r = await fetch(SUPABASE_URL + '/auth/v1/signup', {
-        method: 'POST',
-        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-      const d = await r.json();
-      if (d.access_token) { sb.auth._token = d.access_token; sb.auth._user = d.user; }
-      return d;
-    },
-    
-    async signIn(email, password) {
-      const r = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
-        method: 'POST',
-        headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-      });
-      const d = await r.json();
-      if (d.access_token) {
-        sb.auth._token = d.access_token;
-        sb.auth._user = d.user;
-        localStorage.setItem('cherish_token', d.access_token);
-        localStorage.setItem('cherish_user', JSON.stringify(d.user));
-      }
-      return d;
-    },
-    
-    async signOut() {
-      localStorage.removeItem('cherish_token');
-      localStorage.removeItem('cherish_user');
-      sb.auth._token = null; sb.auth._user = null;
-      showAuthScreen();
-    },
-    
-    getUser() {
-      if (sb.auth._user) return sb.auth._user;
-      const u = localStorage.getItem('cherish_user');
-      return u ? JSON.parse(u) : null;
-    },
-    
-    getToken() {
-      return sb.auth._token || localStorage.getItem('cherish_token');
-    }
-  },
-  
-  // Database
-  from(table) {
-    return {
-      async insert(rows) {
-        const token = sb.auth.getToken();
-        const r = await fetch(SUPABASE_URL + '/rest/v1/' + table, {
-          method: 'POST',
-          headers: { ...sb.headers, 'Authorization': 'Bearer ' + token, 'Prefer': 'return=minimal' },
-          body: JSON.stringify(rows[0])
-        });
-        return { error: r.ok ? null : await r.json() };
-      },
-      async select(cols) {
-        const token = sb.auth.getToken();
-        const r = await fetch(SUPABASE_URL + '/rest/v1/' + table + '?select=' + (cols||'*') + '&order=created_at.desc&limit=20', {
-          headers: { ...sb.headers, 'Authorization': 'Bearer ' + token }
-        });
-        const d = await r.json();
-        return { data: Array.isArray(d) ? d : [], error: r.ok ? null : d };
-      }
-    };
-  }
-};
+// ── ตัวแปรกลาง ──
+var currentUser = null;
 
-// ── AUTH STATE ──
-let currentUser = null;
-
+// ══════════════════════════
+// AUTH
+// ══════════════════════════
 function initAuth() {
-  // เช็ค token ที่เก็บไว้
-  const token = localStorage.getItem('cherish_token');
-  const user = localStorage.getItem('cherish_user');
-  if (token && user) {
-    currentUser = JSON.parse(user);
-    sb.auth._token = token;
-    sb.auth._user = currentUser;
-    showApp();
-  } else {
+  try {
+    var token = localStorage.getItem('cherish_token');
+    var user  = localStorage.getItem('cherish_user');
+    if (token && user) {
+      currentUser = JSON.parse(user);
+      showApp();
+    } else {
+      showAuthScreen();
+    }
+  } catch(e) {
     showAuthScreen();
   }
 }
 
 function showAuthScreen() {
   document.getElementById('auth-screen').style.display = 'flex';
-  document.getElementById('main-app').style.display = 'none';
+  document.getElementById('main-app').style.display   = 'none';
 }
 
 function showApp() {
   document.getElementById('auth-screen').style.display = 'none';
-  document.getElementById('main-app').style.display = 'flex';
+  document.getElementById('main-app').style.display   = 'flex';
 }
 
 function loginWithEmail() {
-  const email = document.getElementById('auth-email').value.trim();
-  const password = document.getElementById('auth-password').value;
-  const msg = document.getElementById('auth-msg');
-  const btn = document.querySelector('#auth-screen button');
+  var email    = document.getElementById('auth-email').value.trim();
+  var password = document.getElementById('auth-password').value;
+  var msg      = document.getElementById('auth-msg');
+  var btn      = document.querySelector('#auth-screen button');
 
   if (!email || !password) { msg.textContent = 'กรุณากรอก email และ password'; return; }
-  if (password.length < 6) { msg.textContent = 'password ต้องมีอย่างน้อย 6 ตัวขึ้นไป'; return; }
+  if (password.length < 6) { msg.textContent = 'password ต้องมีอย่างน้อย 6 ตัว'; return; }
 
   msg.textContent = 'กำลังเข้าสู่ระบบ...';
   btn.disabled = true;
 
-  // ใช้ XMLHttpRequest แทน fetch — ทำงานได้ดีกว่าบน iOS Safari
-  function xhrPost(url, data, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.setRequestHeader('apikey', SUPABASE_KEY);
-    xhr.setRequestHeader('Authorization', 'Bearer ' + SUPABASE_KEY);
-    xhr.timeout = 15000;
-    xhr.onload = function() {
-      try { callback(null, JSON.parse(xhr.responseText)); }
-      catch(e) { callback('Parse error'); }
-    };
-    xhr.onerror = function() { callback('Network error - ตรวจสอบ internet'); };
-    xhr.ontimeout = function() { callback('Timeout - ลองใหม่อีกครั้ง'); };
-    xhr.send(JSON.stringify(data));
-  }
+  // ใช้ XMLHttpRequest — ทำงานได้บนทุก browser รวม iOS Safari
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', SUPABASE_URL + '/auth/v1/token?grant_type=password', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('apikey', SUPABASE_KEY);
+  xhr.timeout = 15000;
 
-  // ลอง login ก่อน
-  xhrPost(SUPABASE_URL + '/auth/v1/token?grant_type=password',
-    { email: email, password: password },
-    function(err, data) {
-      if (err) {
-        msg.textContent = '❌ ' + err;
+  xhr.onload = function() {
+    var data;
+    try { data = JSON.parse(xhr.responseText); } catch(e) { data = {}; }
+
+    if (data.access_token) {
+      // ✅ Login สำเร็จ
+      try {
+        localStorage.setItem('cherish_token', data.access_token);
+        localStorage.setItem('cherish_user',  JSON.stringify(data.user));
+      } catch(e) {}
+      currentUser = data.user;
+      msg.textContent = '✅ เข้าสู่ระบบสำเร็จ!';
+      btn.disabled = false;
+      setTimeout(showApp, 400);
+
+    } else {
+      // Login ไม่ได้ → ลอง Signup
+      var xhr2 = new XMLHttpRequest();
+      xhr2.open('POST', SUPABASE_URL + '/auth/v1/signup', true);
+      xhr2.setRequestHeader('Content-Type', 'application/json');
+      xhr2.setRequestHeader('apikey', SUPABASE_KEY);
+      xhr2.timeout = 15000;
+
+      xhr2.onload = function() {
+        var d2;
+        try { d2 = JSON.parse(xhr2.responseText); } catch(e) { d2 = {}; }
         btn.disabled = false;
-        return;
-      }
 
-      if (data && data.access_token) {
-        // Login สำเร็จ!
-        try { localStorage.setItem('cherish_token', data.access_token); } catch(e){}
-        try { localStorage.setItem('cherish_user', JSON.stringify(data.user)); } catch(e){}
-        currentUser = data.user;
-        msg.textContent = '✅ เข้าสู่ระบบสำเร็จ!';
-        setTimeout(showApp, 500);
-        btn.disabled = false;
-        return;
-      }
+        if (d2.access_token) {
+          // ✅ Signup + Login สำเร็จ
+          try {
+            localStorage.setItem('cherish_token', d2.access_token);
+            localStorage.setItem('cherish_user',  JSON.stringify(d2.user));
+          } catch(e) {}
+          currentUser = d2.user;
+          msg.textContent = '✅ สมัครสมาชิกสำเร็จ!';
+          setTimeout(showApp, 400);
 
-      // Login ไม่ได้ → ลอง signup
-      xhrPost(SUPABASE_URL + '/auth/v1/signup',
-        { email: email, password: password },
-        function(err2, data2) {
-          btn.disabled = false;
-          if (err2) { msg.textContent = '❌ ' + err2; return; }
+        } else if (d2.user && d2.user.id) {
+          msg.textContent = '📧 เช็ค email ยืนยันบัญชีก่อนเข้าใช้งาน';
 
-          if (data2 && data2.access_token) {
-            try { localStorage.setItem('cherish_token', data2.access_token); } catch(e){}
-            try { localStorage.setItem('cherish_user', JSON.stringify(data2.user)); } catch(e){}
-            currentUser = data2.user;
-            msg.textContent = '✅ สมัครสมาชิกสำเร็จ!';
-            setTimeout(showApp, 500);
-          } else if (data2 && (data2.id || (data2.user && data2.user.id))) {
-            msg.textContent = '📧 เช็ค email เพื่อยืนยันบัญชีก่อน';
-          } else {
-            var errMsg = (data && (data.error_description || data.msg))
-              || (data2 && (data2.message || data2.error_description))
-              || 'กรุณาลองใหม่';
-            msg.textContent = '❌ ' + errMsg;
-          }
+        } else {
+          var e1 = data.error_description || data.message || '';
+          var e2 = d2.message || d2.error_description || '';
+          msg.textContent = '❌ ' + (e1 || e2 || 'ไม่สามารถเชื่อมต่อได้');
         }
-      );
+      };
+
+      xhr2.onerror   = function() { btn.disabled=false; msg.textContent='❌ ไม่มีสัญญาณ internet'; };
+      xhr2.ontimeout = function() { btn.disabled=false; msg.textContent='❌ หมดเวลา ลองใหม่'; };
+      xhr2.send(JSON.stringify({ email: email, password: password }));
     }
-  );
+  };
+
+  xhr.onerror   = function() { btn.disabled=false; msg.textContent='❌ ไม่มีสัญญาณ internet'; };
+  xhr.ontimeout = function() { btn.disabled=false; msg.textContent='❌ หมดเวลา ลองใหม่'; };
+  xhr.send(JSON.stringify({ email: email, password: password }));
 }
 
-async function logout() {
-  await sb.auth.signOut();
+function logout() {
+  try { localStorage.removeItem('cherish_token'); localStorage.removeItem('cherish_user'); } catch(e){}
+  currentUser = null;
+  showAuthScreen();
 }
 
-async function savePost(postData) {
+function savePost(postData) {
   if (!currentUser) { alert('กรุณา login ก่อน'); return; }
-  const { error } = await sb.from('posts').insert([{
-    user_id: currentUser.id,
-    title: postData.title || '',
-    story: postData.story || '',
-    location: postData.location || '',
-    budget: postData.budget || 0,
-    days: postData.days || 0,
-    mood: postData.mood || '',
+  var token = localStorage.getItem('cherish_token') || '';
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', SUPABASE_URL + '/rest/v1/posts', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.setRequestHeader('apikey', SUPABASE_KEY);
+  xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+  xhr.setRequestHeader('Prefer', 'return=minimal');
+  xhr.onload = function() { alert(xhr.status < 300 ? 'โพสต์สำเร็จ! 🌊✨' : 'บันทึกไม่สำเร็จ'); };
+  xhr.onerror = function() { alert('เชื่อมต่อไม่ได้'); };
+  xhr.send(JSON.stringify({
+    user_id:    currentUser.id,
+    title:      postData.title || '',
+    story:      postData.story || '',
+    location:   postData.location || '',
+    budget:     postData.budget || 0,
+    days:       postData.days || 0,
+    mood:       postData.mood || '',
     visibility: postData.visibility || 'family',
     created_at: new Date().toISOString()
-  }]);
-  if (error) { alert('บันทึกไม่สำเร็จ'); return; }
-  alert('โพสต์สำเร็จ! 🌊✨');
+  }));
 }
 
+// ══════════════════════════
+// NAVIGATION
+// ══════════════════════════
+function go(id, btn) {
+  document.querySelectorAll('.page').forEach(function(p){ p.classList.remove('on'); });
+  document.querySelectorAll('.bni').forEach(function(b){ b.classList.remove('on'); });
+  document.getElementById(id).classList.add('on');
+  if (btn) btn.classList.add('on');
+  var s = document.getElementById(id).querySelector('.scroll');
+  if (s) s.scrollTo(0, 0);
+}
+
+function switchFeedTab(tab) {
+  document.querySelectorAll('.feed-tab').forEach(function(t){ t.classList.remove('on'); });
+  document.querySelectorAll('.feed-panel').forEach(function(p){ p.classList.remove('on'); });
+  document.getElementById('tab-'+tab).classList.add('on');
+  document.getElementById('feed-'+tab).classList.add('on');
+}
+
+function tgl(bid, cid) {
+  var b = document.getElementById(bid), c = document.getElementById(cid);
+  var liked = b.classList.toggle('liked');
+  var n = parseInt(c.textContent.replace(',',''));
+  c.textContent = (liked ? n+1 : n-1).toLocaleString();
+}
+
+function toggleMap() {
+  var t = document.getElementById('map-toggle');
+  t.classList.toggle('off');
+  var on = !t.classList.contains('off');
+  var lbl = t.previousElementSibling.querySelector('.mvt-label');
+  var sub = t.previousElementSibling.querySelector('.mvt-sub');
+  if (on) { lbl.textContent='🌐 แผนที่เปิดสาธารณะ'; sub.textContent='คนอื่นเห็นได้เฉพาะหมุดโพสต์สาธารณะ'; }
+  else    { lbl.textContent='🔒 แผนที่ส่วนตัว'; sub.textContent='ไม่มีใครเห็นหมุดของคุณได้'; }
+}
+
+function selV(el) { document.querySelectorAll('.vopt').forEach(function(v){ v.classList.remove('on'); }); el.classList.add('on'); }
+function setTab(el) { document.querySelectorAll('.ptab').forEach(function(t){ t.classList.remove('on'); }); el.classList.add('on'); }
+function setTheme(col, light, el) {
+  document.querySelectorAll('.tdot').forEach(function(d){ d.classList.remove('on'); });
+  el.classList.add('on');
+  document.documentElement.style.setProperty('--navy', col);
+  document.documentElement.style.setProperty('--sky', light);
+}
+
+// MAP PINS
+var pinDB = {
+  japan:    {e:'⛩️',t:'ซากุระที่เกียวโต',d:'มีนาคม 2567 · 12 วัน',a:'งบ ฿48,200 · 6 เมือง',tags:['💰 ฿48,200','⭐ 5/5','🌐 สาธารณะ']},
+  france:   {e:'🗼',t:'ปารีสในฝัน',d:'กันยายน 2566 · 8 วัน',a:'งบ ฿92,400 · หอไอเฟล',tags:['💰 ฿92,400','⭐ 5/5','🌐 สาธารณะ']},
+  italy:    {e:'🏛️',t:'โรมยามค่ำ',d:'กันยายน 2566 · 5 วัน',a:'งบ ฿55,000 · Vatican',tags:['💰 ฿55,000','⭐ 4.8','🌐 สาธารณะ']},
+  bali:     {e:'🌴',t:'บาหลีในฝัน',d:'มกราคม 2566 · 7 วัน',a:'งบ ฿28,000 · Ubud',tags:['💰 ฿28,000','⭐ 4.9','👨‍👩‍👧 ครอบครัว']},
+  korea:    {e:'🌸',t:'โซลหน้าหนาว',d:'พฤศจิกายน 2565 · 6 วัน',a:'งบ ฿38,500 · K-Food',tags:['💰 ฿38,500','⭐ 4.7','🌐 สาธารณะ']},
+  chiangmai:{e:'🌿',t:'เชียงใหม่ยามหนาว',d:'มกราคม 2568 · 4 วัน',a:'งบ ฿8,500 · ดอย',tags:['💰 ฿8,500','⭐ 5/5','🔒 ส่วนตัว']}
+};
+
+function selPin(id) {
+  var d = pinDB[id]; if (!d) return;
+  document.getElementById('pp-e').textContent = d.e;
+  document.getElementById('pp-t').textContent = d.t;
+  document.getElementById('pp-d').textContent = d.d;
+  document.getElementById('pp-a').textContent = d.a;
+  document.getElementById('pp-tags').innerHTML = d.tags.map(function(t){ return '<span class="ptag">'+t+'</span>'; }).join('');
+}
+
+function mc(el) { document.querySelectorAll('.pchip').forEach(function(c){ c.classList.remove('sel'); }); el.classList.add('sel'); }
+function togglePanel(id) { document.getElementById(id).classList.toggle('open'); }
+
+// ══════════════════════════
+// AI CHAT
+// ══════════════════════════
+var aiLib = {
+  write:'เขียนให้เลยครับ ✍️\n\n"ปารีส... เมืองที่ทำให้หัวใจเต้นแรงทุกครั้ง 🗼\nยามเช้า กลิ่นกาแฟและครัวซองค์ริมแม่น้ำแซน ฉันรู้ว่า — นี่คือความทรงจำที่จะอยู่ตลอดไป 💙"',
+  image:'🎨 กำลังสร้างภาพ...\n\n[ภาพ: หอไอเฟลยามพระอาทิตย์ตก ท้องฟ้าสีน้ำเงิน-ทอง สไตล์ Fine Art]\n\n✅ ภาพพร้อม! 4K',
+  video:'🎬 สร้างวิดีโอ 30 วิ...\n\n0:00 Eiffel Tower ยามเช้า\n0:10 เดินริมแม่น้ำแซน\n0:20 พระอาทิตย์ตก Trocadéro\n\n✅ พร้อมแล้ว!',
+  summary:'📋 สรุปทริปปารีส:\n\n✈️ 8 วัน · Thai Airways\n💰 ฿92,400\n🏨 Hotel du Louvre\n😍 ★★★★★',
+  plan:'🗺️ แผนตามรอย:\n\nDay 1: BKK→CDG\nDay 2: Eiffel+Champs\nDay 3: Louvre+Seine\nDay 4: Versailles\nDay 5-7: ท่องเที่ยว\nDay 8: CDG→BKK',
+  budget:'💰 งบ 8 วัน:\n\n✈️ ตั๋ว ฿28,000\n🏨 ที่พัก ฿24,500\n🍽️ อาหาร ฿14,000\n🛍️ ช้อป ฿12,000\n──────\nรวม ฿92,400',
+  restaurant:'🍽️ ร้านดัง Paris:\n\n1. Café de Flore\n2. Pierre Hermé\n3. Septime\n4. Bouillon Chartier',
+  analyze:'📊 วิเคราะห์:\n\n📈 ยอดวิว 2.4M\n❤️ Engagement 8.3%\n🏆 โพสต์ดี: มัลดีฟส์',
+  trip:'✈️ ทริปต่อไป:\n\n🇵🇹 โปรตุเกส ฿65K\n🇬🇷 กรีซ ฿85K\n🌊 มัลดีฟส์ ฿80K',
+  d:['กำลังช่วยทันที! 🌊','น่าสนใจมากเลย ✨','กำลังเตรียมคำตอบ 🎯']
+};
+
+function getReply(msg) {
+  var m = msg.toLowerCase();
+  if (m.indexOf('เขียน') > -1 || m.indexOf('คำบรรยาย') > -1) return aiLib.write;
+  if (m.indexOf('ภาพ') > -1 || m.indexOf('สร้าง') > -1) return aiLib.image;
+  if (m.indexOf('วิดีโอ') > -1 || m.indexOf('คลิป') > -1) return aiLib.video;
+  if (m.indexOf('สรุป') > -1) return aiLib.summary;
+  if (m.indexOf('แผน') > -1 || m.indexOf('ตาม') > -1) return aiLib.plan;
+  if (m.indexOf('งบ') > -1 || m.indexOf('คำนวณ') > -1) return aiLib.budget;
+  if (m.indexOf('ร้าน') > -1 || m.indexOf('อาหาร') > -1) return aiLib.restaurant;
+  if (m.indexOf('วิเคราะห์') > -1) return aiLib.analyze;
+  if (m.indexOf('ทริป') > -1 || m.indexOf('แนะนำ') > -1) return aiLib.trip;
+  return aiLib.d[Math.floor(Math.random()*3)];
+}
+
+function addBubble(pid, text, role) {
+  var msgs = document.getElementById('ai-msgs-'+pid);
+  var el   = document.createElement('div');
+  el.className = 'ai-msg ' + role;
+  var bAv  = '<div class="ai-av bot">✦</div>';
+  var uAv  = '<div class="ai-av" style="background:var(--mist);font-size:.88rem">👤</div>';
+  el.innerHTML = (role==='bot' ? bAv : '') + '<div class="ai-bub">' + text.replace(/\n/g,'<br>') + '</div>' + (role==='user' ? uAv : '');
+  msgs.appendChild(el);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function openAI(panel, type) {
+  document.getElementById('ai-panel-'+panel).classList.add('open');
+  var prompts = {write:'ช่วยเขียนให้หน่อย',image:'ช่วยสร้างภาพให้หน่อย',video:'ช่วยทำวิดีโอสั้น',summary:'ช่วยสรุปทริป'};
+  addBubble(panel, prompts[type], 'user');
+  setTimeout(function(){ addBubble(panel, getReply(prompts[type]), 'bot'); }, 700);
+}
+
+function sendAI(panel, msg) {
+  if (!msg || !msg.trim()) return;
+  var inp = document.getElementById('ai-input-'+panel);
+  if (inp) inp.value = '';
+  document.getElementById('ai-panel-'+panel).classList.add('open');
+  addBubble(panel, msg, 'user');
+  setTimeout(function(){ addBubble(panel, getReply(msg), 'bot'); }, 700);
+}
+
+// ══════════════════════════
+// SELECTORS
+// ══════════════════════════
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.cat').forEach(function(c) {
+    c.addEventListener('click', function() {
+      c.closest('.cats').querySelectorAll('.cat').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+    });
+  });
+  document.querySelectorAll('.schip').forEach(function(c) {
+    c.addEventListener('click', function() {
+      document.querySelectorAll('.schip').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+    });
+  });
+  document.querySelectorAll('.mfc').forEach(function(c) {
+    c.addEventListener('click', function() {
+      document.querySelectorAll('.mfc').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+    });
+  });
+  document.querySelectorAll('.nptype').forEach(function(c) {
+    c.addEventListener('click', function() {
+      document.querySelectorAll('.nptype').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+    });
+  });
+  document.querySelectorAll('.mood').forEach(function(c) {
+    c.addEventListener('click', function() {
+      document.querySelectorAll('.mood').forEach(function(x){ x.classList.remove('on'); });
+      c.classList.add('on');
+    });
+  });
+});
+
+// เริ่มต้นแอพ
 window.addEventListener('load', initAuth);
 </script>
 </body>
