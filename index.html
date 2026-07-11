@@ -1122,7 +1122,6 @@ function sendAI(panel,msg){
 }
 </script>
 
-</html>
 
 <script>
 // ══════════════════════════════════════
@@ -1244,31 +1243,59 @@ async function loginWithEmail() {
   const email = document.getElementById('auth-email').value.trim();
   const password = document.getElementById('auth-password').value;
   const msg = document.getElementById('auth-msg');
+  const btn = document.querySelector('#auth-screen button');
+
   if (!email || !password) { msg.textContent = 'กรุณากรอก email และ password'; return; }
-  if (password.length < 6) { msg.textContent = 'password ต้องมีอย่างน้อย 6 ตัว'; return; }
-  
+  if (password.length < 6) { msg.textContent = 'password ต้องมีอย่างน้อย 6 ตัวขึ้นไป'; return; }
+
   msg.textContent = 'กำลังเข้าสู่ระบบ...';
-  
-  // ลอง login ก่อน
-  const loginResult = await sb.auth.signIn(email, password);
-  if (loginResult.access_token) {
-    currentUser = loginResult.user;
-    msg.textContent = '✅ เข้าสู่ระบบสำเร็จ!';
-    setTimeout(showApp, 500);
-    return;
-  }
-  
-  // ถ้า login ไม่ได้ ลอง signup
-  const signupResult = await sb.auth.signUp(email, password);
-  if (signupResult.access_token) {
-    currentUser = signupResult.user;
-    msg.textContent = '✅ สมัครสมาชิกสำเร็จ!';
-    setTimeout(showApp, 500);
-  } else if (signupResult.id) {
-    msg.textContent = '✅ สมัครแล้ว! เช็ค email เพื่อยืนยัน';
-  } else {
-    const errMsg = loginResult.error_description || signupResult.message || 'เกิดข้อผิดพลาด';
-    msg.textContent = '❌ ' + errMsg;
+  btn.disabled = true;
+
+  try {
+    // ลอง sign in ก่อน
+    const res = await fetch(SUPABASE_URL + '/auth/v1/token?grant_type=password', {
+      method: 'POST',
+      headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+
+    if (data.access_token) {
+      // Login สำเร็จ
+      localStorage.setItem('cherish_token', data.access_token);
+      localStorage.setItem('cherish_user', JSON.stringify(data.user));
+      currentUser = data.user;
+      msg.textContent = '✅ เข้าสู่ระบบสำเร็จ!';
+      setTimeout(showApp, 600);
+      return;
+    }
+
+    // ถ้า login ไม่ได้ → ลอง signup
+    const res2 = await fetch(SUPABASE_URL + '/auth/v1/signup', {
+      method: 'POST',
+      headers: { 'apikey': SUPABASE_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data2 = await res2.json();
+
+    if (data2.access_token) {
+      localStorage.setItem('cherish_token', data2.access_token);
+      localStorage.setItem('cherish_user', JSON.stringify(data2.user));
+      currentUser = data2.user;
+      msg.textContent = '✅ สมัครและเข้าสู่ระบบสำเร็จ!';
+      setTimeout(showApp, 600);
+    } else if (data2.id || (data2.user && data2.user.id)) {
+      // สมัครแล้วแต่ต้อง confirm email
+      msg.textContent = '📧 เช็ค email เพื่อยืนยันก่อนเข้าใช้งาน';
+    } else {
+      // แสดง error จริง
+      const errMsg = data.error_description || data.msg || data2.message || data2.error_description || JSON.stringify(data);
+      msg.textContent = '❌ ' + errMsg;
+    }
+  } catch(e) {
+    msg.textContent = '❌ เชื่อมต่อไม่ได้ กรุณาลองใหม่: ' + e.message;
+  } finally {
+    btn.disabled = false;
   }
 }
 
@@ -1295,5 +1322,5 @@ async function savePost(postData) {
 
 window.addEventListener('load', initAuth);
 </script>
-</div>
 </body>
+</html>
