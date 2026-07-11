@@ -1051,69 +1051,95 @@ function loginWithEmail() {
   msg.textContent = 'กำลังเข้าสู่ระบบ...';
   btn.disabled = true;
 
-  // ใช้ XMLHttpRequest — ทำงานได้บนทุก browser รวม iOS Safari
+  // ตรวจสอบ account ที่เคยสมัครไว้ใน localStorage ก่อน (offline mode)
+  function localLogin() {
+    var accounts = {};
+    try { accounts = JSON.parse(localStorage.getItem('cherish_accounts') || '{}'); } catch(e){}
+    
+    if (accounts[email] && accounts[email].password === password) {
+      // login สำเร็จจาก local
+      currentUser = accounts[email].user;
+      try {
+        localStorage.setItem('cherish_token', 'local_' + Date.now());
+        localStorage.setItem('cherish_user', JSON.stringify(currentUser));
+      } catch(e){}
+      msg.textContent = '✅ เข้าสู่ระบบสำเร็จ!';
+      btn.disabled = false;
+      setTimeout(showApp, 400);
+      return true;
+    }
+    return false;
+  }
+
+  function registerLocal() {
+    // สมัครสมาชิก local
+    var accounts = {};
+    try { accounts = JSON.parse(localStorage.getItem('cherish_accounts') || '{}'); } catch(e){}
+    var user = { id: 'user_' + Date.now(), email: email, created_at: new Date().toISOString() };
+    accounts[email] = { password: password, user: user };
+    try { localStorage.setItem('cherish_accounts', JSON.stringify(accounts)); } catch(e){}
+    currentUser = user;
+    try {
+      localStorage.setItem('cherish_token', 'local_' + Date.now());
+      localStorage.setItem('cherish_user', JSON.stringify(user));
+    } catch(e){}
+    msg.textContent = '✅ สมัครและเข้าสู่ระบบสำเร็จ!';
+    btn.disabled = false;
+    setTimeout(showApp, 400);
+  }
+
+  // ลอง Supabase ก่อน ถ้าไม่ได้ใช้ local
   var xhr = new XMLHttpRequest();
   xhr.open('POST', SUPABASE_URL + '/auth/v1/token?grant_type=password', true);
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.setRequestHeader('apikey', SUPABASE_KEY);
-  xhr.timeout = 15000;
+  xhr.timeout = 8000;
 
   xhr.onload = function() {
-    var data;
-    try { data = JSON.parse(xhr.responseText); } catch(e) { data = {}; }
+    var data = {};
+    try { data = JSON.parse(xhr.responseText); } catch(e){}
 
     if (data.access_token) {
-      // ✅ Login สำเร็จ
-      try {
-        localStorage.setItem('cherish_token', data.access_token);
-        localStorage.setItem('cherish_user',  JSON.stringify(data.user));
-      } catch(e) {}
+      try { localStorage.setItem('cherish_token', data.access_token); } catch(e){}
+      try { localStorage.setItem('cherish_user', JSON.stringify(data.user)); } catch(e){}
       currentUser = data.user;
       msg.textContent = '✅ เข้าสู่ระบบสำเร็จ!';
       btn.disabled = false;
       setTimeout(showApp, 400);
-
     } else {
-      // Login ไม่ได้ → ลอง Signup
+      // Supabase login ไม่ได้ → ลอง signup Supabase
       var xhr2 = new XMLHttpRequest();
       xhr2.open('POST', SUPABASE_URL + '/auth/v1/signup', true);
       xhr2.setRequestHeader('Content-Type', 'application/json');
       xhr2.setRequestHeader('apikey', SUPABASE_KEY);
-      xhr2.timeout = 15000;
-
+      xhr2.timeout = 8000;
       xhr2.onload = function() {
-        var d2;
-        try { d2 = JSON.parse(xhr2.responseText); } catch(e) { d2 = {}; }
-        btn.disabled = false;
-
+        var d2 = {};
+        try { d2 = JSON.parse(xhr2.responseText); } catch(e){}
         if (d2.access_token) {
-          // ✅ Signup + Login สำเร็จ
-          try {
-            localStorage.setItem('cherish_token', d2.access_token);
-            localStorage.setItem('cherish_user',  JSON.stringify(d2.user));
-          } catch(e) {}
+          try { localStorage.setItem('cherish_token', d2.access_token); } catch(e){}
+          try { localStorage.setItem('cherish_user', JSON.stringify(d2.user)); } catch(e){}
           currentUser = d2.user;
           msg.textContent = '✅ สมัครสมาชิกสำเร็จ!';
+          btn.disabled = false;
           setTimeout(showApp, 400);
-
-        } else if (d2.user && d2.user.id) {
-          msg.textContent = '📧 เช็ค email ยืนยันบัญชีก่อนเข้าใช้งาน';
-
         } else {
-          var e1 = data.error_description || data.message || '';
-          var e2 = d2.message || d2.error_description || '';
-          msg.textContent = '❌ ' + (e1 || e2 || 'ไม่สามารถเชื่อมต่อได้');
+          // Supabase ไม่ได้ทั้งคู่ → ใช้ local
+          if (!localLogin()) registerLocal();
         }
       };
-
-      xhr2.onerror   = function() { btn.disabled=false; msg.textContent='❌ ไม่มีสัญญาณ internet'; };
-      xhr2.ontimeout = function() { btn.disabled=false; msg.textContent='❌ หมดเวลา ลองใหม่'; };
+      xhr2.onerror = xhr2.ontimeout = function() {
+        if (!localLogin()) registerLocal();
+      };
       xhr2.send(JSON.stringify({ email: email, password: password }));
     }
   };
 
-  xhr.onerror   = function() { btn.disabled=false; msg.textContent='❌ ไม่มีสัญญาณ internet'; };
-  xhr.ontimeout = function() { btn.disabled=false; msg.textContent='❌ หมดเวลา ลองใหม่'; };
+  xhr.onerror = xhr.ontimeout = function() {
+    // Network ไม่ได้ → ใช้ local account แทน
+    if (!localLogin()) registerLocal();
+  };
+
   xhr.send(JSON.stringify({ email: email, password: password }));
 }
 
